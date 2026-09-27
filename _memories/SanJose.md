@@ -5,7 +5,7 @@ description: "2025.08.12 - San Jose"
 date: "2025-08-12 00:00:00 +0900"
 last_modified_at: "2025-08-12 00:00:00 +0900"
 date_display: "2025.08.12"
-permalink: "/memory/SanJose.html"
+permalink: "/memory/SanJose/"
 image: "/images/memory/san-jose-01.jpg"
 image_alt: "San Jose"
 photos:

@@ -5,7 +5,7 @@ description: "2026.03.28 - Kyoto"
 date: "2026-03-28 00:00:00 +0900"
 last_modified_at: "2026-03-28 00:00:00 +0900"
 date_display: "2026.03.28"
-permalink: "/memory/kyoto.html"
+permalink: "/memory/kyoto/"
 image: "/images/memory/kyoto-01.jpg"
 image_alt: "京都"
 photos:

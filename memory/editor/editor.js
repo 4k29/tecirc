@@ -116,7 +116,7 @@
     var data = getMetadata();
     descriptionCount.textContent = fields.description.value.length;
     photoCount.textContent = photos.length;
-    urlPreview.textContent = BASE_URL + "/memory/" + (data.slug || "…") + ".html";
+    urlPreview.textContent = BASE_URL + "/memory/" + (data.slug || "…") + "/";
   }
 
   function fileExtension(photo) {
@@ -652,7 +652,7 @@
       "date: " + yamlValue(published),
       "last_modified_at: " + yamlValue(modified),
       "date_display: " + yamlValue(data.dateDisplay),
-      "permalink: " + yamlValue("/memory/" + data.slug + ".html"),
+      "permalink: " + yamlValue("/memory/" + data.slug + "/"),
       "image: " + yamlValue(firstPath),
       "image_alt: " + yamlValue(photos[0].caption.trim() || data.title),
       "photos:"

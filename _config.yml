@@ -21,7 +21,7 @@ kramdown:
 collections:
   memories:
     output: true
-    permalink: /memory/:name.html
+    permalink: /memory/:name/
     sort_by: date
   notes:
     output: true

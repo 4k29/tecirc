@@ -5,7 +5,7 @@ description: "2025.09.10-14 - Cairns"
 date: "2025-09-10 00:00:00 +0900"
 last_modified_at: "2025-09-10 00:00:00 +0900"
 date_display: "2025.09.10-14"
-permalink: "/memory/Cairns.html"
+permalink: "/memory/Cairns/"
 image: "/images/memory/cairns-01.jpg"
 image_alt: "Cairns"
 photos:

@@ -5,7 +5,7 @@ description: "2025.08.13-14 - San Francisco"
 date: "2025-08-13 12:00:00 +0900"
 last_modified_at: "2025-08-14 00:00:00 +0900"
 date_display: "2025.08.13-14"
-permalink: "/memory/SanFrancisco.html"
+permalink: "/memory/SanFrancisco/"
 image: "/images/memory/san-francisco-01.jpg"
 image_alt: "San Francisco"
 photos:

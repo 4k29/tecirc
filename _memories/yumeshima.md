@@ -5,7 +5,7 @@ description: "2026.03.29 - YUMESHIMA"
 date: "2026-03-29 00:00:00 +0900"
 last_modified_at: "2026-03-29 00:00:00 +0900"
 date_display: "2026.03.29"
-permalink: "/memory/yumeshima.html"
+permalink: "/memory/yumeshima/"
 image: "/images/memory/yumeshima-01.jpg"
 image_alt: "夢洲"
 photos:

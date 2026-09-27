@@ -5,7 +5,7 @@ description: "2025.08.16 - New York"
 date: "2025-08-16 00:00:00 +0900"
 last_modified_at: "2025-08-16 00:00:00 +0900"
 date_display: "2025.08.16"
-permalink: "/memory/NY.html"
+permalink: "/memory/NY/"
 image: "/images/memory/new-york-2-01.jpg"
 image_alt: "New York 2日目"
 photos:

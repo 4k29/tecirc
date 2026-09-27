@@ -6,7 +6,7 @@ description: "2025.08.13 - Apple Park"
 date: "2025-08-13 06:00:00 +0900"
 last_modified_at: "2025-08-13 06:00:00 +0900"
 date_display: "2025.08.13"
-permalink: "/memory/ApplePark.html"
+permalink: "/memory/ApplePark/"
 image: "/images/memory/apple-park-01.jpg"
 image_alt: "Apple Park Visitor Center"
 photos:

@@ -125,7 +125,7 @@
       "date: " + yamlValue(data.date + " 00:00:00 +0900"),
       "last_modified_at: " + yamlValue(jstDate() + " 00:00:00 +0900"),
       "date_display: " + yamlValue(data.dateDisplay),
-      "permalink: " + yamlValue("/memory/" + data.slug + ".html"),
+      "permalink: " + yamlValue("/memory/" + data.slug + "/"),
       "image: " + yamlValue(publicImagePath(record, 0)),
       "image_alt: " + yamlValue(String(record.photos[0].caption || "").trim() || data.title),
       "photos:"
