@@ -2,11 +2,11 @@
 title: "生成できる時代に、非生成コンテンツの価値を考える"
 description: "生成できるものが増える時代に、自分で体験し、作品を作る意味はどこにあるのか。Sam Kolderの2本の動画を起点に、AI slopへの違和感とproof of workから、完成品の背後にある経験や想い、非生成コンテンツの価値を考える。"
 date: "2026-09-22 00:00:00 +0900"
-last_modified_at: "2026-09-24 00:00:00 +0900"
+last_modified_at: "2026-09-27 00:00:00 +0900"
 permalink: "/notes/ai-and-experience/"
 image: "/images/ogp/ai-and-experience.png"
 image_alt: "生成できる時代に、非生成コンテンツの価値を考える"
-tags: ["AI Slop、Proof of work"]
+tags: ["AI"]
 ---
 
 Sam Kolderの「AI is officially better than me」と、その制作背景を語る「I took an AI robot across the Sahara desert」を見た。
