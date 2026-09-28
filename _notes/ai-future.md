@@ -93,6 +93,6 @@ LLMがさらに大きくなる一方で、SLMはもっと小さく、もっと�
 
 ## 参考
 
-[Introducing the Third Generation of Apple’s Foundation Models](https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models) - Apple Machine Learning Research
-[プライベートクラウドコンピューティングによるApple Foundation Modelの活用](https://developer.apple.com/jp/videos/play/wwdc2026/319/) - Apple Developer
-[A fingertip-wearable microgrid system for autonomous energy management and metabolic monitoring](https://www.nature.com/articles/s41928-024-01236-7) - Nature Electronics
+- [Introducing the Third Generation of Apple’s Foundation Models](https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models) - Apple Machine Learning Research
+- [プライベートクラウドコンピューティングによるApple Foundation Modelの活用](https://developer.apple.com/jp/videos/play/wwdc2026/319/) - Apple Developer
+- [A fingertip-wearable microgrid system for autonomous energy management and metabolic monitoring](https://www.nature.com/articles/s41928-024-01236-7) - Nature Electronics
