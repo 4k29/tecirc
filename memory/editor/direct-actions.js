@@ -144,6 +144,14 @@
     publishButton.disabled = busy;
   }
 
+  function showPreflightFailure(check) {
+    var problems = check.errors.concat(check.warnings || []);
+    status.textContent = "公開前チェックで問題が見つかりました: " + problems.join(" / ");
+    window.alert("公開前チェックで問題が見つかりました\n\n" + problems.map(function (problem) {
+      return "・" + problem;
+    }).join("\n"));
+  }
+
   async function overwriteDraft() {
     setBusy(true);
     status.textContent = "下書きを保存中…";
@@ -160,15 +168,31 @@
   }
 
   async function publish() {
-    setBusy(true);
+    var record;
     try {
-      var record = await currentRecord();
+      record = await currentRecord();
       if (!validate(record)) return;
       if (!window.EditorPublicGitHub) {
         window.alert("公開機能を読み込めませんでした。ページを再読み込みしてください。");
         return;
       }
       if (!window.confirm("このMemoryを写真ごと公開しますか？")) return;
+
+      setBusy(true);
+      status.textContent = "公開前チェック中…";
+      var check = await window.EditorPreflight.memory({
+        record: record,
+        permalink: "/memory/" + record.metadata.slug + "/",
+        image: publicImagePath(record, 0),
+        imageAlt: String(record.photos[0].caption || "").trim() || record.metadata.title,
+        photoPath: publicImagePath,
+        repositoryPaths: window.EditorPublicGitHub.repositoryPaths
+      });
+      if (check.status === "FAIL") {
+        showPreflightFailure(check);
+        return;
+      }
+      status.textContent = "✓ 公開前チェック完了";
 
       status.textContent = "公開前に下書きを保存中…";
       record = await saveRecord(record);
@@ -185,13 +209,13 @@
         });
       });
 
-      status.textContent = "写真とMemoryを公開中…";
+      status.textContent = "GitHubへ公開中…";
       await window.EditorPublicGitHub.commit(
         entries,
         "Publish memory: " + record.metadata.title
       );
 
-      status.textContent = "公開しました";
+      status.textContent = "公開内容を保存しました。サイトへの反映待ちです";
       window.alert("公開しました。GitHub Pagesへの反映後、Memoryページに表示されます。");
     } catch (error) {
       status.textContent = "公開できませんでした";
