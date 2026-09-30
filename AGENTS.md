@@ -1,10 +1,66 @@
-## Code Review Rules
+# Tecirc — Agent Instructions
 
-### Preserve existing site behavior
-Changes to one page or component must not unintentionally alter the layout, spacing, typography, navigation, metadata, or behavior of unrelated pages. Check shared CSS, layouts, includes, and JavaScript for regressions.
+## プロジェクト
+Tecircは、ガジェット、サービス、情報技術の設計や体験、
+その背景にある意図を考察する個人サイト。
 
-### Preserve content and editor compatibility
-Do not break compatibility between the editor and the published site. Existing notes, memories, front matter, media embeds, drafts, slugs, and metadata must continue to load and publish correctly unless the change explicitly migrates them.
+JekyllとGitHub Pagesを使用し、HTML・CSS・JavaScriptで構成する。
+現行構成に沿って、理解しやすく保守しやすい実装を優先する。
 
-### Preserve URLs and metadata
-Do not unintentionally change existing public URLs, canonical URLs, OGP metadata, sitemap behavior, or GitHub Pages paths. When a metadata or routing change is intentional, verify its effect across the whole site.
+## 変更の基本方針
+- 作業前に、対象と関連するコード・設定を読んで現状を把握する。
+- 依頼の目的を満たす、必要十分な変更を行う。
+- 無関係な整理、全面的な書き換え、依存追加を同時に行わない。
+- 同じ役割の処理がある場合は、既存の実装を活用する。
+- 問題の原因を確認して修正し、上書きや例外処理を重ねて隠さない。
+- 記事本文、写真、タイトル、公開日などは、依頼の範囲で変更する。
+
+## デザイン
+- シンプルさ、読みやすさ、操作の分かりやすさを優先する。
+- 既存の文字組み、本文幅、色、余白、罫線の規則を尊重する。
+- 装飾やアニメーションは、目的がある場合に追加する。
+- スマホとPCの両方で、表示と操作を確認する。
+- キーボード操作、フォーカス表示、画像の代替テキストに配慮する。
+- 共通CSSの変更時は、対象以外のページへの影響も確認する。
+
+## 構成
+- `_notes/`：記事
+- `_memories/`：写真・記録
+- `_layouts/`、`_includes/`：共通レイアウト・部品
+- `notes/editor/`、`memory/editor/`：各エディター
+- `editor/`：エディターの共通処理
+- `images/`：画像・メディア
+- `scripts/doctor.mjs`：サイトの整合性検査
+
+## URL・SEO
+- GitHub Pagesの `baseurl: /tecirc` を考慮する。
+- 新規記事は `/notes/<slug>/`、
+  新規Memoryは `/memory/<slug>/` とする。
+- 既存URLの大文字・小文字を勝手に変更しない。
+- URL変更時は、内部リンク、旧URLからの転送、canonical、
+  sitemap、エディターの生成URLを合わせて確認する。
+- 個別指定のOGPを優先し、未指定時はサイトの共通OGPを使用する。
+- メディア参照は、実際のファイル名と大文字・小文字まで一致させる。
+
+## エディター
+- エディターの出力と公開サイトの読み取り形式を一致させる。
+- 既存記事、Memory、front matter、下書きとの互換性を維持する。
+- 保存・更新・削除・公開の変更時は、対象の取り違え、
+  重複保存、データ消失が起きないか確認する。
+- 公開前検査とDoctorの規則を変更する場合は、両者の整合性を確認する。
+- GitHubトークンなどの秘密情報を、コード、ログ、
+  公開ファイル、エラー表示へ含めない。
+- メディア埋め込みは、意図せず自動再生させない。
+
+## 検証
+- 変更後は `npm run doctor` を実行する。
+- エディターの検査ロジックを変更した場合は `npm test` も実行する。
+- 表示変更は、ブラウザでスマホ幅とPC幅を確認する。
+- 共通部品の変更は、Home・About・Notes・Memoryなど
+  影響するページを確認する。
+- 検査に通すためだけに、チェックを削除・弱体化しない。
+- 実行できなかった検証は、その理由とともに報告する。
+
+## 完了報告
+変更内容、確認したこと、残っている問題を簡潔に伝える。
+コード変更、検査成功、公開サイトへの反映は区別して報告する。
