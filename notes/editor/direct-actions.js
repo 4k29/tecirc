@@ -108,6 +108,14 @@
     publishButton.disabled = busy;
   }
 
+  function showPreflightFailure(check) {
+    var problems = check.errors.concat(check.warnings || []);
+    status.textContent = "公開前チェックで問題が見つかりました: " + problems.join(" / ");
+    window.alert("公開前チェックで問題が見つかりました\n\n" + problems.map(function (problem) {
+      return "・" + problem;
+    }).join("\n"));
+  }
+
   async function overwriteDraft() {
     var api = window.EditorGitHub;
     if (!api || !api.isReady()) {
@@ -159,11 +167,24 @@
     if (!window.confirm("この記事を" + actionLabel + "しますか？")) return;
 
     setBusy(true);
-    status.textContent = actionLabel + "前に下書きを保存中…";
+    status.textContent = "公開前チェック中…";
 
     try {
+      var check = await window.EditorPreflight.note({
+        data: data,
+        permalink: "/notes/" + data.slug + "/",
+        editing: editing,
+        repositoryPaths: window.EditorPublicGitHub.repositoryPaths
+      });
+      if (check.status === "FAIL") {
+        showPreflightFailure(check);
+        return;
+      }
+      status.textContent = "✓ 公開前チェック完了";
+
       if (window.EditorGitHub && window.EditorGitHub.isReady()) {
         var updatedAt = new Date().toISOString();
+        status.textContent = actionLabel + "前に下書きを保存中…";
         await window.EditorGitHub.saveDraft("notes", Object.assign({}, data, {
           updatedAt: updatedAt
         }));
@@ -218,5 +239,4 @@
   publishButton.addEventListener("click", publish);
   loadPublishedEditor();
 }());
-
 

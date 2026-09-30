@@ -89,6 +89,29 @@
     return result;
   }
 
+  async function repositoryPaths(request) {
+    request = request || {};
+    var directories = Array.from(new Set(request.directories || []));
+    var files = Array.from(new Set(request.files || []));
+    var results = await Promise.all([
+      mapWithLimit(directories, 2, async function (directory) {
+        return (await listDirectory(directory)).filter(function (item) {
+          return item.type === "file";
+        }).map(function (item) {
+          return item.path;
+        });
+      }),
+      mapWithLimit(files, 3, async function (path) {
+        var file = await apiRequest(
+          repoPath("/contents/" + encodeContentPath(path) + "?ref=" + encodeURIComponent(branch)),
+          { allow404: true }
+        );
+        return file && file.type === "file" ? path : null;
+      })
+    ]);
+    return results[0].flat().concat(results[1].filter(Boolean));
+  }
+
   async function readText(path) {
     var result = await apiRequest(
       repoPath("/contents/" + encodeContentPath(path) + "?ref=" + encodeURIComponent(branch))
@@ -265,6 +288,7 @@
   window.EditorPublicGitHub = Object.freeze({
     isReady: function () { return Boolean(readToken()); },
     listDirectory: listDirectory,
+    repositoryPaths: repositoryPaths,
     readText: readText,
     commit: commit,
     permissionMessage: permissionMessage
