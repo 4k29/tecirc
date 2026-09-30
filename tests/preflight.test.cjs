@@ -41,6 +41,22 @@ test('Note: missing OGP image fails', async () => {
   assert.equal(result.status, 'FAIL');
   assert.match(result.errors.join('\n'), /OGP画像が見つかりません/);
 });
+test('Note: checks body image paths containing parentheses', async () => {
+  const result = await note({ body: '![Headphones](../images/notes/product(1).png)' }, ['images/ogp/new-note.png']);
+  assert.equal(result.status, 'FAIL');
+  assert.match(result.errors.join('\n'), /\/images\/notes\/product\(1\)\.png/);
+});
+test('Markdown references preserve balanced and escaped parentheses', () => {
+  assert.deepEqual(Preflight.references([
+    '[one](/notes/topic_(detail)/)',
+    '![two](../images/notes/photo\\(1\\).webp "caption")',
+    '[three](<../images/notes/a file.png>)'
+  ].join('\n')), [
+    '/notes/topic_(detail)/',
+    '../images/notes/photo(1).webp',
+    '../images/notes/a file.png'
+  ]);
+});
 test('Note: a new duplicate slug fails', async () => {
   assert.equal((await note({}, ['_notes/new-note.md', 'images/ogp/new-note.png'])).status, 'FAIL');
 });

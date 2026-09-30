@@ -158,7 +158,26 @@ function diagnoseUrls() {
 
 function references(text) {
   const found = [];
-  for (const match of text.matchAll(/!?\[[^\]]*\]\(([^\s)]+)(?:\s+["'][^)]*["'])?\)/g)) found.push(match[1].replace(/^<|>$/g, ''));
+  for (const match of text.matchAll(/!?\[[^\]]*\]\(/g)) {
+    const start = match.index + match[0].length;
+    const angle = text[start] === '<';
+    let index = start + (angle ? 1 : 0);
+    let depth = 0;
+    for (; index < text.length; index += 1) {
+      const character = text[index];
+      if (character === '\\') { index += 1; continue; }
+      if (angle && character === '>') break;
+      if (!angle && character === '(') { depth += 1; continue; }
+      if (!angle && character === ')') {
+        if (depth === 0) break;
+        depth -= 1;
+        continue;
+      }
+      if (!angle && depth === 0 && /\s/.test(character)) break;
+    }
+    const reference = text.slice(start + (angle ? 1 : 0), index);
+    if (reference) found.push(reference.replace(/\\([()])/g, '$1'));
+  }
   for (const match of text.matchAll(/\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)) found.push(match[1]);
   return found;
 }
