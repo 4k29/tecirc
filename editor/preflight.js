@@ -56,8 +56,25 @@
   function references(text) {
     var found = [];
     var source = String(text || "");
-    Array.from(source.matchAll(/!?\[[^\]]*\]\(([^\s)]+)(?:\s+["'][^)]*["'])?\)/g)).forEach(function (match) {
-      found.push(match[1].replace(/^<|>$/g, ""));
+    Array.from(source.matchAll(/!?\[[^\]]*\]\(/g)).forEach(function (match) {
+      var start = match.index + match[0].length;
+      var angle = source[start] === "<";
+      var index = start + (angle ? 1 : 0);
+      var depth = 0;
+      for (; index < source.length; index += 1) {
+        var character = source[index];
+        if (character === "\\") { index += 1; continue; }
+        if (angle && character === ">") break;
+        if (!angle && character === "(") { depth += 1; continue; }
+        if (!angle && character === ")") {
+          if (depth === 0) break;
+          depth -= 1;
+          continue;
+        }
+        if (!angle && depth === 0 && /\s/.test(character)) break;
+      }
+      var reference = source.slice(start + (angle ? 1 : 0), index);
+      if (reference) found.push(reference.replace(/\\([()])/g, "$1"));
     });
     Array.from(source.matchAll(/\b(?:src|href)\s*=\s*["']([^"']+)["']/gi)).forEach(function (match) {
       found.push(match[1]);
