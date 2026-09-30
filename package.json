@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "doctor": "node scripts/doctor.mjs"
+  }
+}
