@@ -789,3 +789,55 @@ a.row-item:active, .note-index-item > a:active {
 .info-content > .info-section:last-child {
   border-bottom: 0;
 }
+
+/* Reading cues stay in the outer gutter and never intercept interaction. */
+.page-ruler {
+  position: fixed;
+  z-index: 850;
+  right: max(7px, env(safe-area-inset-right));
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+  width: 15px;
+  pointer-events: none;
+}
+.page-ruler[hidden], .reading-remaining[hidden] { display: none; }
+.page-ruler i {
+  display: block;
+  width: 12px;
+  height: 1px;
+  flex-shrink: 0;
+  transform-origin: right;
+  background: linear-gradient(90deg, var(--muted), #839ba8, #a699b8, var(--text), #839ba8);
+  background-size: 250% 100%;
+}
+.note-hero .reading-estimate {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: .75rem;
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+.reading-remaining {
+  position: fixed;
+  right: max(28px, calc(env(safe-area-inset-right) + 21px));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 850;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: .6875rem;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .page-ruler { right: max(3px, env(safe-area-inset-right)); width: 9px; gap: 6px; }
+  .page-ruler i { width: 7px; }
+}
+@media print {
+  .page-ruler, .reading-remaining { display: none; }
+}
