@@ -223,6 +223,9 @@
 
       if (currentY <= topZone || reducedMotion.matches || header.contains(document.activeElement)) {
         header.classList.remove("is-hidden");
+      } else if (document.documentElement.classList.contains("is-ruler-scrolling")) {
+        // Keep the header steady while scrubbing, including small direction changes.
+        header.classList.add("is-hidden");
       } else if (currentY > lastY + delta) {
         header.classList.add("is-hidden");
       } else if (currentY < lastY - delta) {
@@ -306,6 +309,9 @@
     var geometryDirty = true;
     var geometry = { max: 0, height: 0, articleTop: 0, articleBottom: 0 };
     var pendingScroll = null;
+    var smoothScroll = false;
+    var animatedScrollY = null;
+    var dragTrack = null;
     var pointerId = null;
     var dragOffset = 0;
     var hapticStep = -1;
@@ -317,7 +323,9 @@
     function scrollToPosition(position, haptic) {
       var progress = Math.min(1, Math.max(0, position));
       // Pointer events can arrive faster than the display refresh rate.
+      if (pendingScroll === null) animatedScrollY = window.scrollY;
       pendingScroll = progress;
+      smoothScroll = pointerId !== null;
       if (haptic && !reducedMotion.matches && typeof navigator.vibrate === "function") {
         var step = Math.round(progress * 20);
         var now = performance.now();
@@ -330,22 +338,24 @@
       schedule();
     }
     function pointerPosition(event) {
-      var rect = ruler.getBoundingClientRect();
+      var rect = dragTrack || ruler.getBoundingClientRect();
       return (event.clientY - rect.top - 12) / Math.max(1, rect.height - 24);
     }
     ruler.addEventListener("pointerdown", function (event) {
       if (!event.isPrimary || event.button !== 0 || pointerId !== null) return;
+      event.preventDefault();
+      dragTrack = ruler.getBoundingClientRect();
       pointerId = event.pointerId;
+      root.classList.add("is-ruler-scrolling");
       ruler.setPointerCapture(pointerId);
       ruler.classList.add("is-dragging");
-      ruler.focus({ preventScroll: true });
+      if (event.pointerType !== "touch") ruler.focus({ preventScroll: true });
       var progress = scrollRange() ? window.scrollY / scrollRange() : 0;
       var position = pointerPosition(event);
       // Grabbing the active part preserves its position; elsewhere seeks directly.
       dragOffset = Math.abs(position - progress) < 0.08 ? position - progress : 0;
       hapticStep = -1;
       scrollToPosition(position - dragOffset, true);
-      event.preventDefault();
     });
     ruler.addEventListener("pointermove", function (event) {
       if (event.pointerId !== pointerId) return;
@@ -354,6 +364,8 @@
     function stopDragging(event) {
       if (event.pointerId !== pointerId) return;
       pointerId = null;
+      dragTrack = null;
+      if (event.type === "pointercancel" || event.type === "lostpointercapture") cancelScroll();
       ruler.classList.remove("is-dragging");
       if (ruler.hasPointerCapture(event.pointerId)) ruler.releasePointerCapture(event.pointerId);
     }
@@ -397,12 +409,22 @@
         }
         geometryDirty = false;
       }
-      if (pendingScroll !== null) {
-        window.scrollTo({ top: pendingScroll * geometry.max, behavior: "instant" });
-        pendingScroll = null;
-      }
-      var y = Math.min(geometry.max, Math.max(0, window.scrollY));
       var elapsed = Math.min(64, Math.max(1, now - lastTime));
+      if (pendingScroll !== null) {
+        var targetY = pendingScroll * geometry.max;
+        var currentY = Math.min(geometry.max, Math.max(0, animatedScrollY));
+        var nextY = smoothScroll && !reducedMotion.matches
+          ? currentY + (targetY - currentY) * (1 - Math.exp(-Math.min(elapsed, 24) / 65))
+          : targetY;
+        if (Math.abs(targetY - nextY) < 1) {
+          nextY = targetY;
+          pendingScroll = null;
+        }
+        animatedScrollY = nextY;
+        window.scrollTo({ top: nextY, behavior: "instant" });
+      }
+      if (pendingScroll === null && pointerId === null) root.classList.remove("is-ruler-scrolling");
+      var y = Math.min(geometry.max, Math.max(0, window.scrollY));
       var delta = y - lastY;
       var moving = Math.abs(delta) > 0.01;
       if (moving) {
@@ -449,13 +471,27 @@
       }
       lastY = y;
       lastTime = now;
-      if (energy > 0.002 || Math.abs(wake - progress) > 0.0001 || Math.abs(displayedProgress - progress) > 0.0001) schedule();
+      if (pendingScroll !== null || energy > 0.002 || Math.abs(wake - progress) > 0.0001 || Math.abs(displayedProgress - progress) > 0.0001) schedule();
     }
     function schedule() {
       if (!frame) frame = window.requestAnimationFrame(update);
     }
+    function cancelScroll() {
+      pendingScroll = null;
+      animatedScrollY = null;
+      root.classList.remove("is-ruler-scrolling");
+    }
+    // A native gesture always takes over from the short drag-settling animation.
+    window.addEventListener("wheel", cancelScroll, { passive: true });
+    window.addEventListener("pointerdown", function (event) {
+      if (!ruler.contains(event.target)) cancelScroll();
+    }, { passive: true });
+    window.addEventListener("keydown", function (event) {
+      if (event.target !== ruler) cancelScroll();
+    });
     window.addEventListener("scroll", schedule, { passive: true });
     function invalidateGeometry() {
+      dragTrack = null;
       geometryDirty = true;
       schedule();
     }
