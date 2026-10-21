@@ -248,6 +248,95 @@
     }, { passive: true });
   }
 
+  // A quiet page ruler, with a velocity-sensitive colour wake.
+  function mountReadingProgress() {
+    var root = document.documentElement;
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var ruler = document.createElement("div");
+    ruler.className = "page-ruler";
+    ruler.setAttribute("aria-hidden", "true");
+    for (var i = 0; i < 25; i += 1) {
+      ruler.appendChild(document.createElement("i"));
+    }
+    document.body.appendChild(ruler);
+    var ticks = Array.from(ruler.children);
+    var article = document.querySelector(".note-content .article-body");
+    var totalLabel;
+    var remainingLabel;
+    var blocks = [];
+    var totalMinutes = 0;
+    if (article) {
+      // Count Japanese characters and Latin words separately. This is an estimate,
+      // not a timer: scrolling back restores the remaining reading time.
+      blocks = Array.from(article.children).map(function (element) {
+        var text = element.textContent.replace(/\s+/g, " ").trim();
+        var words = text.match(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g) || [];
+        var characters = text.replace(/[\x00-\x7F\s]/g, "").length;
+        return { element: element, minutes: characters / 500 + words.length / 200 };
+      });
+      totalMinutes = blocks.reduce(function (sum, block) { return sum + block.minutes; }, 0);
+      if (totalMinutes > 0) {
+        totalLabel = document.createElement("p");
+        totalLabel.className = "reading-estimate";
+        totalLabel.textContent = "約" + Math.max(1, Math.ceil(totalMinutes)) + "分で読めます";
+        totalLabel.title = "日本語は毎分約500文字、英語は毎分約200語を目安にしています";
+        document.querySelector(".note-hero").appendChild(totalLabel);
+        remainingLabel = document.createElement("span");
+        remainingLabel.className = "reading-remaining";
+        // Deliberately not live: announcing every scroll would interrupt reading.
+        document.body.appendChild(remainingLabel);
+      }
+    }
+    var frame = 0;
+    var lastY = Math.max(0, window.scrollY);
+    var lastTime = performance.now();
+    var energy = 0;
+
+    function update(now) {
+      frame = 0;
+      var y = Math.max(0, window.scrollY);
+      var elapsed = Math.max(16, now - lastTime);
+      var speed = Math.min(1, Math.abs(y - lastY) / elapsed / 2);
+      energy = reducedMotion.matches ? 0 : Math.max(speed, energy * Math.exp(-elapsed / 180));
+      var max = Math.max(0, root.scrollHeight - window.innerHeight);
+      var progress = max ? Math.min(1, y / max) : 0;
+      ruler.hidden = max <= 1;
+      ticks.forEach(function (tick, index) {
+        var distance = Math.abs(index / (ticks.length - 1) - progress);
+        var strength = Math.max(0, 1 - distance / (0.12 + energy * 0.3));
+        tick.style.opacity = String(0.18 + strength * 0.7);
+        tick.style.transform = "scaleX(" + (0.55 + strength * 0.45) + ")";
+        tick.style.backgroundPosition = (progress * 100 + energy * 80) + "% 50%";
+      });
+      if (remainingLabel) {
+        var bounds = article.getBoundingClientRect();
+        var readingLine = window.innerHeight * 0.35;
+        var remaining = blocks.reduce(function (sum, block) {
+          var rect = block.element.getBoundingClientRect();
+          var unread = rect.height > 0 ? Math.min(1, Math.max(0, (rect.bottom - readingLine) / rect.height)) : 0;
+          return sum + block.minutes * unread;
+        }, 0);
+        var finished = bounds.bottom <= window.innerHeight || (max > 0 && y >= max - 2);
+        var label = finished ? "読了" : remaining < 1 ? "あと1分未満" : "あと約" + Math.ceil(remaining) + "分";
+        if (remainingLabel.textContent !== label) remainingLabel.textContent = label;
+        remainingLabel.hidden = bounds.top > readingLine || bounds.bottom < 0;
+      }
+      lastY = y;
+      lastTime = now;
+      if (energy > 0.005) schedule();
+    }
+    function schedule() {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    }
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
+    window.addEventListener("pageshow", schedule);
+    reducedMotion.addEventListener("change", schedule);
+    if (typeof ResizeObserver === "function") new ResizeObserver(schedule).observe(document.body);
+    if (document.fonts) document.fonts.ready.then(schedule);
+    schedule();
+  }
+
   function followSystemTheme() {
     var preference = window.matchMedia("(prefers-color-scheme: light)");
     function sync() {
@@ -264,6 +353,7 @@
     mountToggle();
     followSystemTheme();
     mountHeaderReveal();
+    mountReadingProgress();
     mountAnalytics();
   }
 
