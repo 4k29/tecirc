@@ -790,19 +790,33 @@ a.row-item:active, .note-index-item > a:active {
   border-bottom: 0;
 }
 
-/* Reading cues stay in the outer gutter and never intercept interaction. */
+/* Keep native scrolling, while the mounted ruler replaces its visual control. */
+html.has-page-ruler { scrollbar-width: none; }
+html.has-page-ruler::-webkit-scrollbar { width: 0; height: 0; }
+html.has-page-ruler body::-webkit-scrollbar { width: 0; height: 0; }
+/* Reading cues stay in the outer gutter. */
 .page-ruler {
   position: fixed;
   z-index: 850;
-  right: max(7px, env(safe-area-inset-right));
+  right: env(safe-area-inset-right, 0px);
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 7px;
-  width: 15px;
-  pointer-events: none;
+  width: 28px;
+  padding: 12px 7px 12px 0;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  border-radius: 4px;
+}
+.page-ruler.is-dragging { cursor: grabbing; }
+.page-ruler:focus-visible {
+  outline: 1px solid var(--muted);
+  outline-offset: -2px;
 }
 .page-ruler[hidden], .reading-remaining[hidden] { display: none; }
 .page-ruler i {
@@ -835,7 +849,7 @@ a.row-item:active, .note-index-item > a:active {
   pointer-events: none;
 }
 @media (max-width: 600px) {
-  .page-ruler { right: max(3px, env(safe-area-inset-right)); width: 9px; gap: 6px; }
+  .page-ruler { width: 24px; padding-right: 3px; gap: 6px; }
   .page-ruler i { width: 7px; }
 }
 @media print {

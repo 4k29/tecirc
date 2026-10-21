@@ -248,13 +248,19 @@
     }, { passive: true });
   }
 
-  // A quiet page ruler, with a velocity-sensitive colour wake.
+  // An interactive page ruler with a softly trailing colour wake.
   function mountReadingProgress() {
     var root = document.documentElement;
     var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     var ruler = document.createElement("div");
     ruler.className = "page-ruler";
-    ruler.setAttribute("aria-hidden", "true");
+    ruler.tabIndex = 0;
+    ruler.setAttribute("role", "slider");
+    ruler.setAttribute("aria-label", "ページのスクロール位置");
+    ruler.setAttribute("aria-orientation", "vertical");
+    ruler.setAttribute("aria-valuemin", "0");
+    ruler.setAttribute("aria-valuemax", "100");
+    ruler.title = "上下にドラッグして移動 · 矢印キーでも操作できます";
     for (var i = 0; i < 25; i += 1) {
       ruler.appendChild(document.createElement("i"));
     }
@@ -291,22 +297,107 @@
     var lastY = Math.max(0, window.scrollY);
     var lastTime = performance.now();
     var energy = 0;
+    var wake = null;
+    var direction = 0;
+    var pointerId = null;
+    var dragOffset = 0;
+    var hapticStep = -1;
+    var lastHaptic = -Infinity;
+
+    function scrollRange() {
+      return Math.max(0, root.scrollHeight - window.innerHeight);
+    }
+    function scrollToPosition(position, haptic) {
+      var progress = Math.min(1, Math.max(0, position));
+      window.scrollTo({ top: progress * scrollRange(), behavior: "instant" });
+      if (haptic && !reducedMotion.matches && typeof navigator.vibrate === "function") {
+        var step = Math.round(progress * 20);
+        var now = performance.now();
+        if (step !== hapticStep && now - lastHaptic > 80) {
+          navigator.vibrate(6);
+          lastHaptic = now;
+        }
+        hapticStep = step;
+      }
+      schedule();
+    }
+    function pointerPosition(event) {
+      var rect = ruler.getBoundingClientRect();
+      return (event.clientY - rect.top - 12) / Math.max(1, rect.height - 24);
+    }
+    ruler.addEventListener("pointerdown", function (event) {
+      if (!event.isPrimary || event.button !== 0 || pointerId !== null) return;
+      pointerId = event.pointerId;
+      ruler.setPointerCapture(pointerId);
+      ruler.classList.add("is-dragging");
+      ruler.focus({ preventScroll: true });
+      var progress = scrollRange() ? window.scrollY / scrollRange() : 0;
+      var position = pointerPosition(event);
+      // Grabbing the active part preserves its position; elsewhere seeks directly.
+      dragOffset = Math.abs(position - progress) < 0.08 ? position - progress : 0;
+      hapticStep = -1;
+      scrollToPosition(position - dragOffset, true);
+      event.preventDefault();
+    });
+    ruler.addEventListener("pointermove", function (event) {
+      if (event.pointerId !== pointerId) return;
+      scrollToPosition(pointerPosition(event) - dragOffset, true);
+    });
+    function stopDragging(event) {
+      if (event.pointerId !== pointerId) return;
+      pointerId = null;
+      ruler.classList.remove("is-dragging");
+      if (ruler.hasPointerCapture(event.pointerId)) ruler.releasePointerCapture(event.pointerId);
+    }
+    ruler.addEventListener("pointerup", stopDragging);
+    ruler.addEventListener("pointercancel", stopDragging);
+    ruler.addEventListener("lostpointercapture", stopDragging);
+    ruler.addEventListener("keydown", function (event) {
+      var max = scrollRange();
+      var target = window.scrollY;
+      switch (event.key) {
+        case "ArrowDown": case "ArrowRight": target += 80; break;
+        case "ArrowUp": case "ArrowLeft": target -= 80; break;
+        case "PageDown": target += window.innerHeight * 0.9; break;
+        case "PageUp": target -= window.innerHeight * 0.9; break;
+        case "Home": target = 0; break;
+        case "End": target = max; break;
+        default: return;
+      }
+      event.preventDefault();
+      scrollToPosition(max ? target / max : 0, true);
+    });
+    // Hide the native scrollbar only once its accessible replacement is mounted.
+    root.classList.add("has-page-ruler");
 
     function update(now) {
       frame = 0;
       var y = Math.max(0, window.scrollY);
-      var elapsed = Math.max(16, now - lastTime);
-      var speed = Math.min(1, Math.abs(y - lastY) / elapsed / 2);
-      energy = reducedMotion.matches ? 0 : Math.max(speed, energy * Math.exp(-elapsed / 180));
-      var max = Math.max(0, root.scrollHeight - window.innerHeight);
+      var elapsed = Math.min(64, Math.max(1, now - lastTime));
+      var delta = y - lastY;
+      var speed = Math.min(1, Math.abs(delta) / elapsed / 2);
+      var moving = Math.abs(delta) > 0.01;
+      // Even a slow movement creates a wake; speed changes its breadth, not its existence.
+      var targetEnergy = moving ? 0.38 + speed * 0.62 : 0;
+      energy = reducedMotion.matches ? 0 : targetEnergy + (energy - targetEnergy) * Math.exp(-elapsed / (moving ? 65 : 260));
+      if (moving) direction = Math.sign(delta);
+      var max = scrollRange();
       var progress = max ? Math.min(1, y / max) : 0;
+      if (wake === null || reducedMotion.matches) wake = progress;
+      else wake += (progress - wake) * (1 - Math.exp(-elapsed / 105));
       ruler.hidden = max <= 1;
+      var percent = Math.round(progress * 100);
+      ruler.setAttribute("aria-valuenow", String(percent));
+      ruler.setAttribute("aria-valuetext", percent + "%");
       ticks.forEach(function (tick, index) {
-        var distance = Math.abs(index / (ticks.length - 1) - progress);
-        var strength = Math.max(0, 1 - distance / (0.12 + energy * 0.3));
-        tick.style.opacity = String(0.18 + strength * 0.7);
-        tick.style.transform = "scaleX(" + (0.55 + strength * 0.45) + ")";
-        tick.style.backgroundPosition = (progress * 100 + energy * 80) + "% 50%";
+        var position = index / (ticks.length - 1);
+        var distance = position - wake;
+        var spread = 0.075 + energy * 0.16;
+        var wave = Math.exp(-0.5 * Math.pow(distance / spread, 2));
+        var current = Math.exp(-0.5 * Math.pow((position - progress) / 0.045, 2));
+        tick.style.opacity = String(0.2 + current * 0.48 + wave * energy * 0.25);
+        tick.style.transform = "translateY(" + (wave * energy * direction * 2.5) + "px) scaleX(" + (0.55 + current * 0.35 + wave * energy * 0.35) + ")";
+        tick.style.backgroundPosition = (wake * 100 + wave * energy * direction * 60) + "% 50%";
       });
       if (remainingLabel) {
         var bounds = article.getBoundingClientRect();
@@ -323,7 +414,7 @@
       }
       lastY = y;
       lastTime = now;
-      if (energy > 0.005) schedule();
+      if (energy > 0.002 || Math.abs(wake - progress) > 0.0001) schedule();
     }
     function schedule() {
       if (!frame) frame = window.requestAnimationFrame(update);
