@@ -800,7 +800,9 @@ html.has-page-ruler body::-webkit-scrollbar { width: 0; height: 0; }
   z-index: 850;
   right: env(safe-area-inset-right, 0px);
   top: 50%;
-  transform: translateY(-50%);
+  top: 50svh;
+  transform: translate3d(0, -50%, 0);
+  will-change: transform;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
