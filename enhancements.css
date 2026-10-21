@@ -4,6 +4,12 @@ html {
   color-scheme: dark;
 }
 
+/* Stop the page stretching beyond its top/bottom boundary. */
+html,
+body {
+  overscroll-behavior-y: none;
+}
+
 body {
   font-weight: 400;
 }
@@ -813,12 +819,16 @@ html.has-page-ruler body::-webkit-scrollbar { width: 0; height: 0; }
   user-select: none;
   -webkit-user-select: none;
   cursor: grab;
-  border-radius: 4px;
+  -webkit-tap-highlight-color: transparent;
 }
 .page-ruler.is-dragging { cursor: grabbing; }
+.page-ruler:focus,
 .page-ruler:focus-visible {
-  outline: 1px solid var(--muted);
-  outline-offset: -2px;
+  outline: none;
+}
+/* Keyboard focus uses the existing marks rather than a surrounding box. */
+.page-ruler:focus-visible i {
+  background: var(--text);
 }
 .page-ruler[hidden], .reading-remaining[hidden] { display: none; }
 .page-ruler i {
