@@ -299,6 +299,13 @@
     var energy = 0;
     var wake = null;
     var direction = 0;
+    var targetDirection = 0;
+    var lastMotionTime = -Infinity;
+    var motionSpeed = 0;
+    var displayedProgress = null;
+    var geometryDirty = true;
+    var geometry = { max: 0, height: 0, articleTop: 0, articleBottom: 0 };
+    var pendingScroll = null;
     var pointerId = null;
     var dragOffset = 0;
     var hapticStep = -1;
@@ -309,7 +316,8 @@
     }
     function scrollToPosition(position, haptic) {
       var progress = Math.min(1, Math.max(0, position));
-      window.scrollTo({ top: progress * scrollRange(), behavior: "instant" });
+      // Pointer events can arrive faster than the display refresh rate.
+      pendingScroll = progress;
       if (haptic && !reducedMotion.matches && typeof navigator.vibrate === "function") {
         var step = Math.round(progress * 20);
         var now = performance.now();
@@ -372,19 +380,47 @@
 
     function update(now) {
       frame = 0;
-      var y = Math.max(0, window.scrollY);
+      // Read layout before writing animation styles, and only when it changed.
+      if (geometryDirty) {
+        var documentY = window.scrollY;
+        geometry.max = scrollRange();
+        geometry.height = window.innerHeight;
+        if (article) {
+          var articleRect = article.getBoundingClientRect();
+          geometry.articleTop = articleRect.top + documentY;
+          geometry.articleBottom = articleRect.bottom + documentY;
+          blocks.forEach(function (block) {
+            var rect = block.element.getBoundingClientRect();
+            block.bottom = rect.bottom + documentY;
+            block.height = rect.height;
+          });
+        }
+        geometryDirty = false;
+      }
+      if (pendingScroll !== null) {
+        window.scrollTo({ top: pendingScroll * geometry.max, behavior: "instant" });
+        pendingScroll = null;
+      }
+      var y = Math.min(geometry.max, Math.max(0, window.scrollY));
       var elapsed = Math.min(64, Math.max(1, now - lastTime));
       var delta = y - lastY;
-      var speed = Math.min(1, Math.abs(delta) / elapsed / 2);
       var moving = Math.abs(delta) > 0.01;
-      // Even a slow movement creates a wake; speed changes its breadth, not its existence.
-      var targetEnergy = moving ? 0.38 + speed * 0.62 : 0;
-      energy = reducedMotion.matches ? 0 : targetEnergy + (energy - targetEnergy) * Math.exp(-elapsed / (moving ? 65 : 260));
-      if (moving) direction = Math.sign(delta);
-      var max = scrollRange();
-      var progress = max ? Math.min(1, y / max) : 0;
+      if (moving) {
+        lastMotionTime = now;
+        motionSpeed = Math.min(1, Math.abs(delta) / elapsed / 2);
+        targetDirection = Math.sign(delta);
+      }
+      // Bridge gaps between scroll events instead of pulsing at their frequency.
+      var active = now - lastMotionTime < 100;
+      var targetEnergy = active ? 0.38 + motionSpeed * 0.62 : 0;
+      energy = reducedMotion.matches ? 0 : targetEnergy + (energy - targetEnergy) * Math.exp(-elapsed / (active ? 90 : 280));
+      direction += (targetDirection - direction) * (1 - Math.exp(-elapsed / 120));
+      var max = geometry.max;
+      var progress = max ? y / max : 0;
+      if (displayedProgress === null || reducedMotion.matches) displayedProgress = progress;
+      else displayedProgress += (progress - displayedProgress) * (1 - Math.exp(-elapsed / 75));
       if (wake === null || reducedMotion.matches) wake = progress;
-      else wake += (progress - wake) * (1 - Math.exp(-elapsed / 105));
+      else wake += (displayedProgress - wake) * (1 - Math.exp(-elapsed / 130));
       ruler.hidden = max <= 1;
       var percent = Math.round(progress * 100);
       ruler.setAttribute("aria-valuenow", String(percent));
@@ -394,37 +430,41 @@
         var distance = position - wake;
         var spread = 0.075 + energy * 0.16;
         var wave = Math.exp(-0.5 * Math.pow(distance / spread, 2));
-        var current = Math.exp(-0.5 * Math.pow((position - progress) / 0.045, 2));
+        var current = Math.exp(-0.5 * Math.pow((position - displayedProgress) / 0.045, 2));
         tick.style.opacity = String(0.2 + current * 0.48 + wave * energy * 0.25);
-        tick.style.transform = "translateY(" + (wave * energy * direction * 2.5) + "px) scaleX(" + (0.55 + current * 0.35 + wave * energy * 0.35) + ")";
+        // Keep the one-pixel lines stationary; subpixel vertical movement flickers.
+        tick.style.transform = "scaleX(" + (0.55 + current * 0.35 + wave * energy * 0.35) + ")";
         tick.style.backgroundPosition = (wake * 100 + wave * energy * direction * 60) + "% 50%";
       });
       if (remainingLabel) {
-        var bounds = article.getBoundingClientRect();
-        var readingLine = window.innerHeight * 0.35;
+        var readingLine = y + geometry.height * 0.35;
         var remaining = blocks.reduce(function (sum, block) {
-          var rect = block.element.getBoundingClientRect();
-          var unread = rect.height > 0 ? Math.min(1, Math.max(0, (rect.bottom - readingLine) / rect.height)) : 0;
+          var unread = block.height > 0 ? Math.min(1, Math.max(0, (block.bottom - readingLine) / block.height)) : 0;
           return sum + block.minutes * unread;
         }, 0);
-        var finished = bounds.bottom <= window.innerHeight || (max > 0 && y >= max - 2);
+        var finished = geometry.articleBottom <= y + geometry.height || (max > 0 && y >= max - 2);
         var label = finished ? "読了" : remaining < 1 ? "あと1分未満" : "あと約" + Math.ceil(remaining) + "分";
         if (remainingLabel.textContent !== label) remainingLabel.textContent = label;
-        remainingLabel.hidden = bounds.top > readingLine || bounds.bottom < 0;
+        remainingLabel.hidden = geometry.articleTop > readingLine || geometry.articleBottom < y;
       }
       lastY = y;
       lastTime = now;
-      if (energy > 0.002 || Math.abs(wake - progress) > 0.0001) schedule();
+      if (energy > 0.002 || Math.abs(wake - progress) > 0.0001 || Math.abs(displayedProgress - progress) > 0.0001) schedule();
     }
     function schedule() {
       if (!frame) frame = window.requestAnimationFrame(update);
     }
     window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule, { passive: true });
-    window.addEventListener("pageshow", schedule);
+    function invalidateGeometry() {
+      geometryDirty = true;
+      schedule();
+    }
+    window.addEventListener("resize", invalidateGeometry, { passive: true });
+    window.addEventListener("pageshow", invalidateGeometry);
+    document.addEventListener("load", invalidateGeometry, true);
     reducedMotion.addEventListener("change", schedule);
-    if (typeof ResizeObserver === "function") new ResizeObserver(schedule).observe(document.body);
-    if (document.fonts) document.fonts.ready.then(schedule);
+    if (typeof ResizeObserver === "function") new ResizeObserver(invalidateGeometry).observe(document.body);
+    if (document.fonts) document.fonts.ready.then(invalidateGeometry);
     schedule();
   }
 
