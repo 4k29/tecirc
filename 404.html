@@ -1,21 +1,15 @@
+---
+layout: null
+noindex: true
+sitemap: false
+---
 <!DOCTYPE html>
 <html lang="ja">
   <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KK7MDCLBGT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "G-KK7MDCLBGT");
-  </script>
-
-  <title>404 / Tecirc</title>
+<title>404 / Tecirc</title>
   <meta name="description" content="ページが見つかりませんでした。" />
   <meta name="robots" content="noindex,follow" />
 
@@ -39,7 +33,7 @@
   <meta name="twitter:image" content="https://4k29.github.io/tecirc/images/ogp/tecirc.png" />
   <meta name="twitter:image:alt" content="404" />
 
-  <link rel="stylesheet" href="/tecirc/style.css" />
+  {% include assets.html %}
   <link rel="icon" type="image/svg+xml" href="/tecirc/favicon.svg" />
   <link rel="icon" type="image/png" sizes="128x128" href="/tecirc/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/tecirc/apple-touch-icon.png" />
@@ -47,7 +41,8 @@
 
   <body class="error-page">
     <header class="error-header">
-      <a class="error-home" href="/tecirc/">Home</a>
+      <a class="error-home" href="{{ '/' | relative_url }}">Home / 日本語</a>
+      <a class="error-home" href="{{ '/en/' | relative_url }}" lang="en">English</a>
     </header>
 
     <main class="error-main" aria-labelledby="error-title">

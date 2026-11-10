@@ -25,14 +25,35 @@ Memory pages continue to omit description meta tags in both languages.
 
 # Shared styles and analytics
 
-Edit shared CSS in `_includes/styles/`. Public pages embed these small styles
-through `assets.html`, eliminating render-blocking stylesheet round trips.
-`style.css` and `enhancements.css` expose the same sources as standalone stylesheets
-for the existing authoring tools. These endpoints require Jekyll processing.
+Edit shared CSS in `_includes/styles/style.css`, `enhancements.css`, and
+`header.css`. Run `npm ci` once and `npm run build:assets` after source changes.
+Commit `_includes/styles/public.min.css`, `assets/`, and `_data/assets.json`.
+Public pages inline the minified CSS to avoid blocking stylesheet requests;
+JavaScript uses content-hashed filenames so repeated visits reuse cached code.
+The standalone `style.css` and `enhancements.css` endpoints remain for editors.
+The source JavaScript is not copied into the public site.
 
 `theme.js` queues analytics events immediately and loads the Google script after
 page load, during an idle callback (with a 2-second timeout). Short visits before
 the script loads may not be measured, and analytics blockers still apply.
 
-Run `npm run doctor` and `npm test`. Preview the Jekyll output, including `/tecirc`
-and both languages, at mobile and desktop widths with light and dark themes.
+# Responsive images
+
+Original image URLs, gallery front matter, article Markdown, and editor storage
+formats remain unchanged. Public templates use `_data/media.json` to select
+WebP files from `images/optimized/`. They emit real dimensions and responsive
+sizes; the first image is eager and prioritized, and later images are lazy.
+New images without derivatives fall back to their original URL until optimized.
+
+To regenerate: `python -m pip install -r scripts/media-requirements.txt`, then
+`npm run build:media`. Originals are never recompressed or replaced. Display
+variants have a maximum 2000px edge, with 640px and 1280px widths when applicable.
+The script corrects EXIF orientation, preserves color profiles/transparency,
+skips animations, and reuses variants when the source hash is unchanged.
+The image workflow handles new Memory and Notes uploads, commits derivatives,
+and explicitly requests a Pages build after a bot commit.
+
+Run `npm run doctor`, `npm test`, and `python tests/media-generator.test.py`.
+Preview Jekyll output including `/tecirc`, both languages, mobile and desktop,
+light and dark themes. For the existing local video, a small poster and known
+dimensions allow `preload="none"` without an empty or unstable layout.

@@ -2,6 +2,7 @@
 
 import { access, readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { checkMedia } from './check-media.mjs';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -295,6 +296,7 @@ async function main() {
   diagnoseUrls();
   await diagnoseMigrationAndImages();
   await diagnoseInternalLinks();
+  try { await checkMedia(root); } catch (error) { report('FAIL', 'images', '_data/media.json', error.message); }
   await diagnoseTemplates();
   const payload = output(json);
   process.exitCode = payload.errors.length ? 1 : 0;

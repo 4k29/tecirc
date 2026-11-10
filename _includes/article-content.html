@@ -1,0 +1,33 @@
+{%- capture image_prefix -%}="{{ '/images/' | relative_url }}{%- endcapture -%}
+{%- capture single_image_prefix -%}='{{ '/images/' | relative_url }}{%- endcapture -%}
+{%- assign rendered_article = content | replace: 'preload="metadata"', 'preload="none"' | replace: 'autoplay=1', 'autoplay=0' | replace: '; autoplay;', "; autoplay 'none';" | replace: '="../images/', image_prefix | replace: "='../images/", single_image_prefix -%}
+{%- capture video_source -%}src="{{ '/images/notes/iphone-duo-os-1.mp4' | relative_url }}"{%- endcapture -%}
+{%- assign video_preview = site.data.media['/images/notes/iphone-duo-os-1.jpg'].variants.first.src | relative_url -%}
+{%- capture video_with_preview -%}{{ video_source }} width="1920" height="1080" poster="{{ video_preview }}"{%- endcapture -%}
+{%- assign rendered_article = rendered_article | replace: video_source, video_with_preview -%}
+{%- assign image_parts = rendered_article | split: '<img ' -%}
+{{- image_parts.first -}}
+{%- for part in image_parts offset: 1 -%}
+  {%- assign original_attributes = part | split: '>' | first -%}
+  {%- assign attributes = original_attributes -%}
+  {%- assign image_src = '' -%}
+  {%- if attributes contains 'src="' -%}
+    {%- assign image_src = attributes | split: 'src="' | last | split: '"' | first -%}
+  {%- endif -%}
+  {%- assign image_key = image_src | remove_first: site.baseurl -%}
+  {%- assign responsive_image = site.data.media[image_key] -%}
+  {%- if responsive_image -%}
+    {%- capture original_src -%}src="{{ image_src }}"{%- endcapture -%}
+    {%- capture optimized_src -%}src="{{ responsive_image.src | relative_url }}"{%- endcapture -%}
+    {%- assign attributes = attributes | replace: original_src, optimized_src -%}
+  {%- endif -%}
+  {%- assign attributes = attributes | strip -%}
+  {%- assign attribute_end = attributes | slice: -1, 1 -%}
+  {%- if attribute_end == '/' -%}
+    {%- assign attribute_length = attributes.size | minus: 1 -%}
+    {%- assign attributes = attributes | slice: 0, attribute_length -%}
+  {%- endif -%}
+  {%- if forloop.first -%}{%- assign attributes = attributes | replace: 'loading="lazy"', 'loading="eager"' -%}{%- endif -%}
+  <img {{ attributes }}{% if responsive_image %} {% include image-attributes.html src=image_key attributes=attributes %}{% endif %}{% unless attributes contains 'loading=' %} loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"{% endunless %}{% unless attributes contains 'decoding=' %} decoding="async"{% endunless %}{% if forloop.first %} fetchpriority="high"{% endif %}>
+  {{- part | remove_first: original_attributes | remove_first: '>' -}}
+{%- endfor -%}

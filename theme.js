@@ -3,7 +3,6 @@
 
   var STORAGE_KEY = "4k29-theme";
   var GA_ID = "G-KK7MDCLBGT";
-  var FAVICON_URL = "/tecirc/favicon.svg";
   var root = document.documentElement;
   var mobileQuery = window.matchMedia ? window.matchMedia("(max-width: 560px)") : null;
 
@@ -34,17 +33,6 @@
   function trackEvent(name, params) {
     if (typeof window.gtag !== "function") return;
     window.gtag("event", name, params || {});
-  }
-
-  function mountFavicon() {
-    var icon = document.querySelector('link[rel="icon"]');
-    if (!icon) {
-      icon = document.createElement("link");
-      icon.rel = "icon";
-      document.head.appendChild(icon);
-    }
-    icon.type = "image/svg+xml";
-    icon.href = FAVICON_URL;
   }
 
   function getContentContext() {
@@ -552,7 +540,6 @@
   function mountUi() {
     // Read the initial position before inserting controls to avoid layout thrashing.
     var initialY = Math.max(window.scrollY || 0, 0);
-    mountFavicon();
     mountLanguageSwitch();
     mountToggle();
     followSystemTheme();

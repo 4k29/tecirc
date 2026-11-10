@@ -1,0 +1,1 @@
+(function(){"use strict";document.querySelectorAll(".article-body a[href]").forEach(r=>{const e=r.getAttribute("href");if(!e||e.startsWith("#"))return;new URL(r.href,window.location.href).origin!==window.location.origin&&(r.target="_blank",r.rel="noopener noreferrer")})})();
