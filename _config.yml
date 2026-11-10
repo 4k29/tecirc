@@ -52,5 +52,4 @@ exclude:
   - AGENTS.md
   - docs
   - theme.js
-  - notes/search.js
   - notes/article.js

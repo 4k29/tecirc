@@ -6,7 +6,6 @@ last_modified_at: "2026-09-27 00:00:00 +0900"
 permalink: "/en/notes/ai-and-experience/"
 image: "/images/ogp/ai-and-experience.png"
 image_alt: "The value of lived experience in an age of generated content"
-tags: ["AI"]
 lang: en
 layout: note
 sitemap: true

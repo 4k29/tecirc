@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/en/notes/AppleWatch-SiriAI/"
 image: "/images/ogp/AppleWatch-SiriAI.png"
 image_alt: "Why Apple Watch could become central to Siri AI"
-tags: ["Apple Watch","Siri AI"]
 lang: en
 layout: note
 sitemap: true

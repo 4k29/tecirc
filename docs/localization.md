@@ -39,8 +39,8 @@ the script loads may not be measured, and analytics blockers still apply.
 
 # Responsive images
 
-Original image URLs, gallery front matter, article Markdown, and editor storage
-formats remain unchanged. Public templates use `_data/media.json` to select
+Original image URLs, gallery photo metadata, article text, and editor image
+storage formats remain unchanged. Public templates use `_data/media.json` to select
 WebP files from `images/optimized/`. They emit real dimensions and responsive
 sizes; the first image is eager and prioritized, and later images are lazy.
 New images without derivatives fall back to their original URL until optimized.
@@ -57,3 +57,8 @@ Run `npm run doctor`, `npm test`, and `python tests/media-generator.test.py`.
 Preview Jekyll output including `/tecirc`, both languages, mobile and desktop,
 light and dark themes. For the existing local video, a small poster and known
 dimensions allow `preload="none"` without an empty or unstable layout.
+
+Notes use a plain dated list, without search, filters, tags, or category navigation.
+New Markdown and drafts omit tags. Old drafts and imports still restore their
+titles, bodies, URLs, images, and dates while ignoring old tags.
+The mobile header separates navigation from language and theme controls.

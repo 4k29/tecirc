@@ -18,7 +18,6 @@
     "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
     "inLanguage": {{ current_lang | jsonify }},
     "isAccessibleForFree": true,
-    {% if page.tags and page.tags.size > 0 %}"articleSection": {{ page.tags | first | jsonify }},{% endif %}
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": {{ page.url | absolute_url | jsonify }}
@@ -41,8 +40,7 @@
         "@type": "ImageObject",
         "url": {{ '/favicon.png' | absolute_url | jsonify }}
       }
-    },
-    "keywords": {{ page.tags | jsonify }}
+    }
   }
   </script>
 
@@ -99,6 +97,7 @@
       </article>
 
       <div class="article-share">
+        <a href="{{ locale_prefix | append: '/notes/' | relative_url }}">{% if current_lang == 'en' %}All Notes ↗{% else %}Notes一覧へ ↗{% endif %}</a>
         {% capture share_text %}{{ page.title }}
 {{ page.url | absolute_url }}{% endcapture %}
         <a href="https://twitter.com/intent/tweet?text={{ share_text | strip | url_encode }}" target="_blank" rel="noopener noreferrer">
@@ -106,34 +105,7 @@
         </a>
       </div>
 
-      {% assign sorted_notes = content_notes | sort: "date" | reverse %}
-      <section class="related-notes" aria-labelledby="more-notes-title">
-        <div class="related-notes-heading">
-          <h2 id="more-notes-title">{% if current_lang == 'en' %}Read next{% else %}次に読む{% endif %}</h2>
-          <a href="{{ locale_prefix | append: '/notes/' | relative_url }}">View all ↗</a>
-        </div>
-        <div class="row-list">
-          {% assign more_count = 0 %}
-          {% assign selected_urls = '|' %}
-          {% for note in sorted_notes %}
-            {% assign shared_topic = false %}
-            {% for tag in page.tags %}{% if note.tags contains tag %}{% assign shared_topic = true %}{% endif %}{% endfor %}
-            {% if note.url != page.url and shared_topic and more_count < 3 %}
-              {% include related-note.html %}
-              {% assign more_count = more_count | plus: 1 %}
-              {% assign selected_urls = selected_urls | append: note.url | append: '|' %}
-            {% endif %}
-          {% endfor %}
-          {% for note in sorted_notes %}
-            {% unless note.url == page.url or selected_urls contains note.url %}
-              {% if more_count < 3 %}
-              {% include related-note.html %}
-              {% assign more_count = more_count | plus: 1 %}
-              {% endif %}
-            {% endunless %}
-          {% endfor %}
-        </div>
-      </section>
+
     </main>
 
     <footer class="note-footer">

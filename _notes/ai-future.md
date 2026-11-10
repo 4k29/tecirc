@@ -6,7 +6,6 @@ last_modified_at: "2026-09-28 00:00:00 +0900"
 permalink: "/notes/ai-future/"
 image: "/images/ogp/ai-future.png"
 image_alt: "AIの先にある未来の話をしよう"
-tags: ["AI"]
 ---
 
 AIがこの先どこまで賢くなるのかは分からない。ただ、今起きている変化を見ていると、これから変わるのはAIモデルの性能だけではなさそうだ。

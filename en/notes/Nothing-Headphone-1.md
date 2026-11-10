@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/en/notes/Nothing-Headphone-1/"
 image: "/images/ogp/NothingHeadphone(1).png"
 image_alt: "Nothing Headphone (1): four months of everyday use"
-tags: ["Nothing","Headphone (1)","Headphones","Review"]
 lang: en
 layout: note
 sitemap: true

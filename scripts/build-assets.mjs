@@ -10,7 +10,7 @@ const options = { minify: true, legalComments: 'none', target: ['chrome100', 'sa
 await mkdir(path.join(root, 'assets'), { recursive: true });
 await mkdir(path.join(root, '_data'), { recursive: true });
 const manifest = {};
-for (const [name, file] of Object.entries({ theme: 'theme.js', search: 'notes/search.js', article: 'notes/article.js' })) {
+for (const [name, file] of Object.entries({ theme: 'theme.js', article: 'notes/article.js' })) {
   const result = await transform(await read(file), { ...options, loader: 'js' });
   const hash = createHash('sha256').update(result.code).digest('hex').slice(0, 12);
   manifest[name] = `/assets/${name}.${hash}.js`;
@@ -24,4 +24,4 @@ const styles = await Promise.all(['style', 'enhancements', 'header'].map(name =>
 const css = await transform(styles.join('\n'), { ...options, loader: 'css', charset: 'utf8' });
 await write('_includes/styles/public.min.css', css.code);
 await write('_data/assets.json', JSON.stringify(manifest, null, 2) + '\n');
-console.log(`Public CSS: ${styles.join('\n').length} → ${css.code.length} characters; generated 3 cached JS assets`);
+console.log(`Public CSS: ${styles.join('\n').length} → ${css.code.length} characters; generated 2 cached JS assets`);

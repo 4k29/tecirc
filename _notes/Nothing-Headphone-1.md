@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/notes/Nothing-Headphone-1/"
 image: "/images/ogp/NothingHeadphone(1).png"
 image_alt: "Nothing Headphone (1)"
-tags: ["Nothing","Headphone (1)","ヘッドホン","レビュー"]
 ---
 
 Nothing Headphone (1)を購入して、もうすぐ4ヶ月。運動するときと学校にいる時間を除けば、ほとんどずっと着けている。  

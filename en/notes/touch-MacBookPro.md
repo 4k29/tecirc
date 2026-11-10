@@ -6,7 +6,6 @@ last_modified_at: "2026-10-30 00:00:00 +0900"
 permalink: "/en/notes/touch-MacBookPro/"
 image: "/images/ogp/touch-MacBookPro.png"
 image_alt: "Does a MacBook really not need touch?"
-tags: ["MacBook Pro with PROLED XDR Display"]
 lang: en
 layout: note
 sitemap: true

@@ -6,7 +6,6 @@ last_modified_at: "2026-09-28 00:00:00 +0900"
 permalink: "/en/notes/ai-future/"
 image: "/images/ogp/ai-future.png"
 image_alt: "Let’s talk about the future beyond AI"
-tags: ["AI"]
 lang: en
 layout: note
 sitemap: true

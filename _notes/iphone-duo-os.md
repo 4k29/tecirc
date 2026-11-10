@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/notes/iphone-duo-os/"
 image: "/images/ogp/iphone-duo-os.png"
 image_alt: "iPhone DuoのOSは、「iOS」と呼ぶべきなのか"
-tags: ["iPhone","Duo","iOS"]
 ---
 
 iPhone Duoに搭載されるOSは、iOSだ。しかし、発表された機能やインターフェースを見ると、従来のiPhoneと同じ名前で扱うことに違和感がある。iOSをベースとしながらも、iPadOSの良さを取り入れ、さらに折りたたみ端末ならではの使い方を実現しているからだ。今回はそんなお話。

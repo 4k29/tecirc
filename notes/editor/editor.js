@@ -18,7 +18,6 @@
     description: document.getElementById("description"),
     image: document.getElementById("image"),
     imageAlt: document.getElementById("image-alt"),
-    tags: document.getElementById("tags"),
     body: document.getElementById("body")
   };
 
@@ -105,9 +104,6 @@
       description: fields.description.value.trim(),
       image: normalizeOgImage(fields.image.value),
       imageAlt: fields.imageAlt.value.trim(),
-      tags: fields.tags.value.split(/[,、，]/).map(function (tag) {
-        return tag.trim();
-      }).filter(Boolean),
       body: fields.body.value.trim()
     };
   }
@@ -115,9 +111,7 @@
   function setData(data, skipSave) {
     window.NoteDraftIdentity.open(data, "import");
     Object.keys(fields).forEach(function (key) {
-      if (key === "tags") {
-        fields.tags.value = Array.isArray(data.tags) ? data.tags.join(", ") : (data.tags || "");
-      } else if (typeof data[key] === "string") {
+      if (typeof data[key] === "string") {
         fields[key].value = data[key];
       }
     });
@@ -146,7 +140,6 @@
       "permalink: " + yamlValue("/notes/" + data.slug + "/"),
       "image: " + yamlValue(data.image),
       "image_alt: " + yamlValue(data.imageAlt),
-      "tags: " + JSON.stringify(data.tags),
       "---",
       "",
       data.body,
@@ -648,7 +641,6 @@
       if (key === "date") data.date = String(value).slice(0, 10);
       if (key === "image") data.image = String(value);
       if (key === "image_alt") data.imageAlt = String(value);
-      if (key === "tags") data.tags = Array.isArray(value) ? value : String(value).split(",");
       if (key === "permalink") {
         var match = String(value).match(/\/notes\/([^/]+?)(?:\.html|\/)?$/);
         if (match) data.slug = match[1];

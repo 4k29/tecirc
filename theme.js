@@ -4,7 +4,6 @@
   var STORAGE_KEY = "4k29-theme";
   var GA_ID = "G-KK7MDCLBGT";
   var root = document.documentElement;
-  var mobileQuery = window.matchMedia ? window.matchMedia("(max-width: 560px)") : null;
 
   function ensureAnalytics() {
     if (window.tecircAnalyticsScheduled) return;
@@ -80,7 +79,7 @@
       });
     });
 
-    var shareLink = document.querySelector(".article-share a");
+    var shareLink = document.querySelector('.article-share a[href*="twitter.com/intent/tweet"]');
     if (shareLink) {
       shareLink.addEventListener("click", function () {
         trackEvent("note_share", {
@@ -171,13 +170,8 @@
   }
 
   function placeToggle(button) {
-    var nav = document.querySelector(".global-header .global-nav");
-    if (mobileQuery && mobileQuery.matches && nav) {
-      if (button.parentNode !== nav) nav.appendChild(button);
-      return;
-    }
-
-    if (button.parentNode !== document.body) document.body.appendChild(button);
+    var tools = document.querySelector('.header-tools');
+    (tools || document.body).appendChild(button);
   }
 
   function mountToggle() {
@@ -200,13 +194,6 @@
       trackEvent("theme_change", { theme: next });
     });
 
-    if (mobileQuery) {
-      if (typeof mobileQuery.addEventListener === "function") {
-        mobileQuery.addEventListener("change", function () { placeToggle(button); });
-      } else if (typeof mobileQuery.addListener === "function") {
-        mobileQuery.addListener(function () { placeToggle(button); });
-      }
-    }
   }
 
   function mountHeaderReveal(initialY) {

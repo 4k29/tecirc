@@ -67,10 +67,6 @@ html[data-theme="light"] .photo img {
   background: #ecece8;
 }
 
-html[data-theme="light"] .note-index-meta span::before {
-  color: #aaa9a4;
-}
-
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -843,12 +839,5 @@ html.has-page-ruler body::-webkit-scrollbar { width: 0; height: 0; }
 
 /* Article discovery works without downloading a search library. */
 [hidden] { display: none !important; }
-.note-search { margin: 0 0 32px; }
-.note-search label { display: block; margin-bottom: 8px; color: var(--secondary); }
-.note-search input { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--text); font: inherit; }
-.topic-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.topic-filters button { padding: 8px 14px; min-height: 44px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--text); font: inherit; cursor: pointer; }
-.topic-filters button[aria-pressed="true"] { border-color: var(--text); text-decoration: underline; text-underline-offset: 4px; }
-#note-results { font-size: .8125rem; color: var(--muted); }
 .global-header .language-switch { font-size: .75rem !important; gap: 4px; white-space: nowrap; }
 .language-current { color: var(--text); text-decoration: underline; text-underline-offset: 4px; }

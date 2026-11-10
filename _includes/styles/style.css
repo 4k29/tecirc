@@ -643,12 +643,6 @@ footer {
   font-variant-numeric: tabular-nums;
 }
 
-.note-index-meta span::before {
-  content: "·";
-  margin-right: 12px;
-  color: #454549;
-}
-
 .note-index-item h2 {
   margin: 0 0 10px;
   color: var(--text);

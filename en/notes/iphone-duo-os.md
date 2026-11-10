@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/en/notes/iphone-duo-os/"
 image: "/images/ogp/iphone-duo-os.png"
 image_alt: "Should iPhone Duo’s operating system still be called iOS?"
-tags: ["iPhone","Duo","iOS"]
 lang: en
 layout: note
 sitemap: true

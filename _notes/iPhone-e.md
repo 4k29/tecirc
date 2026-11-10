@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/notes/iPhone-e/"
 image: "/images/ogp/iPhone-e.png"
 image_alt: "iPhone eシリーズの意義を考える"
-tags: ["Apple","iPhone","iPhone e","iPhone SE"]
 ---
 
 ## はじめに

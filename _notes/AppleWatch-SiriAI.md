@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/notes/AppleWatch-SiriAI/"
 image: "/images/ogp/AppleWatch-SiriAI.png"
 image_alt: "Apple Watchは、Siri AIの中核になり得る"
-tags: ["Apple Watch","Siri AI"]
 ---
 
 今回のApple Watch Series 12とApple Watch Ultra 4の発表を見て、Apple Watchは今後、Siri AIの中核になっていくのではないかと思った。身に着ける人の生活や状態に関する情報が、これほど密接に集まるデバイスだからだ。こんな話をしていこうと思う。

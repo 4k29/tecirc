@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/notes/Instants/"
 image: "/images/ogp/Instants.png"
 image_alt: "Instantsに思うこと"
-tags: ["Instagram","Meta","Instants","SNS","UX"]
 ---
 
 「インスタ映え」のような「盛る文化」を作ったInstagram（Meta）がやるのがいいよねってお話です

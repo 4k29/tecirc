@@ -26,7 +26,7 @@
     window.NoteDraftIdentity.reset();
     form.reset();
 
-    var ids = ["title", "slug", "date", "description", "image", "image-alt", "tags", "body"];
+    var ids = ["title", "slug", "date", "description", "image", "image-alt", "body"];
     ids.forEach(function (id) {
       var field = document.getElementById(id);
       if (field) field.value = "";
