@@ -53,7 +53,7 @@
   letter-spacing: -.015em;
 }
 .global-header .global-nav {
-  justify-self: center;
+  justify-self: end;
   display: flex !important;
   align-items: center;
   gap: 28px !important;
@@ -75,7 +75,8 @@
   text-underline-offset: .45em;
   text-decoration-thickness: 1px;
 }
-.header-tools { min-width: 110px; display: flex; align-items: center; gap: 12px; }
+.header-tools { min-width: 110px; display: flex; justify-self: end; justify-content: flex-end; align-items: center; gap: 12px; }
+.header-tools:not(:has(.theme-toggle))::after { content: ""; width: 44px; height: 44px; flex: 0 0 44px; }
 .header-tools .language-switch { display: inline-flex; align-items: center; min-height: 44px; }
 .global-header .theme-toggle {
   position: static !important;
@@ -92,7 +93,7 @@
     width: calc(100% - var(--site-shell-gutter-mobile)) !important;
   }
   .global-header { grid-template-columns: 1fr auto; gap: 4px 20px; padding-block: 8px; }
-  .global-header .global-nav { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
+  .global-header .global-nav { grid-column: 1 / -1; grid-row: 2; justify-self: end; }
   .header-tools { grid-column: 2; grid-row: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .global-header { transition: none !important; } }
