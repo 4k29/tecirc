@@ -1,0 +1,13 @@
+<div class="footer-tools">
+  {% if translated_page %}
+  <details class="language-menu">
+    <summary aria-label="{% if current_lang == 'en' %}Choose language{% else %}言語を選ぶ{% endif %}">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+    </summary>
+    <div class="language-options">
+      <a class="language-option" href="{{ japanese_url | relative_url }}" lang="ja" hreflang="ja"{% if current_lang != 'en' %} aria-current="page"{% endif %}>日本語</a>
+      <a class="language-option" href="{{ english_url | relative_url }}" lang="en" hreflang="en"{% if current_lang == 'en' %} aria-current="page"{% endif %}>English</a>
+    </div>
+  </details>
+  {% endif %}
+</div>

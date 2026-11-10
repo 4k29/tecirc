@@ -8,13 +8,5 @@
     <a href="{{ locale_prefix | append: '/about/' | relative_url }}"{% if japanese_url == '/about/' %} aria-current="page"{% endif %}>About</a>
     <a href="{{ locale_prefix | append: '/notes/' | relative_url }}"{% if japanese_url contains '/notes/' %} aria-current="page"{% endif %}>Notes</a>
     <a href="{{ locale_prefix | append: '/memory/' | relative_url }}"{% if japanese_url contains '/memory/' %} aria-current="page"{% endif %}>Memory</a>
-
   </nav>
-  <div class="header-tools">
-    {% if translated_page %}
-    <a class="language-switch" href="{% if current_lang == 'en' %}{{ japanese_url | relative_url }}{% else %}{{ english_url | relative_url }}{% endif %}" hreflang="{% if current_lang == 'en' %}ja{% else %}en{% endif %}" aria-label="{% if current_lang == 'en' %}JP / EN — Switch to Japanese{% else %}JP / EN：英語に切り替え{% endif %}">
-      <span{% if current_lang != 'en' %} class="language-current"{% endif %}>JP</span><span aria-hidden="true">/</span><span{% if current_lang == 'en' %} class="language-current"{% endif %}>EN</span>
-    </a>
-    {% endif %}
-  </div>
 </header>

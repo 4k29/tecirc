@@ -170,7 +170,7 @@
   }
 
   function placeToggle(button) {
-    var tools = document.querySelector('.header-tools');
+    var tools = document.querySelector('.footer-tools');
     (tools || document.body).appendChild(button);
   }
 
@@ -506,11 +506,13 @@
   }
 
   function mountLanguageSwitch() {
-    var link = document.querySelector('.language-switch');
-    if (!link || (navigator.connection && navigator.connection.saveData)) return;
+    var menu = document.querySelector('.language-menu');
+    if (!menu) return;
+    var summary = menu.querySelector('summary');
+    var link = menu.querySelector('a:not([aria-current="page"])');
     var prefetched = false;
     function prefetch() {
-      if (prefetched) return;
+      if (!link || prefetched || (navigator.connection && navigator.connection.saveData)) return;
       prefetched = true;
       var hint = document.createElement('link');
       hint.rel = 'prefetch';
@@ -519,9 +521,17 @@
       hint.fetchPriority = 'low';
       document.head.appendChild(hint);
     }
-    link.addEventListener('pointerenter', prefetch, { once: true });
-    link.addEventListener('focus', prefetch, { once: true });
-    link.addEventListener('touchstart', prefetch, { once: true, passive: true });
+    summary.addEventListener('pointerenter', prefetch, { once: true });
+    summary.addEventListener('focus', prefetch, { once: true });
+    summary.addEventListener('touchstart', prefetch, { once: true, passive: true });
+    menu.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menu.open = false;
+      summary.focus();
+    });
+    document.addEventListener('click', function (event) {
+      if (!menu.contains(event.target)) menu.open = false;
+    });
   }
 
   function mountUi() {

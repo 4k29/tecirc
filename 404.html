@@ -33,6 +33,7 @@ sitemap: false
   <meta name="twitter:image" content="https://4k29.github.io/tecirc/images/ogp/tecirc.png" />
   <meta name="twitter:image:alt" content="404" />
 
+  {% include locale.html %}
   {% include assets.html %}
   <link rel="icon" type="image/svg+xml" href="/tecirc/favicon.svg" />
   <link rel="icon" type="image/png" sizes="128x128" href="/tecirc/favicon.png" />
@@ -48,5 +49,6 @@ sitemap: false
     <main class="error-main" aria-labelledby="error-title">
       <h1 class="error-title" id="error-title">404</h1>
     </main>
+    <footer>{% include site-controls.html %}</footer>
   </body>
 </html>

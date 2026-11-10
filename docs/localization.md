@@ -61,4 +61,5 @@ dimensions allow `preload="none"` without an empty or unstable layout.
 Notes use a plain dated list, without search, filters, tags, or category navigation.
 New Markdown and drafts omit tags. Old drafts and imports still restore their
 titles, bodies, URLs, images, and dates while ignoring old tags.
-The mobile header separates navigation from language and theme controls.
+The header stays on one row with navigation on the right. Language selection
+uses a native globe disclosure in the footer, next to the theme control.
