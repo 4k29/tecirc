@@ -47,3 +47,7 @@ exclude:
   - package.json
   - package-lock.json
   - vendor
+  - scripts
+  - tests
+  - AGENTS.md
+  - docs

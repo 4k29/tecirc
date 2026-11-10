@@ -1,19 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'ja' }}">
+<html lang="{{ page.lang | default: 'ja' }}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KK7MDCLBGT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", "G-KK7MDCLBGT");
-  </script>
-
-  {% include seo.html %}
+{% include seo.html %}
 
   <script type="application/ld+json">
   {
@@ -25,7 +16,7 @@
     "image": {{ seo_image | jsonify }},
     "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
     "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
-    "inLanguage": "ja",
+    "inLanguage": {{ current_lang | jsonify }},
     "isAccessibleForFree": true,
     {% if page.tags and page.tags.size > 0 %}"articleSection": {{ page.tags | first | jsonify }},{% endif %}
     "mainEntityOfPage": {
@@ -82,13 +73,7 @@
   }
   </script>
 
-  {% assign style_version = site.github.build_revision %}
-  {% unless style_version %}
-    {% assign style_version = site.time | date: "%s" %}
-  {% endunless %}
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}?v={{ style_version }}" />
-  <link rel="stylesheet" href="{{ '/enhancements.css' | relative_url }}?v={{ style_version }}" />
-  <script src="{{ '/theme.js' | relative_url }}?v={{ style_version }}" defer></script>
+  {% include assets.html %}
   <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
   <link rel="icon" type="image/png" sizes="128x128" href="{{ '/favicon.png' | relative_url }}" />
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
@@ -123,16 +108,26 @@
         </a>
       </div>
 
-      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+      {% assign sorted_notes = content_notes | sort: "date" | reverse %}
       <section class="related-notes" aria-labelledby="more-notes-title">
         <div class="related-notes-heading">
-          <h2 id="more-notes-title">More Notes</h2>
-          <a href="{{ '/notes/' | relative_url }}">View all ↗</a>
+          <h2 id="more-notes-title">{% if current_lang == 'en' %}Read next{% else %}次に読む{% endif %}</h2>
+          <a href="{{ locale_prefix | append: '/notes/' | relative_url }}">View all ↗</a>
         </div>
         <div class="row-list">
           {% assign more_count = 0 %}
+          {% assign selected_urls = '|' %}
           {% for note in sorted_notes %}
-            {% unless note.url == page.url %}
+            {% assign shared_topic = false %}
+            {% for tag in page.tags %}{% if note.tags contains tag %}{% assign shared_topic = true %}{% endif %}{% endfor %}
+            {% if note.url != page.url and shared_topic and more_count < 3 %}
+              {% include related-note.html %}
+              {% assign more_count = more_count | plus: 1 %}
+              {% assign selected_urls = selected_urls | append: note.url | append: '|' %}
+            {% endif %}
+          {% endfor %}
+          {% for note in sorted_notes %}
+            {% unless note.url == page.url or selected_urls contains note.url %}
               {% if more_count < 3 %}
               <a href="{{ note.url | relative_url }}" class="row-item compact">
                 <time datetime="{{ note.date | date: '%Y-%m-%d' }}">{{ note.date | date: "%Y.%m.%d" }}</time>
@@ -151,8 +146,8 @@
       <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
       <div class="footer-links">
         <a href="https://x.com/p_horeer" target="_blank" rel="noopener noreferrer" aria-label="X（Twitter）">X ↗</a>
-        <a href="{{ '/privacy/' | relative_url }}">Privacy</a>
-        <a href="{{ '/sitemap/' | relative_url }}">Sitemap</a>
+        <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}">Privacy</a>
+        <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}">Sitemap</a>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>
@@ -160,7 +155,7 @@
 
   <script>
     document.querySelectorAll('.article-body h2').forEach((heading) => {
-      if (heading.textContent.trim() !== '参考') return;
+      if (!['参考', 'References'].includes(heading.textContent.trim())) return;
       heading.classList.add('references-heading');
       const list = heading.nextElementSibling;
       if (list && (list.tagName === 'UL' || list.tagName === 'OL')) {

@@ -1,0 +1,123 @@
+---
+lang: en
+sitemap: true
+seo_title: "Notes — Technology, design, and experience"
+seo_description: "Notes on gadgets, services, and technology, exploring design, user experience, and the intentions behind them."
+layout: null
+title: Notes
+description: Essays and reviews on gadgets, services, and AI, looking beyond features and specifications to design, everyday use, and the intentions behind them.
+permalink: /en/notes/
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'ja' }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+{% include seo.html %}
+
+  {% assign sorted_notes = content_notes | sort: "date" | reverse %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": {{ seo_document_title | jsonify }},
+    "description": {{ seo_description | jsonify }},
+    "url": {{ page.url | absolute_url | jsonify }},
+    "inLanguage": {{ current_lang | jsonify }},
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": {{ site.title | jsonify }},
+      "url": {{ '/' | absolute_url | jsonify }}
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": {{ sorted_notes | size }},
+      "itemListElement": [
+        {% for note in sorted_notes %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "url": {{ note.url | absolute_url | jsonify }},
+          "name": {{ note.title | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": {{ site.title | jsonify }},
+        "item": {{ '/' | absolute_url | jsonify }}
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Notes",
+        "item": {{ page.url | absolute_url | jsonify }}
+      }
+    ]
+  }
+  </script>
+
+  {% include assets.html %}
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
+  <link rel="icon" type="image/png" sizes="128x128" href="{{ '/favicon.png' | relative_url }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
+</head>
+
+<body>
+  <div class="notes-index" id="top">
+    {% include site-header.html %}
+
+    <main class="note-content" id="main-content" tabindex="-1">
+      <header class="archive-hero">
+        <h1>Notes</h1>
+        <p class="archive-description">{{ page.description }}</p>
+      </header>
+
+      {% include note-search.html %}
+      <section class="note-index-list" aria-label="Notes">
+        {% for note in sorted_notes %}
+        {% assign note_topics = '' %}
+        {% assign topic_text = note.tags | join: ' ' %}
+        {% if topic_text contains 'Apple' or topic_text contains 'iPhone' or topic_text contains 'MacBook' %}{% assign note_topics = note_topics | append: ' Apple' %}{% endif %}
+        {% if topic_text contains 'AI' %}{% assign note_topics = note_topics | append: ' AI' %}{% endif %}
+        {% if topic_text contains 'Nothing' %}{% assign note_topics = note_topics | append: ' Nothing' %}{% endif %}
+        {% if topic_text contains 'Meta' or topic_text contains 'Instagram' %}{% assign note_topics = note_topics | append: ' Meta' %}{% endif %}
+        <article class="note-index-item" data-topics="{{ note_topics | strip }}">
+          <a href="{{ note.url | relative_url }}">
+            <div class="note-index-meta">
+              <time datetime="{{ note.date | date: '%Y-%m-%d' }}">{{ note.date | date: "%Y.%m.%d" }}</time>
+              {% if note.tags and note.tags.size > 0 %}
+              <span>{{ note.tags | join: ' · ' | escape }}</span>
+              {% endif %}
+            </div>
+            <h2>{{ note.title | escape }}</h2>
+            <p>{{ note.description | escape }}</p>
+            <span class="note-index-arrow" aria-hidden="true">↗</span>
+          </a>
+        </article>
+        {% endfor %}
+      </section>
+    </main>
+
+    <footer class="note-footer">
+      <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
+      <div class="footer-links">
+        <a href="https://x.com/p_horeer" target="_blank" rel="noopener noreferrer" aria-label="X（Twitter）">X ↗</a>
+        <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}">Privacy</a>
+        <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}">Sitemap</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

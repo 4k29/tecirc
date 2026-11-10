@@ -4,11 +4,18 @@ permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   {% assign public_pages = site.pages | where: 'sitemap', true | sort: 'url' %}
   {% for entry in public_pages %}
   {% unless entry.noindex %}
-  <url><loc>{{ entry.url | absolute_url | xml_escape }}</loc></url>
+  <url>
+    <loc>{{ entry.url | absolute_url | xml_escape }}</loc>
+    {% if entry.last_modified_at %}<lastmod>{{ entry.last_modified_at | date: '%Y-%m-%d' }}</lastmod>{% endif %}
+    {% include sitemap-languages.html entry=entry %}
+    {% if entry.image %}<image:image><image:loc>{{ entry.image | absolute_url | xml_escape }}</image:loc></image:image>{% endif %}
+    {% for photo in entry.photos %}<image:image><image:loc>{{ photo.src | absolute_url | xml_escape }}</image:loc></image:image>{% endfor %}
+  </url>
   {% endunless %}
   {% endfor %}
 
@@ -17,6 +24,7 @@ permalink: /sitemap.xml
   {% unless note.noindex or note.sitemap == false %}
   <url>
     <loc>{{ note.url | absolute_url | xml_escape }}</loc>
+    {% include sitemap-languages.html entry=note %}
     <lastmod>{{ note.last_modified_at | default: note.date | date: "%Y-%m-%d" }}</lastmod>
     {% if note.image %}
     <image:image>
@@ -32,6 +40,7 @@ permalink: /sitemap.xml
   {% unless memory.noindex or memory.sitemap == false %}
   <url>
     <loc>{{ memory.url | absolute_url | xml_escape }}</loc>
+    {% include sitemap-languages.html entry=memory %}
     {% for photo in memory.photos %}
       {% if photo.src %}
     <image:image>

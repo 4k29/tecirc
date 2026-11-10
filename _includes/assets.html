@@ -1,0 +1,11 @@
+{% capture public_styles %}{% include styles/style.css %}{% include styles/enhancements.css %}{% endcapture %}
+<style>{{ public_styles | strip_newlines }}</style>
+<script>
+  var initialTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  try {
+    var savedTheme = localStorage.getItem('4k29-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') initialTheme = savedTheme;
+  } catch (error) { /* Use the system theme when storage is unavailable. */ }
+  document.documentElement.dataset.theme = initialTheme;
+</script>
+<script src="{{ '/theme.js' | relative_url }}" defer></script>

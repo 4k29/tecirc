@@ -1,3 +1,4 @@
+{% include locale.html %}
 {%- assign seo_title = page.seo_title | default: page.title | default: site.title -%}
 {%- if page.seo_title_exact -%}
   {%- assign seo_document_title = seo_title -%}
@@ -17,7 +18,13 @@
 <meta name="robots" content="{% if page.noindex %}noindex,follow{% else %}index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1{% endif %}" />
 <link rel="canonical" href="{{ seo_url | escape }}" />
 <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | absolute_url }}" />
-<meta property="og:locale" content="ja_JP" />
+{% if translated_page %}
+<link rel="alternate" hreflang="ja" href="{{ japanese_url | absolute_url }}" />
+<link rel="alternate" hreflang="en" href="{{ english_url | absolute_url }}" />
+<link rel="alternate" hreflang="x-default" href="{{ japanese_url | absolute_url }}" />
+{% endif %}
+<meta property="og:locale" content="{% if current_lang == 'en' %}en_US{% else %}ja_JP{% endif %}" />
+<meta property="og:locale:alternate" content="{% if current_lang == 'en' %}ja_JP{% else %}en_US{% endif %}" />
 <meta property="og:site_name" content="{{ site.title | escape }}" />
 <meta property="og:type" content="{% if page.layout == 'note' %}article{% else %}website{% endif %}" />
 <meta property="og:title" content="{{ seo_document_title | escape }}" />

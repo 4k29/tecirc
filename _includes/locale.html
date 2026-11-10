@@ -1,0 +1,13 @@
+{%- assign current_lang = page.lang | default: 'ja' -%}
+{%- assign locale_prefix = '' -%}
+{%- assign content_notes = site.notes -%}
+{%- assign content_memories = site.memories -%}
+{%- assign japanese_url = page.url -%}
+{%- if current_lang == 'en' -%}
+  {%- assign locale_prefix = '/en' -%}
+  {%- assign content_notes = site.pages | where: 'layout', 'note' | where: 'lang', 'en' -%}
+  {%- assign content_memories = site.pages | where: 'layout', 'memory' | where: 'lang', 'en' -%}
+  {%- assign japanese_url = page.url | remove_first: '/en' -%}
+{%- endif -%}
+{%- assign english_url = japanese_url | prepend: '/en' -%}
+{%- assign translated_page = site.pages | where: 'url', english_url | first -%}

@@ -1,0 +1,40 @@
+---
+lang: en
+layout: memory
+sitemap: true
+title: "Apple Park"
+seo_title_exact: true
+list_title: "Apple Park Visitor Center"
+description: "2025.08.13 - Apple Park"
+date: "2025-08-13 06:00:00 +0900"
+last_modified_at: "2025-08-13 06:00:00 +0900"
+date_display: "2025.08.13"
+permalink: "/en/memory/ApplePark/"
+image: "/images/memory/apple-park-01.jpg"
+image_alt: "Apple Park Visitor Center"
+photos:
+  - src: "/images/memory/apple-park-01.jpg"
+    caption: "Apple Park Visitor Center - hello"
+  - src: "/images/memory/apple-park-02.jpg"
+    caption: "Apple Park Visitor Center - Card"
+  - src: "/images/memory/apple-park-03.jpg"
+    caption: "Apple Park Visitor Center - T-shirt"
+  - src: "/images/memory/apple-park-04.jpg"
+    caption: "Apple Park Visitor Center - T-shirt"
+  - src: "/images/memory/apple-park-05.jpg"
+    caption: "Apple Park Visitor Center - Pen"
+  - src: "/images/memory/apple-park-06.jpg"
+    caption: "Apple Park Visitor Center"
+  - src: "/images/memory/apple-park-07.jpg"
+    caption: "Apple Park Visitor Center"
+  - src: "/images/memory/apple-park-08.jpg"
+    caption: "Apple Park Visitor Center"
+  - src: "/images/memory/apple-park-09.jpg"
+    caption: "Apple Park Visitor Center"
+  - src: "/images/memory/apple-park-10.jpg"
+    caption: "Apple Park Visitor Center - iPhone 16e"
+  - src: "/images/memory/apple-park-11.jpg"
+    caption: "Apple Park Visitor Center - caffè e llatte"
+  - src: "/images/memory/apple-park-12.jpg"
+    caption: "I bought something..."
+---

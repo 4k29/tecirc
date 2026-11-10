@@ -1,0 +1,86 @@
+---
+lang: en
+sitemap: true
+seo_title: "Sitemap"
+seo_description: "All public Tecirc pages: Notes on technology, design, and experience, and the Memory photo galleries."
+layout: null
+title: Sitemap
+description: Public pages on Tecirc.
+permalink: /en/sitemap/
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'ja' }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+{% include seo.html %}
+
+  {% include assets.html %}
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
+  <link rel="icon" type="image/png" sizes="128x128" href="{{ '/favicon.png' | relative_url }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
+</head>
+<body>
+  <div class="notes-index" id="top">
+    {% include site-header.html %}
+
+    <main class="note-content" id="main-content" tabindex="-1">
+      <header class="archive-hero">
+        <h1>Sitemap</h1>
+        <p class="archive-description">Public pages on Tecirc.</p>
+      </header>
+
+      <section class="sitemap-section" aria-labelledby="sitemap-pages">
+        <div class="related-notes-heading">
+          <h2 id="sitemap-pages">Pages</h2>
+          <span>5</span>
+        </div>
+        <div class="row-list">
+          <a href="{{ locale_prefix | append: '/' | relative_url }}" class="row-item compact"><span class="row-title">Home</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="{{ locale_prefix | append: '/about/' | relative_url }}" class="row-item compact"><span class="row-title">About</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="{{ locale_prefix | append: '/notes/' | relative_url }}" class="row-item compact"><span class="row-title">Notes</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="{{ locale_prefix | append: '/memory/' | relative_url }}" class="row-item compact"><span class="row-title">Memory</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}" class="row-item compact"><span class="row-title">Privacy</span><span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      {% assign sorted_notes = content_notes | sort: "date" | reverse %}
+      <section class="sitemap-section" aria-labelledby="sitemap-notes">
+        <div class="related-notes-heading"><h2 id="sitemap-notes">Notes</h2><span>{{ sorted_notes | size }}</span></div>
+        <div class="row-list">
+          {% for note in sorted_notes %}
+          <a href="{{ note.url | relative_url }}" class="row-item compact">
+            <time datetime="{{ note.date | date: '%Y-%m-%d' }}">{{ note.date | date: "%Y.%m.%d" }}</time>
+            <span class="row-title">{{ note.title | escape }}</span><span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+
+      {% assign sorted_memories = content_memories | sort: "date" | reverse %}
+      <section class="sitemap-section" aria-labelledby="sitemap-memory">
+        <div class="related-notes-heading"><h2 id="sitemap-memory">Memory</h2><span>{{ sorted_memories | size }}</span></div>
+        <div class="row-list">
+          {% for memory in sorted_memories %}
+          <a href="{{ memory.url | relative_url }}" class="row-item compact">
+            <time datetime="{{ memory.date | date: '%Y-%m-%d' }}">{{ memory.date_display | default: memory.date | date: "%Y.%m.%d" }}</time>
+            <span class="row-title">{{ memory.list_title | default: memory.title | escape }}</span><span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+
+    <footer class="note-footer">
+      <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
+      <div class="footer-links">
+        <a href="https://x.com/p_horeer" target="_blank" rel="noopener noreferrer" aria-label="X（Twitter）">X ↗</a>
+        <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}">Privacy</a>
+        <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}" aria-current="page">Sitemap</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

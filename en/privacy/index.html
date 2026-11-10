@@ -1,0 +1,63 @@
+---
+lang: en
+sitemap: true
+seo_title: "Privacy policy"
+seo_description: "How Tecirc uses analytics and external services."
+layout: null
+title: Privacy
+permalink: /en/privacy/
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'ja' }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% include seo.html %}
+  {% include assets.html %}
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
+  <link rel="icon" type="image/png" sizes="128x128" href="{{ '/favicon.png' | relative_url }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
+</head>
+<body>
+  <div class="info-page" id="top">
+    {% include site-header.html %}
+    <main class="info-content" id="main-content" tabindex="-1">
+      <header class="info-hero">
+        <h1>Privacy</h1>
+        <p>How Tecirc handles visit information and external services.</p>
+      </header>
+
+      <section class="info-section">
+        <h2>Analytics</h2>
+        <div class="info-section-body">
+          <p>Tecirc uses Google Analytics to understand how the site is used. Information about visits is collected and processed through Google’s services.</p>
+          <p>For details about how Google handles this data, please see Google’s privacy policy and related documentation.</p>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>External links</h2>
+        <div class="info-section-body">
+          <p>Articles and pages may link to external websites and services. The information they collect and how they handle it are governed by their respective operators’ policies.</p>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Changes</h2>
+        <div class="info-section-body">
+          <p>This policy may be updated as the features and services used by the site change.</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
+      <div class="footer-links">
+        <a href="https://x.com/p_horeer" target="_blank" rel="noopener noreferrer" aria-label="X（Twitter）">X ↗</a>
+        <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}" aria-current="page">Privacy</a>
+        <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}">Sitemap</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
