@@ -17,7 +17,6 @@
     description: document.getElementById("description"),
     image: document.getElementById("image"),
     imageAlt: document.getElementById("image-alt"),
-    tags: document.getElementById("tags"),
     body: document.getElementById("body")
   };
 
@@ -55,9 +54,6 @@
       description: fields.description.value.trim(),
       image: normalizeOgImage(fields.image.value),
       imageAlt: fields.imageAlt.value.trim(),
-      tags: fields.tags.value.split(/[,、，]/).map(function (tag) {
-        return tag.trim();
-      }).filter(Boolean),
       body: fields.body.value.trim()
     };
   }
@@ -95,7 +91,6 @@
       "permalink: " + yamlValue("/notes/" + data.slug + "/"),
       "image: " + yamlValue(data.image),
       "image_alt: " + yamlValue(data.imageAlt),
-      "tags: " + JSON.stringify(data.tags),
       "---",
       "",
       data.body,

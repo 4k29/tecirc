@@ -1,0 +1,3388 @@
+{
+  "/images/memory/apple-park-01.jpg": {
+    "digest": "e8fb1bca4f79cc5b89677b7b2b1ac748df1be9e5eadfe9187700dc93b75300f4",
+    "src": "/images/optimized/memory/apple-park-01.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 278801,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-01.jpg-640.webp",
+        "width": 640,
+        "bytes": 16094
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-01.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 57012
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-01.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 121188
+      }
+    ]
+  },
+  "/images/memory/apple-park-02.jpg": {
+    "digest": "a8fb2248cb30f09fc9aa742b3f181ef39b9029f61aa98b1e9818d133a97fec33",
+    "src": "/images/optimized/memory/apple-park-02.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 349351,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-02.jpg-640.webp",
+        "width": 640,
+        "bytes": 25970
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-02.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 77558
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-02.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 169350
+      }
+    ]
+  },
+  "/images/memory/apple-park-03.jpg": {
+    "digest": "50ba64bffffe9553c81cbafae2029709ebfa36f08c70be706e451569d257891b",
+    "src": "/images/optimized/memory/apple-park-03.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 262068,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-03.jpg-640.webp",
+        "width": 640,
+        "bytes": 29954
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-03.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 95414
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-03.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 108364
+      }
+    ]
+  },
+  "/images/memory/apple-park-04.jpg": {
+    "digest": "f19701a8dcb00b1a92d414f4b84a9f11514c55ebf3e34818acfe064c0b286426",
+    "src": "/images/optimized/memory/apple-park-04.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 303992,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-04.jpg-640.webp",
+        "width": 640,
+        "bytes": 23080
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-04.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 65430
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-04.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 139612
+      }
+    ]
+  },
+  "/images/memory/apple-park-05.jpg": {
+    "digest": "30a6bb3cf78bc26e5b6c85868591cad3945344b0ac2f2740ba00b7ade811d474",
+    "src": "/images/optimized/memory/apple-park-05.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 244777,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-05.jpg-640.webp",
+        "width": 640,
+        "bytes": 17842
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-05.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 44634
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-05.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 93794
+      }
+    ]
+  },
+  "/images/memory/apple-park-06.jpg": {
+    "digest": "4a216969b43b9962e0d077ccc76ed626ad9e9dbaab7bcb8f77d1968c1e5bdaae",
+    "src": "/images/optimized/memory/apple-park-06.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 319352,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-06.jpg-640.webp",
+        "width": 640,
+        "bytes": 45656
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-06.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 133686
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-06.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 152724
+      }
+    ]
+  },
+  "/images/memory/apple-park-07.jpg": {
+    "digest": "41a5757c059d8d4425d02d4c936ab73c52eadd6a7ea1286c61521cb325f41ed0",
+    "src": "/images/optimized/memory/apple-park-07.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 272486,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-07.jpg-640.webp",
+        "width": 640,
+        "bytes": 21224
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-07.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 56680
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-07.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 120920
+      }
+    ]
+  },
+  "/images/memory/apple-park-08.jpg": {
+    "digest": "82f262b0e4b0795edbc9a723c60989701b8fba1b9aef9f43988f7f1b3a70c2f8",
+    "src": "/images/optimized/memory/apple-park-08.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 224446,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-08.jpg-640.webp",
+        "width": 640,
+        "bytes": 14752
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-08.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 37868
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-08.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 86158
+      }
+    ]
+  },
+  "/images/memory/apple-park-09.jpg": {
+    "digest": "defe22ff46f418be34a445d6d9a344eefe83474de49fba0fabefdff0bcf5b720",
+    "src": "/images/optimized/memory/apple-park-09.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 489909,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-09.jpg-640.webp",
+        "width": 640,
+        "bytes": 91614
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-09.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 257964
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-09.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 292060
+      }
+    ]
+  },
+  "/images/memory/apple-park-10.jpg": {
+    "digest": "1397c900d2cce6bd120ed35e432e4c0629dbc35037e15b65e58b253f46d94053",
+    "src": "/images/optimized/memory/apple-park-10.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 166135,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-10.jpg-640.webp",
+        "width": 640,
+        "bytes": 14334
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-10.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 32394
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-10.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 61158
+      }
+    ]
+  },
+  "/images/memory/apple-park-11.jpg": {
+    "digest": "bd0161d7ed900208dd69dd48074006e49b8fe93fca6a7c8f754b974fad180260",
+    "src": "/images/optimized/memory/apple-park-11.jpg-2000.webp",
+    "width": 2000,
+    "height": 1501,
+    "original_bytes": 268973,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-11.jpg-640.webp",
+        "width": 640,
+        "bytes": 24804
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-11.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 69512
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-11.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 130476
+      }
+    ]
+  },
+  "/images/memory/apple-park-12.jpg": {
+    "digest": "2745c31ee83af7c10a487b7a870650212bd03a9e76a7adf515738a897462316f",
+    "src": "/images/optimized/memory/apple-park-12.jpg-2000.webp",
+    "width": 2000,
+    "height": 1500,
+    "original_bytes": 621919,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/apple-park-12.jpg-640.webp",
+        "width": 640,
+        "bytes": 63630
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-12.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 229572
+      },
+      {
+        "src": "/images/optimized/memory/apple-park-12.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 484022
+      }
+    ]
+  },
+  "/images/memory/cairns-01.jpg": {
+    "digest": "675542c30640faaf06a390b37c0b3b60c8b05fb86abe24ee969bfef1bfd43f72",
+    "src": "/images/optimized/memory/cairns-01.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 256682,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-01.jpg-640.webp",
+        "width": 640,
+        "bytes": 5320
+      },
+      {
+        "src": "/images/optimized/memory/cairns-01.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 32004
+      },
+      {
+        "src": "/images/optimized/memory/cairns-01.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 103704
+      }
+    ]
+  },
+  "/images/memory/cairns-02.jpg": {
+    "digest": "01e3a30b0adfb36f451317a4954c3c0974a80bb0835c91a12dca0fcc209f8770",
+    "src": "/images/optimized/memory/cairns-02.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 88976,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-02.jpg-640.webp",
+        "width": 640,
+        "bytes": 2144
+      },
+      {
+        "src": "/images/optimized/memory/cairns-02.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 7238
+      },
+      {
+        "src": "/images/optimized/memory/cairns-02.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 21902
+      }
+    ]
+  },
+  "/images/memory/cairns-03.jpg": {
+    "digest": "db82d5d32d5ceb69080f93df1d55dd33e1c96570cb0fe136372d85508f353772",
+    "src": "/images/optimized/memory/cairns-03.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 141401,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-03.jpg-640.webp",
+        "width": 640,
+        "bytes": 4330
+      },
+      {
+        "src": "/images/optimized/memory/cairns-03.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 13584
+      },
+      {
+        "src": "/images/optimized/memory/cairns-03.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 38300
+      }
+    ]
+  },
+  "/images/memory/cairns-04.jpg": {
+    "digest": "c7544ce6f66bb216a1ed03e47ff13affafaea8fbaf9bc350225b9476b56d34be",
+    "src": "/images/optimized/memory/cairns-04.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 438535,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-04.jpg-640.webp",
+        "width": 640,
+        "bytes": 89408
+      },
+      {
+        "src": "/images/optimized/memory/cairns-04.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 226158
+      },
+      {
+        "src": "/images/optimized/memory/cairns-04.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 249208
+      }
+    ]
+  },
+  "/images/memory/cairns-05.jpg": {
+    "digest": "a58724c22545d959c1c0e665ddb37d88e97f44cc8bd7a0de246a0cbe53f71b8f",
+    "src": "/images/optimized/memory/cairns-05.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 452466,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-05.jpg-640.webp",
+        "width": 640,
+        "bytes": 97386
+      },
+      {
+        "src": "/images/optimized/memory/cairns-05.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 236236
+      },
+      {
+        "src": "/images/optimized/memory/cairns-05.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 258136
+      }
+    ]
+  },
+  "/images/memory/cairns-06.jpg": {
+    "digest": "b2dc68e0ad8a52fc93f8eda4035040ae2b942437a8a62b89c70422205e76d37f",
+    "src": "/images/optimized/memory/cairns-06.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 571743,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-06.jpg-640.webp",
+        "width": 640,
+        "bytes": 59664
+      },
+      {
+        "src": "/images/optimized/memory/cairns-06.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 208810
+      },
+      {
+        "src": "/images/optimized/memory/cairns-06.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 420832
+      }
+    ]
+  },
+  "/images/memory/cairns-07.jpg": {
+    "digest": "c7544ce6f66bb216a1ed03e47ff13affafaea8fbaf9bc350225b9476b56d34be",
+    "src": "/images/optimized/memory/cairns-07.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 438535,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-07.jpg-640.webp",
+        "width": 640,
+        "bytes": 89408
+      },
+      {
+        "src": "/images/optimized/memory/cairns-07.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 226158
+      },
+      {
+        "src": "/images/optimized/memory/cairns-07.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 249208
+      }
+    ]
+  },
+  "/images/memory/cairns-08.jpg": {
+    "digest": "5b78e230d060faedc9ad3d2c1a663fa5ca853ffb3302193c329779cfbca7aaa1",
+    "src": "/images/optimized/memory/cairns-08.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 481512,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-08.jpg-640.webp",
+        "width": 640,
+        "bytes": 96596
+      },
+      {
+        "src": "/images/optimized/memory/cairns-08.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 285290
+      },
+      {
+        "src": "/images/optimized/memory/cairns-08.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 319894
+      }
+    ]
+  },
+  "/images/memory/cairns-09.jpg": {
+    "digest": "fa2d28382167a278f694137b252f506bbb8b3414c94680a1b8a1b2052b2759bf",
+    "src": "/images/optimized/memory/cairns-09.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 421591,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-09.jpg-640.webp",
+        "width": 640,
+        "bytes": 80104
+      },
+      {
+        "src": "/images/optimized/memory/cairns-09.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 221072
+      },
+      {
+        "src": "/images/optimized/memory/cairns-09.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 248692
+      }
+    ]
+  },
+  "/images/memory/cairns-10.jpg": {
+    "digest": "a5a7ad6c97beb4d7a643709d0643951a47d4c7ccc02dd5c462eece69ce832194",
+    "src": "/images/optimized/memory/cairns-10.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 411198,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-10.jpg-640.webp",
+        "width": 640,
+        "bytes": 84604
+      },
+      {
+        "src": "/images/optimized/memory/cairns-10.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 228564
+      },
+      {
+        "src": "/images/optimized/memory/cairns-10.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 251008
+      }
+    ]
+  },
+  "/images/memory/cairns-11.jpg": {
+    "digest": "242582bca92adf370063989063313f309f4fab265ec756fc83c6a18afb9121b8",
+    "src": "/images/optimized/memory/cairns-11.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 316391,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-11.jpg-640.webp",
+        "width": 640,
+        "bytes": 16244
+      },
+      {
+        "src": "/images/optimized/memory/cairns-11.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 58446
+      },
+      {
+        "src": "/images/optimized/memory/cairns-11.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 159772
+      }
+    ]
+  },
+  "/images/memory/cairns-12.jpg": {
+    "digest": "5b336f2be547ee52902c567d07e82c09991fc86c3c3341bfaee5d8934ad7cca1",
+    "src": "/images/optimized/memory/cairns-12.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 388045,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-12.jpg-640.webp",
+        "width": 640,
+        "bytes": 27602
+      },
+      {
+        "src": "/images/optimized/memory/cairns-12.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 93882
+      },
+      {
+        "src": "/images/optimized/memory/cairns-12.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 209996
+      }
+    ]
+  },
+  "/images/memory/cairns-13.jpg": {
+    "digest": "62f02817e3405819fd5555f9daa77906cb4a4a3e737b34b08c06c0750da9d4e0",
+    "src": "/images/optimized/memory/cairns-13.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 296648,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-13.jpg-640.webp",
+        "width": 640,
+        "bytes": 31210
+      },
+      {
+        "src": "/images/optimized/memory/cairns-13.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 109996
+      },
+      {
+        "src": "/images/optimized/memory/cairns-13.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 129510
+      }
+    ]
+  },
+  "/images/memory/cairns-14.jpg": {
+    "digest": "ef72bc8170417c9f11fa0b9c49cd41d04e4ac0ebca23ea099a50289639f11d02",
+    "src": "/images/optimized/memory/cairns-14.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 283847,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-14.jpg-640.webp",
+        "width": 640,
+        "bytes": 31824
+      },
+      {
+        "src": "/images/optimized/memory/cairns-14.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 98780
+      },
+      {
+        "src": "/images/optimized/memory/cairns-14.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 110676
+      }
+    ]
+  },
+  "/images/memory/cairns-15.jpg": {
+    "digest": "d3e1c3e32cdae3580d03a1eb69d801eb2dbd37307b6e9941794d1ef354fe3f96",
+    "src": "/images/optimized/memory/cairns-15.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 288410,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-15.jpg-640.webp",
+        "width": 640,
+        "bytes": 18024
+      },
+      {
+        "src": "/images/optimized/memory/cairns-15.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 51090
+      },
+      {
+        "src": "/images/optimized/memory/cairns-15.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 120408
+      }
+    ]
+  },
+  "/images/memory/cairns-16.jpg": {
+    "digest": "04333a3fb456a7ec2b191cedb908fb76e3b700289b2948abbd8abd51f4ee24ce",
+    "src": "/images/optimized/memory/cairns-16.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 316617,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-16.jpg-640.webp",
+        "width": 640,
+        "bytes": 18350
+      },
+      {
+        "src": "/images/optimized/memory/cairns-16.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 53018
+      },
+      {
+        "src": "/images/optimized/memory/cairns-16.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 144986
+      }
+    ]
+  },
+  "/images/memory/cairns-17.jpg": {
+    "digest": "59057e9f2300516c88366cfd395f18eb0beabae67cb49e64567121237d01432e",
+    "src": "/images/optimized/memory/cairns-17.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 416249,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-17.jpg-640.webp",
+        "width": 640,
+        "bytes": 38628
+      },
+      {
+        "src": "/images/optimized/memory/cairns-17.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 111188
+      },
+      {
+        "src": "/images/optimized/memory/cairns-17.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 228034
+      }
+    ]
+  },
+  "/images/memory/cairns-18.jpg": {
+    "digest": "a6a90c00d444c5c4f2b1165caf7b59e445f595a83b31876480146e1128e9834f",
+    "src": "/images/optimized/memory/cairns-18.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 309233,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-18.jpg-640.webp",
+        "width": 640,
+        "bytes": 30960
+      },
+      {
+        "src": "/images/optimized/memory/cairns-18.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 111792
+      },
+      {
+        "src": "/images/optimized/memory/cairns-18.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 133950
+      }
+    ]
+  },
+  "/images/memory/cairns-19.jpg": {
+    "digest": "f88c71ca75f3a9193ff145d83d544704a28e2ecd8b8e9dc463c230a9d10f8fd2",
+    "src": "/images/optimized/memory/cairns-19.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 286474,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-19.jpg-640.webp",
+        "width": 640,
+        "bytes": 23368
+      },
+      {
+        "src": "/images/optimized/memory/cairns-19.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 94260
+      },
+      {
+        "src": "/images/optimized/memory/cairns-19.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 115722
+      }
+    ]
+  },
+  "/images/memory/cairns-20.jpg": {
+    "digest": "5a57a29a9115590bdf50e6ff55f5cd7b80996e94847a68f9bb58ca9083a25036",
+    "src": "/images/optimized/memory/cairns-20.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 292217,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-20.jpg-640.webp",
+        "width": 640,
+        "bytes": 34250
+      },
+      {
+        "src": "/images/optimized/memory/cairns-20.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 106664
+      },
+      {
+        "src": "/images/optimized/memory/cairns-20.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 124710
+      }
+    ]
+  },
+  "/images/memory/cairns-21.jpg": {
+    "digest": "4bc5826ec5e2c1d6e2ca3ffd4e6512b57457d851fc4edf9aad542c2fad234b41",
+    "src": "/images/optimized/memory/cairns-21.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 258093,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-21.jpg-640.webp",
+        "width": 640,
+        "bytes": 21932
+      },
+      {
+        "src": "/images/optimized/memory/cairns-21.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 85682
+      },
+      {
+        "src": "/images/optimized/memory/cairns-21.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 101192
+      }
+    ]
+  },
+  "/images/memory/cairns-22.jpg": {
+    "digest": "7854678dee4d5b999bbb6ac7ab877dee72e3ebf86f368a7a53596319d862119f",
+    "src": "/images/optimized/memory/cairns-22.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 282316,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-22.jpg-640.webp",
+        "width": 640,
+        "bytes": 16730
+      },
+      {
+        "src": "/images/optimized/memory/cairns-22.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 57594
+      },
+      {
+        "src": "/images/optimized/memory/cairns-22.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 130588
+      }
+    ]
+  },
+  "/images/memory/cairns-23.jpg": {
+    "digest": "1ba7fa462aa5d64dd99501c7945ff1c30b835615fb92d0b0be9edf44894c78e5",
+    "src": "/images/optimized/memory/cairns-23.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 159243,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-23.jpg-640.webp",
+        "width": 640,
+        "bytes": 19954
+      },
+      {
+        "src": "/images/optimized/memory/cairns-23.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 59188
+      },
+      {
+        "src": "/images/optimized/memory/cairns-23.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 65726
+      }
+    ]
+  },
+  "/images/memory/cairns-24.jpg": {
+    "digest": "50d96bbc1265f2b5e8a90465c2dd9cf2ef835767396b99367cd7c152f7362dbd",
+    "src": "/images/optimized/memory/cairns-24.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 237685,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-24.jpg-640.webp",
+        "width": 640,
+        "bytes": 16818
+      },
+      {
+        "src": "/images/optimized/memory/cairns-24.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 48078
+      },
+      {
+        "src": "/images/optimized/memory/cairns-24.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 98452
+      }
+    ]
+  },
+  "/images/memory/cairns-25.jpg": {
+    "digest": "624a6c972c91ff04828e8a2f415c239c2100e964ff24ae50ec7ce0d1a6595e04",
+    "src": "/images/optimized/memory/cairns-25.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 464393,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-25.jpg-640.webp",
+        "width": 640,
+        "bytes": 66288
+      },
+      {
+        "src": "/images/optimized/memory/cairns-25.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 318332
+      },
+      {
+        "src": "/images/optimized/memory/cairns-25.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 362962
+      }
+    ]
+  },
+  "/images/memory/cairns-26.jpg": {
+    "digest": "ea29755c8f7617c27571e6449d3aca2da8b9dcb457dc59413d5007b44fb73da3",
+    "src": "/images/optimized/memory/cairns-26.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 141985,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-26.jpg-640.webp",
+        "width": 640,
+        "bytes": 21818
+      },
+      {
+        "src": "/images/optimized/memory/cairns-26.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 53100
+      },
+      {
+        "src": "/images/optimized/memory/cairns-26.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 58470
+      }
+    ]
+  },
+  "/images/memory/cairns-27.jpg": {
+    "digest": "ab7c589fb75aaf873200d27988fb1a82630ae357c05afa1ad097015ed3390d2b",
+    "src": "/images/optimized/memory/cairns-27.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 191805,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/cairns-27.jpg-640.webp",
+        "width": 640,
+        "bytes": 10854
+      },
+      {
+        "src": "/images/optimized/memory/cairns-27.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 29572
+      },
+      {
+        "src": "/images/optimized/memory/cairns-27.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 59928
+      }
+    ]
+  },
+  "/images/memory/kyoto-01.jpg": {
+    "digest": "70213cfda43a64bd168fddee20a4a57136baddb200325cdb363ea7a1cb1620d4",
+    "src": "/images/optimized/memory/kyoto-01.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 262668,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-01.jpg-640.webp",
+        "width": 640,
+        "bytes": 22996
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-01.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 60378
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-01.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 117248
+      }
+    ]
+  },
+  "/images/memory/kyoto-02.jpg": {
+    "digest": "3f48a172b62d11b862cf4c6ababa1899c9670b89e920f42a80f6d1a1ff46a7f2",
+    "src": "/images/optimized/memory/kyoto-02.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 123466,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-02.jpg-640.webp",
+        "width": 640,
+        "bytes": 15580
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-02.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 43034
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-02.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 49056
+      }
+    ]
+  },
+  "/images/memory/kyoto-03.jpg": {
+    "digest": "8bd07e16ffca2c205f4acc3ad4a7f7d94b3e68a494f73d437c92feb22a38dbd8",
+    "src": "/images/optimized/memory/kyoto-03.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 450344,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-03.jpg-640.webp",
+        "width": 640,
+        "bytes": 54010
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-03.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 147098
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-03.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 272186
+      }
+    ]
+  },
+  "/images/memory/kyoto-04.jpg": {
+    "digest": "396dbd9c4043a47cec0e59b8cc1b6069dc2d09694c7b4a92499da331409b9985",
+    "src": "/images/optimized/memory/kyoto-04.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 354346,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-04.jpg-640.webp",
+        "width": 640,
+        "bytes": 31746
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-04.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 89968
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-04.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 176422
+      }
+    ]
+  },
+  "/images/memory/kyoto-05.jpg": {
+    "digest": "d0178ded81a2e6026720afc3fe2d072fe794facfd157927fe841f3902c87edb8",
+    "src": "/images/optimized/memory/kyoto-05.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 646068,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-05.jpg-640.webp",
+        "width": 640,
+        "bytes": 68018
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-05.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 225704
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-05.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 479278
+      }
+    ]
+  },
+  "/images/memory/kyoto-06.jpg": {
+    "digest": "d8687323ee4c4a8d17dd4ebd0707bfb92aa39f54b078defc0d5dbae228b83920",
+    "src": "/images/optimized/memory/kyoto-06.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 362067,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-06.jpg-640.webp",
+        "width": 640,
+        "bytes": 65874
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-06.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 169656
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-06.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 190506
+      }
+    ]
+  },
+  "/images/memory/kyoto-07.jpg": {
+    "digest": "f13be7e941223608c8cea1d2b97a203c8429911f4010cfdf7aa56f1010848b6b",
+    "src": "/images/optimized/memory/kyoto-07.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 355031,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-07.jpg-640.webp",
+        "width": 640,
+        "bytes": 40114
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-07.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 147820
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-07.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 175638
+      }
+    ]
+  },
+  "/images/memory/kyoto-08.jpg": {
+    "digest": "18ab66315219f52dd885d00c48dbb19c32e4586126d7f3eaa7eb87fa1e0c634a",
+    "src": "/images/optimized/memory/kyoto-08.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 294395,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-08.jpg-640.webp",
+        "width": 640,
+        "bytes": 49900
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-08.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 119344
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-08.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 130634
+      }
+    ]
+  },
+  "/images/memory/kyoto-09.jpg": {
+    "digest": "61d9bd0a710bf31f68cefcfcd24c2982dbc5c37bcd9ad31f65e25537d22e9fc4",
+    "src": "/images/optimized/memory/kyoto-09.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 494811,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-09.jpg-640.webp",
+        "width": 640,
+        "bytes": 50012
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-09.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 146034
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-09.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 308578
+      }
+    ]
+  },
+  "/images/memory/kyoto-10.jpg": {
+    "digest": "bad41606fe7975f3051d2b31cab0c91d479f75a7ba20671ca7ea63f189b9441c",
+    "src": "/images/optimized/memory/kyoto-10.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 540146,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-10.jpg-640.webp",
+        "width": 640,
+        "bytes": 121530
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-10.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 314180
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-10.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 342784
+      }
+    ]
+  },
+  "/images/memory/kyoto-11.jpg": {
+    "digest": "3ba4fd60b793b68005e842ded09cca30cf20f9d50b57763e109eb163038bd18d",
+    "src": "/images/optimized/memory/kyoto-11.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 160376,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-11.jpg-640.webp",
+        "width": 640,
+        "bytes": 20280
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-11.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 49372
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-11.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 56038
+      }
+    ]
+  },
+  "/images/memory/kyoto-12.jpg": {
+    "digest": "b926f43dad04bb943e7f2f37f0537344599872f32d6f077875d8783e981ca635",
+    "src": "/images/optimized/memory/kyoto-12.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 586541,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/kyoto-12.jpg-640.webp",
+        "width": 640,
+        "bytes": 139792
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-12.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 364002
+      },
+      {
+        "src": "/images/optimized/memory/kyoto-12.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 398798
+      }
+    ]
+  },
+  "/images/memory/nagano-01.jpg": {
+    "digest": "8bd2c4a651ec10219042ce2a90449d6bca9011a94c9a37127b50d75a1e5adc67",
+    "src": "/images/optimized/memory/nagano-01.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 299275,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-01.jpg-640.webp",
+        "width": 640,
+        "bytes": 32762
+      },
+      {
+        "src": "/images/optimized/memory/nagano-01.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 80486
+      },
+      {
+        "src": "/images/optimized/memory/nagano-01.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 154670
+      }
+    ]
+  },
+  "/images/memory/nagano-02.jpg": {
+    "digest": "2d45bbd8dbc93fa20525236e7b1e06f0869ce3bd320cd7e513108fce30ecb97e",
+    "src": "/images/optimized/memory/nagano-02.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 146521,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-02.jpg-640.webp",
+        "width": 640,
+        "bytes": 14730
+      },
+      {
+        "src": "/images/optimized/memory/nagano-02.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 42004
+      },
+      {
+        "src": "/images/optimized/memory/nagano-02.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 78560
+      }
+    ]
+  },
+  "/images/memory/nagano-03.jpg": {
+    "digest": "e3199836533362468cc02baf325a147eefeaa8a54d277b00188027117bb3bbcf",
+    "src": "/images/optimized/memory/nagano-03.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 269726,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-03.jpg-640.webp",
+        "width": 640,
+        "bytes": 49134
+      },
+      {
+        "src": "/images/optimized/memory/nagano-03.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 124212
+      },
+      {
+        "src": "/images/optimized/memory/nagano-03.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 136076
+      }
+    ]
+  },
+  "/images/memory/nagano-04.jpg": {
+    "digest": "43cf16f4a7f4bf6baef4c7f93c888dae10b0ebae06f82316f29faaade2bbe4cd",
+    "src": "/images/optimized/memory/nagano-04.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 389608,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-04.jpg-640.webp",
+        "width": 640,
+        "bytes": 85856
+      },
+      {
+        "src": "/images/optimized/memory/nagano-04.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 223146
+      },
+      {
+        "src": "/images/optimized/memory/nagano-04.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 244188
+      }
+    ]
+  },
+  "/images/memory/nagano-05.jpg": {
+    "digest": "0c0234ea7d32cb330656befc987216eda7cf11e7ddcaa07bc737c87d55471e2d",
+    "src": "/images/optimized/memory/nagano-05.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 496305,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-05.jpg-640.webp",
+        "width": 640,
+        "bytes": 70466
+      },
+      {
+        "src": "/images/optimized/memory/nagano-05.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 188762
+      },
+      {
+        "src": "/images/optimized/memory/nagano-05.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 324898
+      }
+    ]
+  },
+  "/images/memory/nagano-06.jpg": {
+    "digest": "35c109aceee44438c4c47a5a2f79583ebf6225c73fa731abc8ae7f44e3239112",
+    "src": "/images/optimized/memory/nagano-06.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 443479,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-06.jpg-640.webp",
+        "width": 640,
+        "bytes": 57884
+      },
+      {
+        "src": "/images/optimized/memory/nagano-06.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 162898
+      },
+      {
+        "src": "/images/optimized/memory/nagano-06.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 292442
+      }
+    ]
+  },
+  "/images/memory/nagano-07.jpg": {
+    "digest": "904f447e565576f28f72e9723ddb7d227053428dca3f5c0dfc5a220233695691",
+    "src": "/images/optimized/memory/nagano-07.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 511688,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-07.jpg-640.webp",
+        "width": 640,
+        "bytes": 130834
+      },
+      {
+        "src": "/images/optimized/memory/nagano-07.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 316778
+      },
+      {
+        "src": "/images/optimized/memory/nagano-07.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 337644
+      }
+    ]
+  },
+  "/images/memory/nagano-08.jpg": {
+    "digest": "e0845ed5aaa9b120efbb26a0acbc735bea6c985fb287dda8604d05ab7d93a52d",
+    "src": "/images/optimized/memory/nagano-08.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 539974,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-08.jpg-640.webp",
+        "width": 640,
+        "bytes": 133224
+      },
+      {
+        "src": "/images/optimized/memory/nagano-08.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 345768
+      },
+      {
+        "src": "/images/optimized/memory/nagano-08.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 368716
+      }
+    ]
+  },
+  "/images/memory/nagano-09.jpg": {
+    "digest": "de73343b5d772568680a189f3aed3f843198aef62d60dba791216eec6f6fee7a",
+    "src": "/images/optimized/memory/nagano-09.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 275295,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-09.jpg-640.webp",
+        "width": 640,
+        "bytes": 43246
+      },
+      {
+        "src": "/images/optimized/memory/nagano-09.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 127824
+      },
+      {
+        "src": "/images/optimized/memory/nagano-09.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 141346
+      }
+    ]
+  },
+  "/images/memory/nagano-10.jpg": {
+    "digest": "6156ef73b3fb4ead7598190865ba9870c92f4bccbe25768c2bce40710424cf24",
+    "src": "/images/optimized/memory/nagano-10.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 297012,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-10.jpg-640.webp",
+        "width": 640,
+        "bytes": 60142
+      },
+      {
+        "src": "/images/optimized/memory/nagano-10.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 149968
+      },
+      {
+        "src": "/images/optimized/memory/nagano-10.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 161384
+      }
+    ]
+  },
+  "/images/memory/nagano-11.jpg": {
+    "digest": "f83097d563af66121783c8798f41b826fbb1b55c8744e9d87c9831c889dfb583",
+    "src": "/images/optimized/memory/nagano-11.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 250701,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-11.jpg-640.webp",
+        "width": 640,
+        "bytes": 39268
+      },
+      {
+        "src": "/images/optimized/memory/nagano-11.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 105102
+      },
+      {
+        "src": "/images/optimized/memory/nagano-11.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 114814
+      }
+    ]
+  },
+  "/images/memory/nagano-12.jpg": {
+    "digest": "a3035686a2c4718f73bcb5cd4b7d1b65f3b895c305af82f38dcab7127fd3548c",
+    "src": "/images/optimized/memory/nagano-12.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 79715,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-12.jpg-640.webp",
+        "width": 640,
+        "bytes": 8814
+      },
+      {
+        "src": "/images/optimized/memory/nagano-12.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 23938
+      },
+      {
+        "src": "/images/optimized/memory/nagano-12.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 27298
+      }
+    ]
+  },
+  "/images/memory/nagano-13.jpg": {
+    "digest": "f5de91632d0e5a04c8e01287eedf1bdf6e8f04db735b54ac1d787bedcec66891",
+    "src": "/images/optimized/memory/nagano-13.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 179677,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-13.jpg-640.webp",
+        "width": 640,
+        "bytes": 24970
+      },
+      {
+        "src": "/images/optimized/memory/nagano-13.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 66206
+      },
+      {
+        "src": "/images/optimized/memory/nagano-13.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 73322
+      }
+    ]
+  },
+  "/images/memory/nagano-14.jpg": {
+    "digest": "ed0f165262492fd9f7e3655459ec420ec5d4792ecd959d513fef65cc027d104d",
+    "src": "/images/optimized/memory/nagano-14.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 161367,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-14.jpg-640.webp",
+        "width": 640,
+        "bytes": 12624
+      },
+      {
+        "src": "/images/optimized/memory/nagano-14.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 29814
+      },
+      {
+        "src": "/images/optimized/memory/nagano-14.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 56312
+      }
+    ]
+  },
+  "/images/memory/nagano-15.jpg": {
+    "digest": "1030e5c1197d5edd02a531d5b9c8322b61c0c775c6a4659ad8bd249edb4c77b4",
+    "src": "/images/optimized/memory/nagano-15.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 206539,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/nagano-15.jpg-640.webp",
+        "width": 640,
+        "bytes": 33952
+      },
+      {
+        "src": "/images/optimized/memory/nagano-15.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 87698
+      },
+      {
+        "src": "/images/optimized/memory/nagano-15.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 96686
+      }
+    ]
+  },
+  "/images/memory/new-york-01.jpg": {
+    "digest": "588ffbdb6665445a1f543bdfa0fcd64b59d815547543b904f864c7e5407cdf59",
+    "src": "/images/optimized/memory/new-york-01.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 186717,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-01.jpg-640.webp",
+        "width": 640,
+        "bytes": 34056
+      },
+      {
+        "src": "/images/optimized/memory/new-york-01.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 94820
+      }
+    ]
+  },
+  "/images/memory/new-york-02.jpg": {
+    "digest": "f1d56906e004dc0b2d8e531baaf2fbad8f879f7ce0813e89689ebb138edbb0bd",
+    "src": "/images/optimized/memory/new-york-02.jpg-2000.webp",
+    "width": 2000,
+    "height": 1125,
+    "original_bytes": 350840,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-02.jpg-640.webp",
+        "width": 640,
+        "bytes": 19038
+      },
+      {
+        "src": "/images/optimized/memory/new-york-02.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 82542
+      },
+      {
+        "src": "/images/optimized/memory/new-york-02.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 256164
+      }
+    ]
+  },
+  "/images/memory/new-york-03.jpg": {
+    "digest": "f5ac86f8e02b49b13637a84b29b2c375e25249f0134d09ece89d0688dd677287",
+    "src": "/images/optimized/memory/new-york-03.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 87900,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-03.jpg-640.webp",
+        "width": 640,
+        "bytes": 17432
+      },
+      {
+        "src": "/images/optimized/memory/new-york-03.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 40758
+      }
+    ]
+  },
+  "/images/memory/new-york-04.jpg": {
+    "digest": "a461dc3270e668254f7a8b793679f584968a9ec464d0c5c3674f2aba6d77209c",
+    "src": "/images/optimized/memory/new-york-04.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 151758,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-04.jpg-640.webp",
+        "width": 640,
+        "bytes": 20332
+      },
+      {
+        "src": "/images/optimized/memory/new-york-04.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 62538
+      }
+    ]
+  },
+  "/images/memory/new-york-05.jpg": {
+    "digest": "c63eb4e3976e9a98d14f94ca39c121be3bb31a2215374a924b2aae226d71289a",
+    "src": "/images/optimized/memory/new-york-05.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 344635,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-05.jpg-640.webp",
+        "width": 640,
+        "bytes": 85616
+      },
+      {
+        "src": "/images/optimized/memory/new-york-05.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 221876
+      }
+    ]
+  },
+  "/images/memory/new-york-06.jpg": {
+    "digest": "af70a654e8bb1e641b0255485a84e0d8b00cd535739163ab933edc1f8fe05852",
+    "src": "/images/optimized/memory/new-york-06.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 361667,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-06.jpg-640.webp",
+        "width": 640,
+        "bytes": 29664
+      },
+      {
+        "src": "/images/optimized/memory/new-york-06.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 112084
+      },
+      {
+        "src": "/images/optimized/memory/new-york-06.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 252674
+      }
+    ]
+  },
+  "/images/memory/new-york-07.jpg": {
+    "digest": "e656378afe9a88be87eb6c6be490a0d0267fd72f06d3c326e1b5e782386ee616",
+    "src": "/images/optimized/memory/new-york-07.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 181324,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-07.jpg-640.webp",
+        "width": 640,
+        "bytes": 11188
+      },
+      {
+        "src": "/images/optimized/memory/new-york-07.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 39228
+      },
+      {
+        "src": "/images/optimized/memory/new-york-07.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 91170
+      }
+    ]
+  },
+  "/images/memory/new-york-08.jpg": {
+    "digest": "56193fd8b89be4ebafd4443c91b3c1a013ba8624ded23a8f2e336d5a326cbb13",
+    "src": "/images/optimized/memory/new-york-08.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 226222,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-08.jpg-640.webp",
+        "width": 640,
+        "bytes": 37768
+      },
+      {
+        "src": "/images/optimized/memory/new-york-08.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 126030
+      },
+      {
+        "src": "/images/optimized/memory/new-york-08.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 140768
+      }
+    ]
+  },
+  "/images/memory/new-york-09.jpg": {
+    "digest": "68f11b4d0e2032692c0c2abde27b402d5b07279e3d48cb83b9daac505103d395",
+    "src": "/images/optimized/memory/new-york-09.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 435380,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-09.jpg-640.webp",
+        "width": 640,
+        "bytes": 40398
+      },
+      {
+        "src": "/images/optimized/memory/new-york-09.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 113768
+      },
+      {
+        "src": "/images/optimized/memory/new-york-09.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 233584
+      }
+    ]
+  },
+  "/images/memory/new-york-10.jpg": {
+    "digest": "f23ef338f5a15eafd4bc409428c93e8e87bd0f3e20c61862e09ae32f4f38ecea",
+    "src": "/images/optimized/memory/new-york-10.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 333154,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-10.jpg-640.webp",
+        "width": 640,
+        "bytes": 29960
+      },
+      {
+        "src": "/images/optimized/memory/new-york-10.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 75062
+      },
+      {
+        "src": "/images/optimized/memory/new-york-10.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 151710
+      }
+    ]
+  },
+  "/images/memory/new-york-11.jpg": {
+    "digest": "8ee53c9ca3e8620487e0e29952a5aaf5fd875cc49d61bed8ac770553cabda002",
+    "src": "/images/optimized/memory/new-york-11.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 468323,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-11.jpg-640.webp",
+        "width": 640,
+        "bytes": 58296
+      },
+      {
+        "src": "/images/optimized/memory/new-york-11.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 162726
+      },
+      {
+        "src": "/images/optimized/memory/new-york-11.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 312958
+      }
+    ]
+  },
+  "/images/memory/new-york-12.jpg": {
+    "digest": "df0fcb7e6ef9bd625aa3b5c330a95f399e3a2c4741c4da0555e67aff74ba1bd0",
+    "src": "/images/optimized/memory/new-york-12.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 446412,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-12.jpg-640.webp",
+        "width": 640,
+        "bytes": 49250
+      },
+      {
+        "src": "/images/optimized/memory/new-york-12.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 129010
+      },
+      {
+        "src": "/images/optimized/memory/new-york-12.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 244686
+      }
+    ]
+  },
+  "/images/memory/new-york-13.jpg": {
+    "digest": "41024c774b4947056c2a32e3a63b13d40351357c547b39c240761a717f1dad2a",
+    "src": "/images/optimized/memory/new-york-13.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 435348,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-13.jpg-640.webp",
+        "width": 640,
+        "bytes": 46298
+      },
+      {
+        "src": "/images/optimized/memory/new-york-13.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 126914
+      },
+      {
+        "src": "/images/optimized/memory/new-york-13.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 242572
+      }
+    ]
+  },
+  "/images/memory/new-york-14.jpg": {
+    "digest": "eb85199730dc2d2e6d45c70a08a8de803923f4267fb0ef05309200e7c596c2e0",
+    "src": "/images/optimized/memory/new-york-14.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 311218,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-14.jpg-640.webp",
+        "width": 640,
+        "bytes": 31728
+      },
+      {
+        "src": "/images/optimized/memory/new-york-14.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 78522
+      },
+      {
+        "src": "/images/optimized/memory/new-york-14.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 147788
+      }
+    ]
+  },
+  "/images/memory/new-york-15.jpg": {
+    "digest": "bfbb58874f19cd3109e4e16abf261b4e8a74280333d8b3696062ea2d5326cb14",
+    "src": "/images/optimized/memory/new-york-15.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 382628,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-15.jpg-640.webp",
+        "width": 640,
+        "bytes": 107272
+      },
+      {
+        "src": "/images/optimized/memory/new-york-15.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 244170
+      }
+    ]
+  },
+  "/images/memory/new-york-2-01.jpg": {
+    "digest": "255889c64aa54724788e3e727864e15bd793e486f8dd05b46d3288c8cd795cf9",
+    "src": "/images/optimized/memory/new-york-2-01.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 350253,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-01.jpg-640.webp",
+        "width": 640,
+        "bytes": 30588
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-01.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 77360
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-01.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 155498
+      }
+    ]
+  },
+  "/images/memory/new-york-2-02.jpg": {
+    "digest": "ccd1501477dd050b4c6221ef2d68d8ccb6f2c9ce57bed21d16a03f08b832d83e",
+    "src": "/images/optimized/memory/new-york-2-02.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 246989,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-02.jpg-640.webp",
+        "width": 640,
+        "bytes": 16216
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-02.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 51534
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-02.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 110646
+      }
+    ]
+  },
+  "/images/memory/new-york-2-03.jpg": {
+    "digest": "d107f76725fe53f638f755148823fd63749aef13cb26ccd43d5d63b4ea910b0e",
+    "src": "/images/optimized/memory/new-york-2-03.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 497951,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-03.jpg-640.webp",
+        "width": 640,
+        "bytes": 45008
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-03.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 149248
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-03.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 325710
+      }
+    ]
+  },
+  "/images/memory/new-york-2-04.jpg": {
+    "digest": "2a13f3b1a2272a37c4c6fef5ea4ce393f90aaff58fdde2cef22a747de4d6f6c9",
+    "src": "/images/optimized/memory/new-york-2-04.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 662741,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-04.jpg-640.webp",
+        "width": 640,
+        "bytes": 129572
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-04.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 462262
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-04.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 519178
+      }
+    ]
+  },
+  "/images/memory/new-york-2-05.jpg": {
+    "digest": "da9c891514a77d1c8d07851afd1f9619154320091353cb6824c3c128a0bb08a3",
+    "src": "/images/optimized/memory/new-york-2-05.jpg-2000.webp",
+    "width": 2000,
+    "height": 1969,
+    "original_bytes": 168957,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-05.jpg-640.webp",
+        "width": 640,
+        "bytes": 13742
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-05.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 33470
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-05.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 64422
+      }
+    ]
+  },
+  "/images/memory/new-york-2-06.jpg": {
+    "digest": "9797f04a68d15e666ddae2c00d45fc469ab9260b1e98fa62a67aa597b2776538",
+    "src": "/images/optimized/memory/new-york-2-06.jpg-2000.webp",
+    "width": 2000,
+    "height": 1125,
+    "original_bytes": 310884,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-06.jpg-640.webp",
+        "width": 640,
+        "bytes": 39252
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-06.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 95122
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-06.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 174964
+      }
+    ]
+  },
+  "/images/memory/new-york-2-07.jpg": {
+    "digest": "4e941be672fcbe7c7663f5a09c51ec119374726073256699cbecbf8d8961490b",
+    "src": "/images/optimized/memory/new-york-2-07.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 152202,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-07.jpg-640.webp",
+        "width": 640,
+        "bytes": 25918
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-07.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 65344
+      }
+    ]
+  },
+  "/images/memory/new-york-2-08.jpg": {
+    "digest": "250144ae925425584a1ec11ce05b5966da592564ca5da1920fa031613aa06d76",
+    "src": "/images/optimized/memory/new-york-2-08.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 123311,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-08.jpg-640.webp",
+        "width": 640,
+        "bytes": 21458
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-08.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 55094
+      }
+    ]
+  },
+  "/images/memory/new-york-2-09.jpg": {
+    "digest": "3f5276a0b6b4b609cd7432663ef4050221038a160cae26c9defcaa3f71e5fda3",
+    "src": "/images/optimized/memory/new-york-2-09.jpg-2000.webp",
+    "width": 2000,
+    "height": 1125,
+    "original_bytes": 358323,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-09.jpg-640.webp",
+        "width": 640,
+        "bytes": 39952
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-09.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 112914
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-09.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 229870
+      }
+    ]
+  },
+  "/images/memory/new-york-2-10.jpg": {
+    "digest": "65e5a14ea9066734af691dfbb274b7f8549c30ae778919eb6b82a55807c37854",
+    "src": "/images/optimized/memory/new-york-2-10.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 336237,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-10.jpg-640.webp",
+        "width": 640,
+        "bytes": 79490
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-10.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 195836
+      }
+    ]
+  },
+  "/images/memory/new-york-2-11.jpg": {
+    "digest": "c949f48f8b1af11dec2081e5e228eaa3d88c2fffd3ad86bcbc6179a736c522cb",
+    "src": "/images/optimized/memory/new-york-2-11.jpg-2000.webp",
+    "width": 2000,
+    "height": 1500,
+    "original_bytes": 389204,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-11.jpg-640.webp",
+        "width": 640,
+        "bytes": 39310
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-11.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 104158
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-11.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 220404
+      }
+    ]
+  },
+  "/images/memory/new-york-2-12.jpg": {
+    "digest": "c588421a907b63c748b07d41960383f980e7ef533967694acacd6ebd27e6f6e5",
+    "src": "/images/optimized/memory/new-york-2-12.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 331501,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-12.jpg-640.webp",
+        "width": 640,
+        "bytes": 12892
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-12.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 46792
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-12.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 116892
+      }
+    ]
+  },
+  "/images/memory/new-york-2-13.jpg": {
+    "digest": "75697ecb794d0517f456c45d72d358d96edb65947a958fe502f08cb339cf9bfd",
+    "src": "/images/optimized/memory/new-york-2-13.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 203554,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-13.jpg-640.webp",
+        "width": 640,
+        "bytes": 13358
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-13.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 43476
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-13.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 91476
+      }
+    ]
+  },
+  "/images/memory/new-york-2-14.jpg": {
+    "digest": "6c6a735090ba841e993c513e73e67eea3bf755588a9e449c6a7f05d9ea8cbca4",
+    "src": "/images/optimized/memory/new-york-2-14.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 660716,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-14.jpg-640.webp",
+        "width": 640,
+        "bytes": 74050
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-14.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 239900
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-14.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 475886
+      }
+    ]
+  },
+  "/images/memory/new-york-2-15.jpg": {
+    "digest": "a3942305d8715d18d8de12610105ac95ef7227e781530231e70158c94a13149d",
+    "src": "/images/optimized/memory/new-york-2-15.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 492003,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-15.jpg-640.webp",
+        "width": 640,
+        "bytes": 108490
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-15.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 273176
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-15.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 299124
+      }
+    ]
+  },
+  "/images/memory/new-york-2-16.jpg": {
+    "digest": "5335659a1aeca9fc03e0c1aab6457d31fea5834438a2fd6972753bef9bea50da",
+    "src": "/images/optimized/memory/new-york-2-16.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 625617,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-16.jpg-640.webp",
+        "width": 640,
+        "bytes": 62828
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-16.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 210208
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-16.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 430672
+      }
+    ]
+  },
+  "/images/memory/new-york-2-17.jpg": {
+    "digest": "311a53c33217e74dae0351bb73555cccaf496455632ee9904acc377d3d2c7ff5",
+    "src": "/images/optimized/memory/new-york-2-17.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 581973,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-17.jpg-640.webp",
+        "width": 640,
+        "bytes": 53040
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-17.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 186640
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-17.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 431670
+      }
+    ]
+  },
+  "/images/memory/new-york-2-18.jpg": {
+    "digest": "802047723f6e045fadc3ba936c522f0afe238e7eb07bb82cc49e090bdcd6ea40",
+    "src": "/images/optimized/memory/new-york-2-18.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 331744,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-18.jpg-640.webp",
+        "width": 640,
+        "bytes": 96868
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-18.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 210956
+      }
+    ]
+  },
+  "/images/memory/new-york-2-19.jpg": {
+    "digest": "84dbff3825bc115b5fc141dbde70ed5a3cd56f56ee30435bcc9a53f382179b62",
+    "src": "/images/optimized/memory/new-york-2-19.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 159915,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-19.jpg-640.webp",
+        "width": 640,
+        "bytes": 32438
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-19.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 79024
+      }
+    ]
+  },
+  "/images/memory/new-york-2-20.jpg": {
+    "digest": "6707b6336ddb0fadee55170e2245756cf8b92a52530dc5d371e69703fbac6f16",
+    "src": "/images/optimized/memory/new-york-2-20.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 98370,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-20.jpg-640.webp",
+        "width": 640,
+        "bytes": 21118
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-20.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 50858
+      }
+    ]
+  },
+  "/images/memory/new-york-2-21.jpg": {
+    "digest": "e8ae9c0f330f2eceeac5ba1b17c85263f01a912630e3f9416308b41a51bcad01",
+    "src": "/images/optimized/memory/new-york-2-21.jpg-2000.webp",
+    "width": 2000,
+    "height": 1500,
+    "original_bytes": 416959,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/new-york-2-21.jpg-640.webp",
+        "width": 640,
+        "bytes": 48140
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-21.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 127194
+      },
+      {
+        "src": "/images/optimized/memory/new-york-2-21.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 241444
+      }
+    ]
+  },
+  "/images/memory/san-francisco-01.jpg": {
+    "digest": "dc4a8cb312da9de13fb38ae3b1c915ec5935b113cbb9c803688bb3588557690f",
+    "src": "/images/optimized/memory/san-francisco-01.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 378899,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-01.jpg-640.webp",
+        "width": 640,
+        "bytes": 23134
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-01.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 85680
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-01.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 218200
+      }
+    ]
+  },
+  "/images/memory/san-francisco-02.jpg": {
+    "digest": "a30657593418acc6a901ba480ba015465a206b352f343d9412f19aaf19a7851b",
+    "src": "/images/optimized/memory/san-francisco-02.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 226778,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-02.jpg-640.webp",
+        "width": 640,
+        "bytes": 10074
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-02.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 30530
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-02.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 85224
+      }
+    ]
+  },
+  "/images/memory/san-francisco-03.jpg": {
+    "digest": "27e7aa608ca384e89846632482203eedacaf3b0a832456e29be892bb6e8b8f41",
+    "src": "/images/optimized/memory/san-francisco-03.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 124363,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-03.jpg-640.webp",
+        "width": 640,
+        "bytes": 12328
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-03.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 41214
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-03.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 48132
+      }
+    ]
+  },
+  "/images/memory/san-francisco-04.jpg": {
+    "digest": "31f1210930f6e0bbd1370a9ba7b6c50afdd47376073d1da7040016dd564ab048",
+    "src": "/images/optimized/memory/san-francisco-04.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 309798,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-04.jpg-640.webp",
+        "width": 640,
+        "bytes": 34116
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-04.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 96450
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-04.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 181682
+      }
+    ]
+  },
+  "/images/memory/san-francisco-05.jpg": {
+    "digest": "588392f057a8854586565d7109582827f9f138b13101ef615005fb68c20de616",
+    "src": "/images/optimized/memory/san-francisco-05.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 614887,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-05.jpg-640.webp",
+        "width": 640,
+        "bytes": 72758
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-05.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 218804
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-05.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 418468
+      }
+    ]
+  },
+  "/images/memory/san-francisco-06.jpg": {
+    "digest": "1e7e92d7f0815eddbee3e3f94ae75e8b5bb7c9ba4d4f71d17aadfca09b2f0b82",
+    "src": "/images/optimized/memory/san-francisco-06.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 305580,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-06.jpg-640.webp",
+        "width": 640,
+        "bytes": 28862
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-06.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 79212
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-06.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 157026
+      }
+    ]
+  },
+  "/images/memory/san-francisco-07.jpg": {
+    "digest": "3026cbd95996787f59b0959d58d5128fbbdc4d63a356b159d492bea1f11c6cac",
+    "src": "/images/optimized/memory/san-francisco-07.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 350660,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-07.jpg-640.webp",
+        "width": 640,
+        "bytes": 33410
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-07.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 99600
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-07.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 193202
+      }
+    ]
+  },
+  "/images/memory/san-francisco-08.jpg": {
+    "digest": "7cd223b322f6aa5e9c64392b08090f3e03be43f5f312e5837ab1be6a50f2ac31",
+    "src": "/images/optimized/memory/san-francisco-08.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 529171,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-08.jpg-640.webp",
+        "width": 640,
+        "bytes": 55234
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-08.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 166290
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-08.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 320532
+      }
+    ]
+  },
+  "/images/memory/san-francisco-09.jpg": {
+    "digest": "db7b3259533caaa51e2d2f8a60d117c0a99221f2cb778cdf1ab12f76aafdb51d",
+    "src": "/images/optimized/memory/san-francisco-09.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 330192,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-09.jpg-640.webp",
+        "width": 640,
+        "bytes": 30772
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-09.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 98650
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-09.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 190656
+      }
+    ]
+  },
+  "/images/memory/san-francisco-10.jpg": {
+    "digest": "dae69330ab0958597faabf5c7900af6e620cb7d2a55c4b5706ae30123b22e623",
+    "src": "/images/optimized/memory/san-francisco-10.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 404439,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-10.jpg-640.webp",
+        "width": 640,
+        "bytes": 43580
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-10.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 126328
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-10.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 244226
+      }
+    ]
+  },
+  "/images/memory/san-francisco-11.jpg": {
+    "digest": "028028875a1ccbff72ac8fd61a02efd9ae7b469b4f35fd14b233064635c47015",
+    "src": "/images/optimized/memory/san-francisco-11.jpg-2000.webp",
+    "width": 2000,
+    "height": 1125,
+    "original_bytes": 372251,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-11.jpg-640.webp",
+        "width": 640,
+        "bytes": 41366
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-11.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 130950
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-11.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 261184
+      }
+    ]
+  },
+  "/images/memory/san-francisco-12.jpg": {
+    "digest": "e39f4a43a4426fa1d2937392f2da1a8405da4b54251e61890cf010ec540895b5",
+    "src": "/images/optimized/memory/san-francisco-12.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 416951,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-francisco-12.jpg-640.webp",
+        "width": 640,
+        "bytes": 126444
+      },
+      {
+        "src": "/images/optimized/memory/san-francisco-12.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 283810
+      }
+    ]
+  },
+  "/images/memory/san-jose-01.jpg": {
+    "digest": "9d016d087def10066f8549d3280072becfc040470049549aa5db8007403746b8",
+    "src": "/images/optimized/memory/san-jose-01.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 131963,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-jose-01.jpg-640.webp",
+        "width": 640,
+        "bytes": 18022
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-01.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 58848
+      }
+    ]
+  },
+  "/images/memory/san-jose-02.jpg": {
+    "digest": "7e5afb44eb22ceb5f23dc2f44391343dedcb990ee0e5873d6d4ef25d4cc55056",
+    "src": "/images/optimized/memory/san-jose-02.jpg-1125.webp",
+    "width": 1125,
+    "height": 2000,
+    "original_bytes": 274964,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-jose-02.jpg-640.webp",
+        "width": 640,
+        "bytes": 68932
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-02.jpg-1125.webp",
+        "width": 1125,
+        "bytes": 174684
+      }
+    ]
+  },
+  "/images/memory/san-jose-03.jpg": {
+    "digest": "90c1655a1cd1f1af3f4ac34865182572320fd64709e8cb195476760a838f372e",
+    "src": "/images/optimized/memory/san-jose-03.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 413076,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-jose-03.jpg-640.webp",
+        "width": 640,
+        "bytes": 81746
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-03.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 203060
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-03.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 220576
+      }
+    ]
+  },
+  "/images/memory/san-jose-04.jpg": {
+    "digest": "dceeb5bd6bf6a42de843d6c8a252cbc8dfc18c097d7555b49446a6ac0c7b1993",
+    "src": "/images/optimized/memory/san-jose-04.jpg-1333.webp",
+    "width": 1333,
+    "height": 2000,
+    "original_bytes": 166184,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-jose-04.jpg-640.webp",
+        "width": 640,
+        "bytes": 24822
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-04.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 61850
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-04.jpg-1333.webp",
+        "width": 1333,
+        "bytes": 69200
+      }
+    ]
+  },
+  "/images/memory/san-jose-05.jpg": {
+    "digest": "fc44296010a559d2a6356503f15d55086c2e61807a6d7e8ce56f0adcf57b2bba",
+    "src": "/images/optimized/memory/san-jose-05.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 410701,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-jose-05.jpg-640.webp",
+        "width": 640,
+        "bytes": 36790
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-05.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 128512
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-05.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 265490
+      }
+    ]
+  },
+  "/images/memory/san-jose-06.jpg": {
+    "digest": "91cf8ebd6346e6798f33a14cdf1fb949d05d83aa4baaddd60ecea336890a0a45",
+    "src": "/images/optimized/memory/san-jose-06.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 458370,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/san-jose-06.jpg-640.webp",
+        "width": 640,
+        "bytes": 45878
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-06.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 134940
+      },
+      {
+        "src": "/images/optimized/memory/san-jose-06.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 270020
+      }
+    ]
+  },
+  "/images/memory/yumeshima-01.jpg": {
+    "digest": "e2a96563dbdafbcda130964853cd7b9ae516a8868e089b00c4b218512368fbe7",
+    "src": "/images/optimized/memory/yumeshima-01.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 200819,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/yumeshima-01.jpg-640.webp",
+        "width": 640,
+        "bytes": 16868
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-01.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 46430
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-01.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 91156
+      }
+    ]
+  },
+  "/images/memory/yumeshima-02.jpg": {
+    "digest": "d7f7c60d4a4b5ef3a8569e90cf3b75858b930723a16996d6de386273dd2de6e2",
+    "src": "/images/optimized/memory/yumeshima-02.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 413425,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/yumeshima-02.jpg-640.webp",
+        "width": 640,
+        "bytes": 33252
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-02.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 114822
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-02.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 320736
+      }
+    ]
+  },
+  "/images/memory/yumeshima-03.jpg": {
+    "digest": "c44f279efb36a89aa6af8b3a2097a30b4b79e323610308d5710aee62ac5280ad",
+    "src": "/images/optimized/memory/yumeshima-03.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 300925,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/yumeshima-03.jpg-640.webp",
+        "width": 640,
+        "bytes": 16264
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-03.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 61256
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-03.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 146566
+      }
+    ]
+  },
+  "/images/memory/yumeshima-04.jpg": {
+    "digest": "5194658edfda8d175c6da8bde215ffb37722a48d1f798bcf8c30c387eb5422ae",
+    "src": "/images/optimized/memory/yumeshima-04.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 323056,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/yumeshima-04.jpg-640.webp",
+        "width": 640,
+        "bytes": 19864
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-04.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 66526
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-04.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 156130
+      }
+    ]
+  },
+  "/images/memory/yumeshima-05.jpg": {
+    "digest": "4ab094b74b94c0dc3d23a0399e813bb42233ebe6232d2e330185eb31dd7f7e5a",
+    "src": "/images/optimized/memory/yumeshima-05.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 267974,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/yumeshima-05.jpg-640.webp",
+        "width": 640,
+        "bytes": 21650
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-05.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 63246
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-05.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 123972
+      }
+    ]
+  },
+  "/images/memory/yumeshima-06.jpg": {
+    "digest": "d6ba509b21243e1027e69aa27423d7e527ffa2708fd9a2659df87c010a53991d",
+    "src": "/images/optimized/memory/yumeshima-06.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 263089,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/yumeshima-06.jpg-640.webp",
+        "width": 640,
+        "bytes": 12080
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-06.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 42128
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-06.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 109546
+      }
+    ]
+  },
+  "/images/memory/yumeshima-07.jpg": {
+    "digest": "fa575ecc847b810e11b3ed0ca923e427ea02e8a4a01b015bc1eb470d0b009a64",
+    "src": "/images/optimized/memory/yumeshima-07.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 473518,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/yumeshima-07.jpg-640.webp",
+        "width": 640,
+        "bytes": 34492
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-07.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 113772
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-07.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 285678
+      }
+    ]
+  },
+  "/images/memory/yumeshima-08.jpg": {
+    "digest": "e092c2eb8e859d900f7d7e45d73f57bd98c5cefe96adc0ae81600b66f9e24fa7",
+    "src": "/images/optimized/memory/yumeshima-08.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 319861,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/yumeshima-08.jpg-640.webp",
+        "width": 640,
+        "bytes": 18368
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-08.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 60296
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-08.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 150276
+      }
+    ]
+  },
+  "/images/memory/yumeshima-09.jpg": {
+    "digest": "886928d24a76594a71971a9a1f92664088e0d11a70370318dacb4a85760fe331",
+    "src": "/images/optimized/memory/yumeshima-09.jpg-2000.webp",
+    "width": 2000,
+    "height": 2000,
+    "original_bytes": 610301,
+    "variants": [
+      {
+        "src": "/images/optimized/memory/yumeshima-09.jpg-640.webp",
+        "width": 640,
+        "bytes": 37298
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-09.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 171988
+      },
+      {
+        "src": "/images/optimized/memory/yumeshima-09.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 393064
+      }
+    ]
+  },
+  "/images/notes/AppleWatch-SiriAI-1.jpg": {
+    "digest": "0d04edf71fc391900eeff2d16baf2b3df67caed68a1fa47b0d4c096a1072c55f",
+    "src": "/images/optimized/notes/AppleWatch-SiriAI-1.jpg-2000.webp",
+    "width": 2000,
+    "height": 1125,
+    "original_bytes": 786351,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/AppleWatch-SiriAI-1.jpg-640.webp",
+        "width": 640,
+        "bytes": 22502
+      },
+      {
+        "src": "/images/optimized/notes/AppleWatch-SiriAI-1.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 83504
+      },
+      {
+        "src": "/images/optimized/notes/AppleWatch-SiriAI-1.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 178200
+      }
+    ]
+  },
+  "/images/notes/AppleWatch-SiriAI-2.jpg": {
+    "digest": "6b434ec40b4d09652d2dda811275fbfcca6a15400e6318d58508657b66a013d7",
+    "src": "/images/optimized/notes/AppleWatch-SiriAI-2.jpg-2000.webp",
+    "width": 2000,
+    "height": 1125,
+    "original_bytes": 457574,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/AppleWatch-SiriAI-2.jpg-640.webp",
+        "width": 640,
+        "bytes": 12956
+      },
+      {
+        "src": "/images/optimized/notes/AppleWatch-SiriAI-2.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 31124
+      },
+      {
+        "src": "/images/optimized/notes/AppleWatch-SiriAI-2.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 59590
+      }
+    ]
+  },
+  "/images/notes/Nothing-Headphone-1-1.webp": {
+    "digest": "70f01f66a42de467dda125b9c893f58517be9aaedb6e1bf45b3c81981213ba20",
+    "src": "/images/optimized/notes/Nothing-Headphone-1-1.webp-2000.webp",
+    "width": 2000,
+    "height": 1500,
+    "original_bytes": 284122,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-1.webp-640.webp",
+        "width": 640,
+        "bytes": 26978
+      },
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-1.webp-1280.webp",
+        "width": 1280,
+        "bytes": 74156
+      },
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-1.webp-2000.webp",
+        "width": 2000,
+        "bytes": 133440
+      }
+    ]
+  },
+  "/images/notes/Nothing-Headphone-1-2.webp": {
+    "digest": "0973c47fe3b97d1d351214e1de6515beaa079dc020b84e203411d6f5ef2808f0",
+    "src": "/images/optimized/notes/Nothing-Headphone-1-2.webp-2000.webp",
+    "width": 2000,
+    "height": 1500,
+    "original_bytes": 737874,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-2.webp-640.webp",
+        "width": 640,
+        "bytes": 31214
+      },
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-2.webp-1280.webp",
+        "width": 1280,
+        "bytes": 86718
+      },
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-2.webp-2000.webp",
+        "width": 2000,
+        "bytes": 177312
+      }
+    ]
+  },
+  "/images/notes/Nothing-Headphone-1-3.webp": {
+    "digest": "cc54e9336919fc444784a420db464e47ef160e73088494ca01e98bc9b645b978",
+    "src": "/images/optimized/notes/Nothing-Headphone-1-3.webp-2000.webp",
+    "width": 2000,
+    "height": 1500,
+    "original_bytes": 394620,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-3.webp-640.webp",
+        "width": 640,
+        "bytes": 17452
+      },
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-3.webp-1280.webp",
+        "width": 1280,
+        "bytes": 43068
+      },
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-3.webp-2000.webp",
+        "width": 2000,
+        "bytes": 87034
+      }
+    ]
+  },
+  "/images/notes/Nothing-Headphone-1-4.webp": {
+    "digest": "bfed69246bcada4ea284effbba557397fff0e799339df2959298cb3eaf9216c6",
+    "src": "/images/optimized/notes/Nothing-Headphone-1-4.webp-1500.webp",
+    "width": 1500,
+    "height": 2000,
+    "original_bytes": 565298,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-4.webp-640.webp",
+        "width": 640,
+        "bytes": 40488
+      },
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-4.webp-1280.webp",
+        "width": 1280,
+        "bytes": 107716
+      },
+      {
+        "src": "/images/optimized/notes/Nothing-Headphone-1-4.webp-1500.webp",
+        "width": 1500,
+        "bytes": 145018
+      }
+    ]
+  },
+  "/images/notes/ai-future-1.jpg": {
+    "digest": "4fe98f55b8d7bf70c9de4e10d54c5a95a998f62fc1944161738bfb4ba40dba4b",
+    "src": "/images/optimized/notes/ai-future-1.jpg-2000.webp",
+    "width": 2000,
+    "height": 2000,
+    "original_bytes": 162607,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/ai-future-1.jpg-640.webp",
+        "width": 640,
+        "bytes": 17962
+      },
+      {
+        "src": "/images/optimized/notes/ai-future-1.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 40158
+      },
+      {
+        "src": "/images/optimized/notes/ai-future-1.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 66488
+      }
+    ]
+  },
+  "/images/notes/iPhone-e-1.webp": {
+    "digest": "e995655a630ef1ba5182716799dc0c5b74d14570c23c420a8115cc763acf3e09",
+    "src": "/images/optimized/notes/iPhone-e-1.webp-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 196360,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/iPhone-e-1.webp-640.webp",
+        "width": 640,
+        "bytes": 14066
+      },
+      {
+        "src": "/images/optimized/notes/iPhone-e-1.webp-1280.webp",
+        "width": 1280,
+        "bytes": 31692
+      },
+      {
+        "src": "/images/optimized/notes/iPhone-e-1.webp-2000.webp",
+        "width": 2000,
+        "bytes": 55526
+      }
+    ]
+  },
+  "/images/notes/iPhone-e-2.webp": {
+    "digest": "4ffd3d051d77384daad46d87f358fd0aa2237c5a05f1583613c22d2aeb74913b",
+    "src": "/images/optimized/notes/iPhone-e-2.webp-1500.webp",
+    "width": 1500,
+    "height": 2000,
+    "original_bytes": 615090,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/iPhone-e-2.webp-640.webp",
+        "width": 640,
+        "bytes": 35220
+      },
+      {
+        "src": "/images/optimized/notes/iPhone-e-2.webp-1280.webp",
+        "width": 1280,
+        "bytes": 150790
+      },
+      {
+        "src": "/images/optimized/notes/iPhone-e-2.webp-1500.webp",
+        "width": 1500,
+        "bytes": 198886
+      }
+    ]
+  },
+  "/images/notes/iphone-duo-os-1.jpg": {
+    "digest": "451c4f7f114cc1f6d61cc6fc278921b852faa9c1ef6b6aa0fe53f5072ca9803d",
+    "src": "/images/optimized/notes/iphone-duo-os-1.jpg-2000.webp",
+    "width": 2000,
+    "height": 1125,
+    "original_bytes": 440876,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/iphone-duo-os-1.jpg-640.webp",
+        "width": 640,
+        "bytes": 9742
+      },
+      {
+        "src": "/images/optimized/notes/iphone-duo-os-1.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 28378
+      },
+      {
+        "src": "/images/optimized/notes/iphone-duo-os-1.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 55056
+      }
+    ]
+  },
+  "/images/notes/iphone-duo-os-2.jpg": {
+    "digest": "b0970fbad25968b356fbca35ea7a31491ac9aa7e5b1798f8809c58c8b498242b",
+    "src": "/images/optimized/notes/iphone-duo-os-2.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 860827,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/iphone-duo-os-2.jpg-640.webp",
+        "width": 640,
+        "bytes": 35306
+      },
+      {
+        "src": "/images/optimized/notes/iphone-duo-os-2.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 102848
+      },
+      {
+        "src": "/images/optimized/notes/iphone-duo-os-2.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 187000
+      }
+    ]
+  },
+  "/images/notes/touch-MacBookPro-1.jpg": {
+    "digest": "bc90cbcbba352ce3300dc123935c3a71f23b96e11865e9b3559130d1b2ed86b4",
+    "src": "/images/optimized/notes/touch-MacBookPro-1.jpg-1960.webp",
+    "width": 1960,
+    "height": 1000,
+    "original_bytes": 318876,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-1.jpg-640.webp",
+        "width": 640,
+        "bytes": 25666
+      },
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-1.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 71128
+      },
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-1.jpg-1960.webp",
+        "width": 1960,
+        "bytes": 127610
+      }
+    ]
+  },
+  "/images/notes/touch-MacBookPro-2.jpg": {
+    "digest": "bc90cbcbba352ce3300dc123935c3a71f23b96e11865e9b3559130d1b2ed86b4",
+    "src": "/images/optimized/notes/touch-MacBookPro-2.jpg-1960.webp",
+    "width": 1960,
+    "height": 1000,
+    "original_bytes": 318876,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-2.jpg-640.webp",
+        "width": 640,
+        "bytes": 25666
+      },
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-2.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 71128
+      },
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-2.jpg-1960.webp",
+        "width": 1960,
+        "bytes": 127610
+      }
+    ]
+  },
+  "/images/notes/touch-MacBookPro-3.jpg": {
+    "digest": "2c311301c4f81e44f0739a69ae61cfce6e3b25e41404c7ddc64765da0c797422",
+    "src": "/images/optimized/notes/touch-MacBookPro-3.jpg-2000.webp",
+    "width": 2000,
+    "height": 1224,
+    "original_bytes": 774919,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-3.jpg-640.webp",
+        "width": 640,
+        "bytes": 11616
+      },
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-3.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 30502
+      },
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-3.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 56536
+      }
+    ]
+  },
+  "/images/notes/touch-MacBookPro-4.jpg": {
+    "digest": "bc70374f4b75020bf6ed76589397dc0e55599c7f26e7db8136f60c6b34b7cabe",
+    "src": "/images/optimized/notes/touch-MacBookPro-4.jpg-2000.webp",
+    "width": 2000,
+    "height": 1333,
+    "original_bytes": 1114330,
+    "variants": [
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-4.jpg-640.webp",
+        "width": 640,
+        "bytes": 38472
+      },
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-4.jpg-1280.webp",
+        "width": 1280,
+        "bytes": 92156
+      },
+      {
+        "src": "/images/optimized/notes/touch-MacBookPro-4.jpg-2000.webp",
+        "width": 2000,
+        "bytes": 154968
+      }
+    ]
+  }
+}

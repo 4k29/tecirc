@@ -6,7 +6,6 @@ last_modified_at: "2026-10-30 00:00:00 +0900"
 permalink: "/notes/touch-MacBookPro/"
 image: "/images/ogp/touch-MacBookPro.png"
 image_alt: "MacBookにタッチ操作は本当にいらないのか"
-tags: ["MacBook Pro with PROLED XDR Display"]
 ---
 
 2026年10月28日、Appleは「MacBook Pro with PROLED XDR Display」を発表した。タンデムOLEDディスプレイやDynamic Islandの採用など変更点は多いが、中でも注目したいのが、Macとして初めてディスプレイへのタッチ操作に対応したことだ。

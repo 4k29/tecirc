@@ -104,9 +104,8 @@
     [
       [data.title, "タイトル"], [data.slug, "スラッグ"], [data.date, "公開日"],
       [data.description, "概要"], [data.image, "OGP画像"], [data.imageAlt, "画像の代替テキスト"],
-      [data.tags, "タグ"], [data.body, "本文"]
+      [data.body, "本文"]
     ].forEach(function (item) { required(errors, item[0], item[1]); });
-    if (!Array.isArray(data.tags)) errors.push("タグの形式が正しくありません");
     validSlug(errors, data.slug);
     var permalink = options.permalink || expectedPermalink("note", data.slug || "");
     validPermalink(errors, "note", data.slug || "", permalink);

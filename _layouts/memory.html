@@ -66,19 +66,6 @@
   </script>
 
   {% include assets.html %}
-  <style>
-    .memory-content,
-    .memory-footer {
-      width: min(calc(100% - 40px), var(--content-width));
-    }
-
-    @media (max-width: 560px) {
-      .memory-content,
-      .memory-footer {
-        width: calc(100% - 32px);
-      }
-    }
-  </style>
   <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
   <link rel="icon" type="image/png" sizes="128x128" href="{{ '/favicon.png' | relative_url }}" />
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
@@ -112,7 +99,8 @@
         {% for photo in page.photos %}
         <figure class="photo">
           <img
-            src="{{ photo.src | relative_url }}"
+            src="{{ site.data.media[photo.src].src | default: photo.src | relative_url }}"
+            {% include image-attributes.html src=photo.src gallery=true %}
             alt="{{ photo.alt | default: photo.caption | default: page.title | escape }}"
             loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
             decoding="async"
@@ -137,6 +125,7 @@
         <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}">Sitemap</a>
         <a href="#top">Back to top ↑</a>
       </div>
+      {% include site-controls.html %}
     </footer>
   </div>
 </body>

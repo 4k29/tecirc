@@ -150,9 +150,6 @@
       description: document.getElementById("description").value.trim(),
       image: document.getElementById("image").value.trim(),
       imageAlt: document.getElementById("image-alt").value.trim(),
-      tags: document.getElementById("tags").value.split(",").map(function (tag) {
-        return tag.trim();
-      }).filter(Boolean),
       body: document.getElementById("body").value.trim()
     };
   }
@@ -165,7 +162,6 @@
       description: String(data.description || ""),
       image: String(data.image || ""),
       imageAlt: String(data.imageAlt || ""),
-      tags: Array.isArray(data.tags) ? data.tags : [],
       body: String(data.body || "")
     };
   }
@@ -200,7 +196,6 @@
       description: data.description || "",
       image: data.image || "",
       "image-alt": data.imageAlt || "",
-      tags: Array.isArray(data.tags) ? data.tags.join(", ") : (data.tags || ""),
       body: data.body || ""
     };
 

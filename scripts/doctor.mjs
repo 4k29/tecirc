@@ -2,6 +2,7 @@
 
 import { access, readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { checkMedia } from './check-media.mjs';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -122,7 +123,7 @@ function validateFrontMatter(content) {
   if (content.parseError) return;
   const fm = content.frontMatter;
   const required = content.collection === 'note'
-    ? ['title', 'description', 'date', 'last_modified_at', 'permalink', 'image', 'image_alt', 'tags']
+    ? ['title', 'description', 'date', 'last_modified_at', 'permalink', 'image', 'image_alt']
     : ['title', 'description', 'date', 'last_modified_at', 'date_display', 'permalink', 'image', 'image_alt', 'photos'];
   for (const key of required) {
     if (!Object.hasOwn(fm, key) || fm[key] === '') report('FAIL', 'front matter', content.path, `required field "${key}" is missing`, key);
@@ -130,7 +131,6 @@ function validateFrontMatter(content) {
   for (const key of ['title', 'description', 'date', 'last_modified_at', 'date_display', 'permalink', 'image', 'image_alt']) {
     if (Object.hasOwn(fm, key) && typeof fm[key] !== 'string') report('FAIL', 'front matter', content.path, `"${key}" must be a string`, fm[key]);
   }
-  if (Object.hasOwn(fm, 'tags') && (!Array.isArray(fm.tags) || fm.tags.some((tag) => typeof tag !== 'string'))) report('FAIL', 'front matter', content.path, '"tags" must be an inline array of strings', fm.tags);
   for (const key of ['noindex', 'sitemap']) if (Object.hasOwn(fm, key) && typeof fm[key] !== 'boolean') report('FAIL', 'front matter', content.path, `"${key}" must be boolean`, fm[key]);
   if (Object.hasOwn(fm, 'photos')) {
     if (!Array.isArray(fm.photos) || fm.photos.some((photo) => typeof photo.src !== 'string' || typeof photo.caption !== 'string')) report('FAIL', 'front matter', content.path, 'each photo must have string src and caption fields', fm.photos);
@@ -295,6 +295,7 @@ async function main() {
   diagnoseUrls();
   await diagnoseMigrationAndImages();
   await diagnoseInternalLinks();
+  try { await checkMedia(root); } catch (error) { report('FAIL', 'images', '_data/media.json', error.message); }
   await diagnoseTemplates();
   const payload = output(json);
   process.exitCode = payload.errors.length ? 1 : 0;

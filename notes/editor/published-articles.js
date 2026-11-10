@@ -59,7 +59,6 @@
     description: document.getElementById("description"),
     image: document.getElementById("image"),
     imageAlt: document.getElementById("image-alt"),
-    tags: document.getElementById("tags"),
     body: document.getElementById("body")
   };
 
@@ -103,7 +102,6 @@
       description: typeof data.description === "string" ? data.description : "",
       image: typeof data.image === "string" ? data.image : "",
       imageAlt: typeof data.image_alt === "string" ? data.image_alt : "",
-      tags: Array.isArray(data.tags) ? data.tags : [],
       body: body
     };
   }
@@ -118,10 +116,9 @@
     fields.description.value = data.description || "";
     fields.image.value = data.image || "";
     fields.imageAlt.value = data.imageAlt || "";
-    fields.tags.value = Array.isArray(data.tags) ? data.tags.join(", ") : "";
     fields.body.value = data.body || "";
 
-    [fields.title, fields.date, fields.description, fields.image, fields.imageAlt, fields.tags, fields.body]
+    [fields.title, fields.date, fields.description, fields.image, fields.imageAlt, fields.body]
       .forEach(function (field) {
         field.dispatchEvent(new Event("input", { bubbles: true }));
         field.dispatchEvent(new Event("change", { bubbles: true }));

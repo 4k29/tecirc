@@ -3,9 +3,7 @@
 
   var STORAGE_KEY = "4k29-theme";
   var GA_ID = "G-KK7MDCLBGT";
-  var FAVICON_URL = "/tecirc/favicon.svg";
   var root = document.documentElement;
-  var mobileQuery = window.matchMedia ? window.matchMedia("(max-width: 560px)") : null;
 
   function ensureAnalytics() {
     if (window.tecircAnalyticsScheduled) return;
@@ -34,17 +32,6 @@
   function trackEvent(name, params) {
     if (typeof window.gtag !== "function") return;
     window.gtag("event", name, params || {});
-  }
-
-  function mountFavicon() {
-    var icon = document.querySelector('link[rel="icon"]');
-    if (!icon) {
-      icon = document.createElement("link");
-      icon.rel = "icon";
-      document.head.appendChild(icon);
-    }
-    icon.type = "image/svg+xml";
-    icon.href = FAVICON_URL;
   }
 
   function getContentContext() {
@@ -92,7 +79,7 @@
       });
     });
 
-    var shareLink = document.querySelector(".article-share a");
+    var shareLink = document.querySelector('.article-share a[href*="twitter.com/intent/tweet"]');
     if (shareLink) {
       shareLink.addEventListener("click", function () {
         trackEvent("note_share", {
@@ -183,13 +170,8 @@
   }
 
   function placeToggle(button) {
-    var nav = document.querySelector(".global-header .global-nav");
-    if (mobileQuery && mobileQuery.matches && nav) {
-      if (button.parentNode !== nav) nav.appendChild(button);
-      return;
-    }
-
-    if (button.parentNode !== document.body) document.body.appendChild(button);
+    var tools = document.querySelector('.footer-tools');
+    (tools || document.body).appendChild(button);
   }
 
   function mountToggle() {
@@ -212,13 +194,6 @@
       trackEvent("theme_change", { theme: next });
     });
 
-    if (mobileQuery) {
-      if (typeof mobileQuery.addEventListener === "function") {
-        mobileQuery.addEventListener("change", function () { placeToggle(button); });
-      } else if (typeof mobileQuery.addListener === "function") {
-        mobileQuery.addListener(function () { placeToggle(button); });
-      }
-    }
   }
 
   function mountHeaderReveal(initialY) {
@@ -531,11 +506,13 @@
   }
 
   function mountLanguageSwitch() {
-    var link = document.querySelector('.language-switch');
-    if (!link || (navigator.connection && navigator.connection.saveData)) return;
+    var menu = document.querySelector('.language-menu');
+    if (!menu) return;
+    var summary = menu.querySelector('summary');
+    var link = menu.querySelector('a:not([aria-current="page"])');
     var prefetched = false;
     function prefetch() {
-      if (prefetched) return;
+      if (!link || prefetched || (navigator.connection && navigator.connection.saveData)) return;
       prefetched = true;
       var hint = document.createElement('link');
       hint.rel = 'prefetch';
@@ -544,15 +521,22 @@
       hint.fetchPriority = 'low';
       document.head.appendChild(hint);
     }
-    link.addEventListener('pointerenter', prefetch, { once: true });
-    link.addEventListener('focus', prefetch, { once: true });
-    link.addEventListener('touchstart', prefetch, { once: true, passive: true });
+    summary.addEventListener('pointerenter', prefetch, { once: true });
+    summary.addEventListener('focus', prefetch, { once: true });
+    summary.addEventListener('touchstart', prefetch, { once: true, passive: true });
+    menu.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      menu.open = false;
+      summary.focus();
+    });
+    document.addEventListener('click', function (event) {
+      if (!menu.contains(event.target)) menu.open = false;
+    });
   }
 
   function mountUi() {
     // Read the initial position before inserting controls to avoid layout thrashing.
     var initialY = Math.max(window.scrollY || 0, 0);
-    mountFavicon();
     mountLanguageSwitch();
     mountToggle();
     followSystemTheme();

@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/en/notes/iPhone-e/"
 image: "/images/ogp/iPhone-e.png"
 image_alt: "What is the iPhone e series for?"
-tags: ["Apple","iPhone","iPhone e","iPhone SE"]
 lang: en
 layout: note
 sitemap: true

@@ -1,4 +1,4 @@
-{% capture public_styles %}{% include styles/style.css %}{% include styles/enhancements.css %}{% endcapture %}
+{% capture public_styles %}{% include styles/public.min.css %}{% endcapture %}
 <style>{{ public_styles | strip_newlines }}</style>
 <script>
   var initialTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
@@ -8,4 +8,4 @@
   } catch (error) { /* Use the system theme when storage is unavailable. */ }
   document.documentElement.dataset.theme = initialTheme;
 </script>
-<script src="{{ '/theme.js' | relative_url }}" defer></script>
+<script src="{{ site.data.assets.theme | relative_url }}" defer></script>

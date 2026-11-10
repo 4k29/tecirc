@@ -7,7 +7,7 @@ const Preflight = require('../editor/preflight.js');
 function note(overrides = {}, paths = []) {
   const data = Object.assign({
     title: 'Title', slug: 'new-note', date: '2026-09-30', description: 'Description',
-    image: '/images/ogp/new-note.png', imageAlt: 'Alt', tags: [], body: 'Body'
+    image: '/images/ogp/new-note.png', imageAlt: 'Alt', body: 'Body'
   }, overrides);
   return Preflight.note({ data, permalink: `/notes/${data.slug}/`, repositoryPaths: async () => paths });
 }
@@ -61,7 +61,7 @@ test('Note: a new duplicate slug fails', async () => {
   assert.equal((await note({}, ['_notes/new-note.md', 'images/ogp/new-note.png'])).status, 'FAIL');
 });
 test('Note: updating itself is not a duplicate', async () => {
-  const data = { title: 'Title', slug: 'new-note', date: '2026-09-30', description: 'Description', image: '/images/ogp/new-note.png', imageAlt: 'Alt', tags: [], body: 'Body' };
+  const data = { title: 'Title', slug: 'new-note', date: '2026-09-30', description: 'Description', image: '/images/ogp/new-note.png', imageAlt: 'Alt', body: 'Body' };
   const result = await Preflight.note({ data, permalink: '/notes/new-note/', editing: { path: '_notes/new-note.md' }, repositoryPaths: async () => ['_notes/new-note.md', 'images/ogp/new-note.png'] });
   assert.equal(result.status, 'PASS');
 });
@@ -85,7 +85,7 @@ test('Note publish does not save or commit after a failed preflight', async () =
   const listeners = {};
   const values = {
     title: 'Title', slug: 'new-note', date: '2026-09-30', description: 'Description', image: '/images/ogp/missing.png',
-    'image-alt': 'Alt', tags: '', body: 'Body', 'save-status': '', 'save-draft-button': '', 'publish-button': ''
+    'image-alt': 'Alt', body: 'Body', 'save-status': '', 'save-draft-button': '', 'publish-button': ''
   };
   const elements = Object.fromEntries(Object.entries(values).map(([id, value]) => [id, {
     id, value, disabled: false, dataset: {}, readOnly: false, textContent: '',

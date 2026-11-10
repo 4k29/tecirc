@@ -2,6 +2,11 @@
   "private": true,
   "scripts": {
     "doctor": "node scripts/doctor.mjs",
-    "test": "node --test tests/*.test.cjs"
+    "test": "node --test tests/*.test.cjs",
+    "build:assets": "node scripts/build-assets.mjs",
+    "build:media": "python3 scripts/optimize-media.py"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
   }
 }

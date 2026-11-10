@@ -6,7 +6,6 @@ last_modified_at: "2026-09-10 00:00:00 +0900"
 permalink: "/en/notes/Instants/"
 image: "/images/ogp/Instants.png"
 image_alt: "Thoughts on Instagram Instants"
-tags: ["Instagram","Meta","Instants","SNS","UX"]
 lang: en
 layout: note
 sitemap: true

@@ -20,5 +20,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - run: npm ci
+      - name: Verify generated assets are current
+        run: |
+          npm run build:assets
+          git diff --exit-code -- assets _data/assets.json _includes/styles/public.min.css
+          test -z "$(git ls-files --others --exclude-standard -- assets _data/assets.json _includes/styles/public.min.css)"
+      - run: npm test
       - name: Run Tecirc Doctor
         run: npm run doctor
+
+  media:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r scripts/media-requirements.txt
+      - name: Verify orientation, transparency, originals and repeat runs
+        run: python tests/media-generator.test.py

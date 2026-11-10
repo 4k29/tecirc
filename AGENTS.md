@@ -25,7 +25,7 @@
 - 追加の自動化が必要なら、まず[公式GitHub連携](https://developers.openai.com/codex/integrations/github/)を確認する。[公式Codex Action](https://github.com/openai/codex-action)を使う案は、APIキーのSecret管理、起動者の権限確認、forkからの実行制限、最小権限、未信頼コメントを命令として扱わない設計を含めて提示する。
 
 ## Tecirc固有：目的と構成
-Tecircは、ガジェット、サービス、情報技術の設計・体験と、その背景にある意図を考察する個人サイト。Jekyll（Liquid・kramdown）とHTML・CSS・ブラウザJavaScriptで構成し、GitHub Pagesで公開する。Node.jsは整合性検査とテストに使う。現状、README、Gemfile、フロントエンドのビルド用依存はない。
+Tecircは、ガジェット、サービス、情報技術の設計・体験と、その背景にある意図を考察する個人サイト。Jekyll（Liquid・kramdown）とHTML・CSS・ブラウザJavaScriptで構成し、GitHub Pagesで公開する。Node.jsは整合性検査・テストと、esbuildによる配信用CSS・JavaScriptの圧縮に使う。画像の表示用WebPはPillowで生成する。現状、README、Gemfileはない。
 
 | 場所 | 役割 |
 | --- | --- |
@@ -64,9 +64,10 @@ Tecircは、ガジェット、サービス、情報技術の設計・体験と�
 - 変更後は `npm run doctor` を実行する。依存インストールは不要で、front matter、URL・旧URL転送、画像、内部リンク、SEO、sitemapを検査する。
 - エディターの公開前検査・公開制御、またはDoctorの参照抽出など関連ロジックを変更した場合は `npm test` も実行し、必要な回帰ケースを確認する。
 - DoctorはJekyllビルドやブラウザ検証の代わりにはならない。表示・Liquid変更はJekyllで生成したページをスマホ幅・PC幅で確認し、エディター変更は対象操作と失敗時の挙動も確認する。未実施の検証は理由を報告する。
-- `.github/workflows/tecirc-doctor.yml`はPRとmainへのpushでDoctorを実行する。現状、`npm test`やJekyllビルドを行う独自CIではない。
+- `.github/workflows/tecirc-doctor.yml`はPRとmainへのpushでDoctor、`npm test`、配信用アセットの再生成一致を検査する。JekyllビルドはPagesの公開処理で確認する。
 - GitHub PagesはmainのリポジトリルートからJekyllで公開する。開発PRの作成を公開完了と扱わず、公開確認が必要な場合はPagesのビルド結果も確認する。
-- `optimize-memory-images.yml`はmainの`images/memory/**`変更でJPEGを自動回転・メタデータ削除・最大2000px・品質82に変換し、コミットする。画像やこの処理の変更時は画質と後続コミットへの影響を確認する。
+- `optimize-memory-images.yml`はmainのMemory・Notes画像変更で表示用WebPと`_data/media.json`を生成し、必要時のみコミットしてPagesビルドを要求する。原本は変更しない。画像処理の変更時は画質、向き、透過、原本の維持、再実行で変更が生じないことを確認する。
+- CSS・JavaScriptのソース変更後は`npm run build:assets`で圧縮済みCSS・内容ハッシュ付きJSと`_data/assets.json`を更新し、生成物もコミットする。esbuildは開発時だけの依存で、配信時には実行しない。
 
 ## Code Review Rules
 - URL・SEOの変更は、既存の大文字小文字、`/tecirc`、旧URL転送を壊していないか確認する。移行が必要ならリンクと生成URLを含めて整合させる。

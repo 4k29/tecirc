@@ -82,22 +82,12 @@ permalink: /notes/
         <p class="archive-description">{{ page.description }}</p>
       </header>
 
-      {% include note-search.html %}
       <section class="note-index-list" aria-label="記事一覧">
         {% for note in sorted_notes %}
-        {% assign note_topics = '' %}
-        {% assign topic_text = note.tags | join: ' ' %}
-        {% if topic_text contains 'Apple' or topic_text contains 'iPhone' or topic_text contains 'MacBook' %}{% assign note_topics = note_topics | append: ' Apple' %}{% endif %}
-        {% if topic_text contains 'AI' %}{% assign note_topics = note_topics | append: ' AI' %}{% endif %}
-        {% if topic_text contains 'Nothing' %}{% assign note_topics = note_topics | append: ' Nothing' %}{% endif %}
-        {% if topic_text contains 'Meta' or topic_text contains 'Instagram' %}{% assign note_topics = note_topics | append: ' Meta' %}{% endif %}
-        <article class="note-index-item" data-topics="{{ note_topics | strip }}">
+        <article class="note-index-item">
           <a href="{{ note.url | relative_url }}">
             <div class="note-index-meta">
               <time datetime="{{ note.date | date: '%Y-%m-%d' }}">{{ note.date | date: "%Y.%m.%d" }}</time>
-              {% if note.tags and note.tags.size > 0 %}
-              <span>{{ note.tags | join: ' · ' | escape }}</span>
-              {% endif %}
             </div>
             <h2>{{ note.title | escape }}</h2>
             <p>{{ note.description | escape }}</p>
@@ -116,6 +106,7 @@ permalink: /notes/
         <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}">Sitemap</a>
         <a href="#top">Back to top ↑</a>
       </div>
+      {% include site-controls.html %}
     </footer>
   </div>
 </body>

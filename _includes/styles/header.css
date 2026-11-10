@@ -1,0 +1,86 @@
+:root {
+  --site-shell-width: 800px;
+  --site-shell-gutter: 40px;
+  --site-shell-gutter-mobile: 32px;
+}
+.global-header, body > main, body > footer,
+.note-content, .note-footer, .memory-content, .memory-footer {
+  width: min(calc(100% - var(--site-shell-gutter)), var(--site-shell-width)) !important;
+  margin-inline: auto !important;
+}
+.global-header {
+  position: sticky !important;
+  top: 0;
+  z-index: 900;
+  display: grid !important;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px 32px;
+  min-height: 76px;
+  height: auto !important;
+  margin-top: 18px !important;
+  padding-block: 8px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  font-style: normal;
+  letter-spacing: -.01em;
+  isolation: isolate;
+  transition: transform .26s cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+.global-header::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--bg);
+}
+.global-header.is-hidden { transform: translateY(calc(-100% - 20px)); }
+.global-header:focus-within { transform: none; }
+.global-header .global-brand {
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: .875rem;
+  font-weight: 560;
+  line-height: 1;
+  letter-spacing: -.015em;
+}
+.global-header .global-nav {
+  justify-self: end;
+  display: flex !important;
+  align-items: center;
+  gap: 28px !important;
+}
+.global-header .global-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 44px;
+  color: var(--muted);
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.global-header .global-nav a:hover,
+.global-header .global-nav a[aria-current="page"] { color: var(--text); }
+.global-header .global-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: .45em;
+  text-decoration-thickness: 1px;
+}
+@media (max-width: 560px) {
+  .global-header, body > main, body > footer,
+  .note-content, .note-footer, .memory-content, .memory-footer {
+    width: calc(100% - var(--site-shell-gutter-mobile)) !important;
+  }
+  .global-header { gap: 20px; }
+  .global-header .global-nav { gap: 20px !important; }
+}
+@media (prefers-reduced-motion: reduce) { .global-header { transition: none !important; } }

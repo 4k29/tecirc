@@ -6,7 +6,6 @@ last_modified_at: "2026-09-27 00:00:00 +0900"
 permalink: "/notes/ai-and-experience/"
 image: "/images/ogp/ai-and-experience.png"
 image_alt: "生成できる時代に、非生成コンテンツの価値を考える"
-tags: ["AI"]
 ---
 
 Sam Kolderの「AI is officially better than me」と、その制作背景を語る「I took an AI robot across the Sahara desert」を見た。
