@@ -1,0 +1,95 @@
+---
+lang: en
+sitemap: true
+seo_title: "Tecirc — Technology, design, and experience."
+seo_title_exact: true
+seo_description: "Tecirc explores gadgets, services, and technology through their design, everyday experience, and the intentions behind them."
+layout: null
+permalink: /en/
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'ja' }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+{% include seo.html %}
+
+  {% include assets.html %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ site.title | jsonify }},
+    "url": {{ '/' | absolute_url | jsonify }},
+    "inLanguage": {{ current_lang | jsonify }},
+    "description": {{ seo_description | jsonify }}
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
+  <link rel="icon" type="image/png" sizes="128x128" href="{{ '/favicon.png' | relative_url }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
+</head>
+<body>
+  {% include site-header.html %}
+
+  <main id="top" tabindex="-1">
+    <section class="hero tecirc-hero">
+      <div class="tecirc-lockup">
+        {% include tecirc-mark.html large=true %}
+        <h1>Tecirc</h1>
+      </div>
+      <p class="lead">Technology, design, and experience.</p>
+      <p class="hero-description">Exploring gadgets, services, and technology through design, experience, and the intentions behind them.</p>
+    </section>
+
+    <section class="content-section" id="about">
+      <div class="section-heading"><h2>About</h2><span>Tech + Circle</span></div>
+      <div class="section-body profile">
+        <p><strong>Tecirc</strong> brings together Tech and Circle. This is a place to think about gadgets, services, and AI through their design and the experience of using them, as well as their specifications.</p>
+        <p class="about-more"><a href="{{ locale_prefix | append: '/about/' | relative_url }}">More about Tecirc ↗</a></p>
+      </div>
+    </section>
+
+    <section class="content-section" id="notes">
+      <div class="section-heading">
+        <h2>Notes</h2>
+        <a class="section-link" href="{{ locale_prefix | append: '/notes/' | relative_url }}">All notes ↗</a>
+      </div>
+
+      {% assign sorted_notes = content_notes | sort: "date" | reverse %}
+      <div class="section-body row-list">
+        {% for note in sorted_notes limit: 6 %}
+        <a href="{{ note.url | relative_url }}" class="row-item compact">
+          <time datetime="{{ note.date | date: '%Y-%m-%d' }}">{{ note.date | date: "%Y.%m.%d" }}</time>
+          <span class="row-title">{{ note.title | escape }}</span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="content-section" id="memory">
+      <div class="section-heading"><h2>Memory</h2><a class="section-link" href="{{ locale_prefix | append: '/memory/' | relative_url }}">All memories ↗</a></div>
+      <div class="section-body row-list">
+        {% assign latest_memories = content_memories | sort: 'date' | reverse %}
+        {% for memory in latest_memories limit: 3 %}
+        <a href="{{ memory.url | relative_url }}" class="row-item compact"><time datetime="{{ memory.date | date: '%Y-%m-%d' }}">{{ memory.date | date: '%Y.%m.%d' }}</time><span class="row-title">{{ memory.list_title | default: memory.title | escape }}</span><span class="arrow" aria-hidden="true">↗</span></a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© {{ site.time | date: "%Y" }} Tecirc</p>
+    <div class="footer-links">
+        <a href="https://x.com/p_horeer" target="_blank" rel="noopener noreferrer" aria-label="X（Twitter）">X ↗</a>
+        <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}">Privacy</a>
+        <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}">Sitemap</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+  </footer>
+</body>
+</html>

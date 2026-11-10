@@ -1,0 +1,39 @@
+---
+lang: en
+layout: memory
+sitemap: true
+title: "San Francisco"
+seo_title_exact: true
+description: "2025.08.13-14 - San Francisco"
+date: "2025-08-13 12:00:00 +0900"
+last_modified_at: "2025-08-14 00:00:00 +0900"
+date_display: "2025.08.13-14"
+permalink: "/en/memory/SanFrancisco/"
+image: "/images/memory/san-francisco-01.jpg"
+image_alt: "San Francisco"
+photos:
+  - src: "/images/memory/san-francisco-01.jpg"
+    caption: "San Francisco"
+  - src: "/images/memory/san-francisco-02.jpg"
+    caption: "Golden Gate Bridge"
+  - src: "/images/memory/san-francisco-03.jpg"
+    caption: "Golden Gate Bridge"
+  - src: "/images/memory/san-francisco-04.jpg"
+    caption: "Town Snap"
+  - src: "/images/memory/san-francisco-05.jpg"
+    caption: "Cable Car"
+  - src: "/images/memory/san-francisco-06.jpg"
+    caption: "Fishermans Wharf"
+  - src: "/images/memory/san-francisco-07.jpg"
+    caption: "San Francisco"
+  - src: "/images/memory/san-francisco-08.jpg"
+    caption: "Chinatown"
+  - src: "/images/memory/san-francisco-09.jpg"
+    caption: "Alamo Square"
+  - src: "/images/memory/san-francisco-10.jpg"
+    caption: "Apple Union Square"
+  - src: "/images/memory/san-francisco-11.jpg"
+    caption: "WAYMO"
+  - src: "/images/memory/san-francisco-12.jpg"
+    caption: "Town Snap"
+---

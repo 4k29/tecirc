@@ -1,0 +1,8 @@
+{%- assign sitemap_ja_url = include.entry.url -%}
+{%- if include.entry.lang == 'en' -%}{%- assign sitemap_ja_url = sitemap_ja_url | remove_first: '/en' -%}{%- endif -%}
+{%- assign sitemap_en_url = sitemap_ja_url | prepend: '/en' -%}
+{%- assign sitemap_translation = site.pages | where: 'url', sitemap_en_url | first -%}
+{%- if sitemap_translation and sitemap_translation.noindex != true and sitemap_translation.sitemap != false -%}
+<xhtml:link rel="alternate" hreflang="ja" href="{{ sitemap_ja_url | absolute_url | xml_escape }}" />
+<xhtml:link rel="alternate" hreflang="en" href="{{ sitemap_en_url | absolute_url | xml_escape }}" />
+{%- endif -%}

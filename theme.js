@@ -8,7 +8,8 @@
   var mobileQuery = window.matchMedia ? window.matchMedia("(max-width: 560px)") : null;
 
   function ensureAnalytics() {
-    if (typeof window.gtag === "function") return;
+    if (window.tecircAnalyticsScheduled) return;
+    window.tecircAnalyticsScheduled = true;
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
@@ -16,7 +17,15 @@
     var script = document.createElement("script");
     script.async = true;
     script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID);
-    document.head.appendChild(script);
+    function loadAnalytics() {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(function () { document.head.appendChild(script); }, { timeout: 2000 });
+      } else {
+        window.setTimeout(function () { document.head.appendChild(script); }, 0);
+      }
+    }
+    if (document.readyState === 'complete') loadAnalytics();
+    else window.addEventListener('load', loadAnalytics, { once: true });
 
     window.gtag("js", new Date());
     window.gtag("config", GA_ID, { send_page_view: true });
@@ -39,7 +48,7 @@
   }
 
   function getContentContext() {
-    var path = window.location.pathname;
+    var path = window.location.pathname.replace(/^\/tecirc\/en(?=\/|$)/, "/tecirc");
     var base = "/tecirc";
 
     if (path === base + "/notes/" || path === base + "/notes") {
@@ -152,6 +161,11 @@
     var nextTheme = theme === "light" ? "dark" : "light";
     button.dataset.currentTheme = theme;
     button.innerHTML = iconMarkup(theme);
+    if (root.lang === 'en') {
+      button.setAttribute('aria-label', 'Switch to ' + nextTheme + ' mode');
+      button.setAttribute('title', nextTheme + ' mode');
+      return;
+    }
     button.setAttribute("aria-label", nextTheme === "light"
       ? "ライトモードに切り替える"
       : "ダークモードに切り替える");
@@ -207,18 +221,18 @@
     }
   }
 
-  function mountHeaderReveal() {
+  function mountHeaderReveal(initialY) {
     var header = document.querySelector(".global-header");
     if (!header) return;
 
     var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var lastY = Math.max(window.scrollY || 0, 0);
+    var lastY = initialY;
     var ticking = false;
     var topZone = 72;
     var delta = 3;
 
-    function updateHeader() {
-      var currentY = Math.max(window.scrollY || 0, 0);
+    function updateHeader(useInitialPosition) {
+      var currentY = useInitialPosition === true ? initialY : Math.max(window.scrollY || 0, 0);
       header.classList.toggle("is-scrolled", currentY > 8);
 
       if (currentY <= topZone || reducedMotion.matches || header.contains(document.activeElement)) {
@@ -242,7 +256,7 @@
     if (typeof reducedMotion.addEventListener === "function") {
       reducedMotion.addEventListener("change", updateHeader);
     }
-    updateHeader();
+    updateHeader(true);
 
     window.addEventListener("scroll", function () {
       if (ticking) return;
@@ -252,18 +266,18 @@
   }
 
   // An interactive page ruler with a softly trailing colour wake.
-  function mountReadingProgress() {
+  function mountReadingProgress(initialY) {
     var root = document.documentElement;
     var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     var ruler = document.createElement("div");
     ruler.className = "page-ruler";
     ruler.tabIndex = 0;
     ruler.setAttribute("role", "slider");
-    ruler.setAttribute("aria-label", "ページのスクロール位置");
+    ruler.setAttribute("aria-label", root.lang === "en" ? "Page scroll position" : "ページのスクロール位置");
     ruler.setAttribute("aria-orientation", "vertical");
     ruler.setAttribute("aria-valuemin", "0");
     ruler.setAttribute("aria-valuemax", "100");
-    ruler.title = "上下にドラッグして移動 · 矢印キーでも操作できます";
+    ruler.title = root.lang === "en" ? "Drag vertically to scroll, or use the arrow keys" : "上下にドラッグして移動 · 矢印キーでも操作できます";
     for (var i = 0; i < 25; i += 1) {
       ruler.appendChild(document.createElement("i"));
     }
@@ -287,8 +301,8 @@
       if (totalMinutes > 0) {
         totalLabel = document.createElement("p");
         totalLabel.className = "reading-estimate";
-        totalLabel.textContent = "約" + Math.max(1, Math.ceil(totalMinutes)) + "分で読めます";
-        totalLabel.title = "日本語は毎分約500文字、英語は毎分約200語を目安にしています";
+        totalLabel.textContent = root.lang === "en" ? Math.max(1, Math.ceil(totalMinutes)) + " min read" : "約" + Math.max(1, Math.ceil(totalMinutes)) + "分で読めます";
+        totalLabel.title = root.lang === "en" ? "Estimated at 200 English words or 500 Japanese characters per minute" : "日本語は毎分約500文字、英語は毎分約200語を目安にしています";
         document.querySelector(".note-hero").appendChild(totalLabel);
         remainingLabel = document.createElement("span");
         remainingLabel.className = "reading-remaining";
@@ -297,7 +311,7 @@
       }
     }
     var frame = 0;
-    var lastY = Math.max(0, window.scrollY);
+    var lastY = initialY;
     var lastTime = performance.now();
     var energy = 0;
     var wake = null;
@@ -466,6 +480,7 @@
         }, 0);
         var finished = geometry.articleBottom <= y + geometry.height || (max > 0 && y >= max - 2);
         var label = finished ? "読了" : remaining < 1 ? "あと1分未満" : "あと約" + Math.ceil(remaining) + "分";
+        if (root.lang === "en") label = finished ? "Finished" : remaining < 1 ? "Less than 1 min left" : "About " + Math.ceil(remaining) + " min left";
         if (remainingLabel.textContent !== label) remainingLabel.textContent = label;
         remainingLabel.hidden = geometry.articleTop > readingLine || geometry.articleBottom < y;
       }
@@ -515,21 +530,47 @@
     });
   }
 
+  function mountLanguageSwitch() {
+    var link = document.querySelector('.language-switch');
+    if (!link || (navigator.connection && navigator.connection.saveData)) return;
+    var prefetched = false;
+    function prefetch() {
+      if (prefetched) return;
+      prefetched = true;
+      var hint = document.createElement('link');
+      hint.rel = 'prefetch';
+      hint.href = link.href;
+      hint.as = 'document';
+      hint.fetchPriority = 'low';
+      document.head.appendChild(hint);
+    }
+    link.addEventListener('pointerenter', prefetch, { once: true });
+    link.addEventListener('focus', prefetch, { once: true });
+    link.addEventListener('touchstart', prefetch, { once: true, passive: true });
+  }
+
   function mountUi() {
+    // Read the initial position before inserting controls to avoid layout thrashing.
+    var initialY = Math.max(window.scrollY || 0, 0);
     mountFavicon();
+    mountLanguageSwitch();
     mountToggle();
     followSystemTheme();
-    mountHeaderReveal();
-    mountReadingProgress();
+    mountHeaderReveal(initialY);
+    mountReadingProgress(initialY);
     mountAnalytics();
   }
 
   ensureAnalytics();
   applyTheme(storedTheme() || systemTheme());
 
+  function scheduleUi() {
+    // Let the browser finish the first layout before controls read page geometry.
+    window.requestAnimationFrame(function () { window.requestAnimationFrame(mountUi); });
+  }
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", mountUi, { once: true });
+    document.addEventListener("DOMContentLoaded", scheduleUi, { once: true });
   } else {
-    mountUi();
+    scheduleUi();
   }
 }());

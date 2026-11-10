@@ -7,14 +7,12 @@ title: About
 permalink: /about/
 ---
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'ja' }}">
+<html lang="{{ page.lang | default: 'ja' }}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   {% include seo.html %}
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}" />
-  <link rel="stylesheet" href="{{ '/enhancements.css' | relative_url }}" />
-  <script src="{{ '/theme.js' | relative_url }}" defer></script>
+  {% include assets.html %}
   <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
   <link rel="icon" type="image/png" sizes="128x128" href="{{ '/favicon.png' | relative_url }}" />
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
@@ -49,8 +47,8 @@ permalink: /about/
       <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
       <div class="footer-links">
         <a href="https://x.com/p_horeer" target="_blank" rel="noopener noreferrer" aria-label="X（Twitter）">X ↗</a>
-        <a href="{{ '/privacy/' | relative_url }}">Privacy</a>
-        <a href="{{ '/sitemap/' | relative_url }}">Sitemap</a>
+        <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}">Privacy</a>
+        <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}">Sitemap</a>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>

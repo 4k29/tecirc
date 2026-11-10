@@ -142,7 +142,7 @@ function diagnoseUrls() {
   for (const content of contents) {
     if (content.parseError) continue;
     const route = content.frontMatter.permalink;
-    const expected = `/${content.collection === 'note' ? 'notes' : 'memory'}/${content.slug}/`;
+    const expected = `${content.frontMatter.lang === 'en' ? '/en' : ''}/${content.collection === 'note' ? 'notes' : 'memory'}/${content.slug}/`;
     if (typeof route !== 'string') continue;
     if (!route.startsWith('/') || !route.endsWith('/')) report('FAIL', 'URL', content.path, 'permalink must have leading and trailing slashes', route);
     if (/\.html(?:\/)?$/i.test(route)) report('FAIL', 'URL', content.path, 'normal content permalink must not contain .html', route);
@@ -236,7 +236,7 @@ async function diagnoseInternalLinks() {
   for (const content of contents) for (const raw of references(content.body)) {
     if (!isLocal(raw) || !raw.startsWith('/')) continue;
     let value = cleanReference(raw); if (value === '/tecirc') value = '/'; else if (value.startsWith('/tecirc/')) value = value.slice('/tecirc'.length);
-    if (!/^\/(?:notes|memory|images)\//.test(value)) continue;
+    if (!/^\/(?:en\/)?(?:notes|memory|images)\//.test(value)) continue;
     const valid = value.startsWith('/images/') ? await exists(path.join(root, value.slice(1))) : known.has(value);
     if (!valid) report('FAIL', 'internal links', content.path, 'internal link target does not exist', raw);
   }
@@ -290,7 +290,7 @@ async function main() {
     else console.error(`FAIL CLI: ${error.message} — ${error.value}`);
     process.exitCode = 1; return;
   }
-  contents.push(...await markdownFiles('_notes', 'note'), ...await markdownFiles('_memories', 'memory'));
+  contents.push(...await markdownFiles('_notes', 'note'), ...await markdownFiles('_memories', 'memory'), ...await markdownFiles('en/notes', 'note'), ...await markdownFiles('en/memory', 'memory'));
   for (const content of contents) validateFrontMatter(content);
   diagnoseUrls();
   await diagnoseMigrationAndImages();

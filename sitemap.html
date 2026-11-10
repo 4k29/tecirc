@@ -8,25 +8,14 @@ description: Tecircの公開ページ一覧。
 permalink: /sitemap/
 ---
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'ja' }}">
+<html lang="{{ page.lang | default: 'ja' }}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KK7MDCLBGT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", "G-KK7MDCLBGT");
-  </script>
+{% include seo.html %}
 
-  {% include seo.html %}
-
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}" />
-  <link rel="stylesheet" href="{{ '/enhancements.css' | relative_url }}" />
-  <script src="{{ '/theme.js' | relative_url }}" defer></script>
+  {% include assets.html %}
   <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
   <link rel="icon" type="image/png" sizes="128x128" href="{{ '/favicon.png' | relative_url }}" />
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
@@ -47,15 +36,15 @@ permalink: /sitemap/
           <span>5</span>
         </div>
         <div class="row-list">
-          <a href="{{ '/' | relative_url }}" class="row-item compact"><span class="row-title">Home</span><span class="arrow" aria-hidden="true">↗</span></a>
-          <a href="{{ '/about/' | relative_url }}" class="row-item compact"><span class="row-title">About</span><span class="arrow" aria-hidden="true">↗</span></a>
-          <a href="{{ '/notes/' | relative_url }}" class="row-item compact"><span class="row-title">Notes</span><span class="arrow" aria-hidden="true">↗</span></a>
-          <a href="{{ '/memory/' | relative_url }}" class="row-item compact"><span class="row-title">Memory</span><span class="arrow" aria-hidden="true">↗</span></a>
-          <a href="{{ '/privacy/' | relative_url }}" class="row-item compact"><span class="row-title">Privacy</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="{{ locale_prefix | append: '/' | relative_url }}" class="row-item compact"><span class="row-title">Home</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="{{ locale_prefix | append: '/about/' | relative_url }}" class="row-item compact"><span class="row-title">About</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="{{ locale_prefix | append: '/notes/' | relative_url }}" class="row-item compact"><span class="row-title">Notes</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="{{ locale_prefix | append: '/memory/' | relative_url }}" class="row-item compact"><span class="row-title">Memory</span><span class="arrow" aria-hidden="true">↗</span></a>
+          <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}" class="row-item compact"><span class="row-title">Privacy</span><span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </section>
 
-      {% assign sorted_notes = site.notes | sort: "date" | reverse %}
+      {% assign sorted_notes = content_notes | sort: "date" | reverse %}
       <section class="sitemap-section" aria-labelledby="sitemap-notes">
         <div class="related-notes-heading"><h2 id="sitemap-notes">Notes</h2><span>{{ sorted_notes | size }}</span></div>
         <div class="row-list">
@@ -68,7 +57,7 @@ permalink: /sitemap/
         </div>
       </section>
 
-      {% assign sorted_memories = site.memories | sort: "date" | reverse %}
+      {% assign sorted_memories = content_memories | sort: "date" | reverse %}
       <section class="sitemap-section" aria-labelledby="sitemap-memory">
         <div class="related-notes-heading"><h2 id="sitemap-memory">Memory</h2><span>{{ sorted_memories | size }}</span></div>
         <div class="row-list">
@@ -86,8 +75,8 @@ permalink: /sitemap/
       <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
       <div class="footer-links">
         <a href="https://x.com/p_horeer" target="_blank" rel="noopener noreferrer" aria-label="X（Twitter）">X ↗</a>
-        <a href="{{ '/privacy/' | relative_url }}">Privacy</a>
-        <a href="{{ '/sitemap/' | relative_url }}" aria-current="page">Sitemap</a>
+        <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}">Privacy</a>
+        <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}" aria-current="page">Sitemap</a>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>

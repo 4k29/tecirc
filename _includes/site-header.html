@@ -155,15 +155,20 @@
     .global-header { transition: none !important; }
   }
 </style>
-<a class="skip-link" href="{% if page.url == '/' %}#top{% else %}#main-content{% endif %}">本文へスキップ</a>
+<a class="skip-link" href="{% if page.url == '/' or page.url == '/en/' %}#top{% else %}#main-content{% endif %}">{% if current_lang == 'en' %}Skip to content{% else %}本文へスキップ{% endif %}</a>
 <header class="global-header">
-  <a class="global-brand" href="{{ '/' | relative_url }}" aria-label="Tecirc Home">
+  <a class="global-brand" href="{{ locale_prefix | append: '/' | relative_url }}" aria-label="Tecirc Home">
     {% include tecirc-mark.html %}
     <span>Tecirc</span>
   </a>
-  <nav class="global-nav" aria-label="メインナビゲーション">
-    <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
-    <a href="{{ '/notes/' | relative_url }}"{% if page.url == '/notes/' or page.collection == 'notes' %} aria-current="page"{% endif %}>Notes</a>
-    <a href="{{ '/memory/' | relative_url }}"{% if page.url == '/memory/' or page.collection == 'memories' %} aria-current="page"{% endif %}>Memory</a>
+  <nav class="global-nav" aria-label="{% if current_lang == 'en' %}Main navigation{% else %}メインナビゲーション{% endif %}">
+    <a href="{{ locale_prefix | append: '/about/' | relative_url }}"{% if japanese_url == '/about/' %} aria-current="page"{% endif %}>About</a>
+    <a href="{{ locale_prefix | append: '/notes/' | relative_url }}"{% if japanese_url contains '/notes/' %} aria-current="page"{% endif %}>Notes</a>
+    <a href="{{ locale_prefix | append: '/memory/' | relative_url }}"{% if japanese_url contains '/memory/' %} aria-current="page"{% endif %}>Memory</a>
+    {% if translated_page %}
+    <a class="language-switch" href="{% if current_lang == 'en' %}{{ japanese_url | relative_url }}{% else %}{{ english_url | relative_url }}{% endif %}" hreflang="{% if current_lang == 'en' %}ja{% else %}en{% endif %}" aria-label="{% if current_lang == 'en' %}JP / EN — Switch to Japanese{% else %}JP / EN：英語に切り替え{% endif %}">
+      <span{% if current_lang != 'en' %} class="language-current"{% endif %}>JP</span><span aria-hidden="true">/</span><span{% if current_lang == 'en' %} class="language-current"{% endif %}>EN</span>
+    </a>
+    {% endif %}
   </nav>
 </header>

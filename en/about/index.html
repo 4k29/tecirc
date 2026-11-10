@@ -1,0 +1,58 @@
+---
+lang: en
+sitemap: true
+seo_title: "About — The idea behind Tecirc"
+seo_description: "The name and idea behind Tecirc: a place to think about technology, design, and experience."
+layout: null
+title: About
+permalink: /en/about/
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'ja' }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% include seo.html %}
+  {% include assets.html %}
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}" />
+  <link rel="icon" type="image/png" sizes="128x128" href="{{ '/favicon.png' | relative_url }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
+</head>
+<body>
+  <div class="info-page" id="top">
+    {% include site-header.html %}
+    <main class="info-content" id="main-content" tabindex="-1">
+      <header class="info-hero">
+        <h1>About</h1>
+        <p>What Tecirc explores, and where the name comes from.</p>
+      </header>
+
+      <section class="info-section">
+        <h2>Name</h2>
+        <div class="info-section-body">
+          <p><strong>Tecirc</strong> combines the words Tech and Circle.</p>
+          <p>Starting with a technology or product, I look at the design around it, the experience of the people using it, and the intentions of its creators. The name means a place to gather around technology and think about it.</p>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>Concept</h2>
+        <div class="info-section-body">
+          <p>On Tecirc, I write about what I notice and wonder about while using gadgets, services, and AI.</p>
+          <p>Alongside specifications and new features, I look at interfaces, design, usability, and the reasons behind a feature.</p>
+          <p>This site goes beyond reviews and news. It is a record of my thinking, based on personal experience and research.</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
+      <div class="footer-links">
+        <a href="https://x.com/p_horeer" target="_blank" rel="noopener noreferrer" aria-label="X（Twitter）">X ↗</a>
+        <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}">Privacy</a>
+        <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}">Sitemap</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

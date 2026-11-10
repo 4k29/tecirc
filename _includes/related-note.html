@@ -1,0 +1,4 @@
+<a href="{{ note.url | relative_url }}" class="row-item compact">
+  <time datetime="{{ note.date | date: '%Y-%m-%d' }}">{{ note.date | date: "%Y.%m.%d" }}</time>
+  <span class="row-title">{{ note.title | escape }}</span><span class="arrow" aria-hidden="true">↗</span>
+</a>

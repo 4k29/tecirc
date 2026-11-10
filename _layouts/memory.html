@@ -1,19 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'ja' }}">
+<html lang="{{ page.lang | default: 'ja' }}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KK7MDCLBGT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", "G-KK7MDCLBGT");
-  </script>
-
-  {% include seo.html %}
+{% include seo.html %}
 
   <script type="application/ld+json">
   {
@@ -22,7 +13,7 @@
     "name": {{ page.title | jsonify }},
     "url": {{ page.url | absolute_url | jsonify }},
     "dateCreated": {{ page.date | date_to_xmlschema | jsonify }},
-    "inLanguage": "ja",
+    "inLanguage": {{ current_lang | jsonify }},
     {% if page.photos and page.photos.size > 0 %}"primaryImageOfPage": {{ page.photos.first.src | absolute_url | jsonify }},{% endif %}
     "isPartOf": {
       "@type": "WebSite",
@@ -74,9 +65,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}" />
-  <link rel="stylesheet" href="{{ '/enhancements.css' | relative_url }}" />
-  <script src="{{ '/theme.js' | relative_url }}" defer></script>
+  {% include assets.html %}
   <style>
     .memory-content,
     .memory-footer {
@@ -95,7 +84,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}" />
 </head>
 <body>
-  {% assign sorted_memories = site.memories | sort: "date" %}
+  {% assign sorted_memories = content_memories | sort: "date" %}
   {% assign before_memory = nil %}
   {% assign next_memory = nil %}
   {% assign previous_candidate = nil %}
@@ -144,8 +133,8 @@
       <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
       <div class="memory-footer-links">
         <a href="https://x.com/p_horeer" target="_blank" rel="noopener noreferrer" aria-label="X（Twitter）">X ↗</a>
-        <a href="{{ '/privacy/' | relative_url }}">Privacy</a>
-        <a href="{{ '/sitemap/' | relative_url }}">Sitemap</a>
+        <a href="{{ locale_prefix | append: '/privacy/' | relative_url }}">Privacy</a>
+        <a href="{{ locale_prefix | append: '/sitemap/' | relative_url }}">Sitemap</a>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>
