@@ -35,6 +35,7 @@
   var youtubeDialog = document.getElementById("youtube-dialog");
   var youtubeUrl = document.getElementById("dialog-youtube-url");
   window.noteVideoPreviews = new Map();
+  window.noteImagePreviews = window.noteImagePreviews || new Map();
   var lastPreviewBody = null;
   var videoSelection = null;
   var youtubeSelection = null;
@@ -352,6 +353,8 @@
   }
 
   function previewImageUrl(value) {
+    // Freshly uploaded files are not served until the site is rebuilt.
+    if (window.noteImagePreviews.has(value)) return window.noteImagePreviews.get(value);
     if (/^\.\.\/images\//.test(value)) {
       return "../../images/" + value.replace(/^\.\.\/images\//, "");
     }
@@ -590,7 +593,7 @@
       dialogImageCaption.value = "";
       imageDialog.showModal();
       window.setTimeout(function () {
-        dialogImagePath.focus();
+        document.getElementById("image-upload-button").focus();
       }, 0);
     }
   }
@@ -600,8 +603,13 @@
     var alt = dialogImageAlt.value.trim();
     var caption = dialogImageCaption.value.trim();
 
-    if (!path || !alt) {
-      window.alert("画像のパスと代替テキストを入力してください。");
+    if (!path) {
+      window.alert("画像を選ぶか、画像のパスを入力してください。");
+      return false;
+    }
+    if (!alt) {
+      window.alert("代替テキストを入力してください。画像が表示できない場合や読み上げで使われます。");
+      dialogImageAlt.focus();
       return false;
     }
 
@@ -700,10 +708,6 @@
     videoDialog.close();
     fields.body.focus();
     updateAll();
-  });
-
-  document.getElementById("dialog-video-upload").addEventListener("click", function () {
-    document.getElementById("video-upload-input").click();
   });
 
   document.getElementById("copy-button").addEventListener("click", copyMarkdown);

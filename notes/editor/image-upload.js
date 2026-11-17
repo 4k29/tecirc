@@ -20,30 +20,26 @@
   var titleInput = document.getElementById("title");
   var videoUploadButton = document.getElementById("video-upload-button");
   var videoUploadInput = document.getElementById("video-upload-input");
+  var videoUploadStatus = document.getElementById("video-upload-status") || uploadStatus;
   var ogpPathInput = document.getElementById("image");
   var ogpAltInput = document.getElementById("image-alt");
+  var ogpUploadButton = document.getElementById("ogp-upload-button");
+  var ogpUploadInput = document.getElementById("ogp-upload-input");
+  var ogpUploadStatus = document.getElementById("ogp-upload-status");
+  var dialogPreview = document.getElementById("image-dialog-preview");
+  var imageDrop = document.getElementById("image-drop");
+  var imageDropChange = document.getElementById("image-drop-change");
+  var imageCaptionInput = document.getElementById("dialog-image-caption");
+  var insertImageButton = document.getElementById("insert-image-button");
+  var imageToolbarButton = document.querySelector('.format-toolbar [data-action="image"]');
+  var IMAGE_STATUS_DEFAULT = uploadStatus.textContent;
+  var uploadingImage = false;
 
-  if (!uploadButton || !uploadInput || !uploadStatus) return;
+  if (!uploadButton || !uploadInput || !uploadStatus || !ogpUploadButton || !ogpUploadInput || !ogpUploadStatus) return;
 
-  var ogpUploadButton = document.createElement("button");
-  ogpUploadButton.type = "button";
-  ogpUploadButton.className = "text-button";
-  ogpUploadButton.textContent = "OGP画像をアップロード";
-
-  var ogpUploadInput = document.createElement("input");
-  ogpUploadInput.type = "file";
-  ogpUploadInput.accept = "image/jpeg,image/png,image/webp,image/gif,image/avif";
-  ogpUploadInput.hidden = true;
-
-  var ogpUploadStatus = document.createElement("small");
-  ogpUploadStatus.setAttribute("role", "status");
-  ogpUploadStatus.setAttribute("aria-live", "polite");
-
-  if (ogpPathInput && ogpPathInput.parentElement) {
-    ogpPathInput.parentElement.appendChild(ogpUploadButton);
-    ogpPathInput.parentElement.appendChild(ogpUploadInput);
-    ogpPathInput.parentElement.appendChild(ogpUploadStatus);
-  }
+  // Blob URLs let the editor preview files that GitHub Pages has not rebuilt yet.
+  window.noteImagePreviews = window.noteImagePreviews || new Map();
+  window.noteOgpPreviews = window.noteOgpPreviews || new Map();
 
   function readToken() {
     return window.EditorGitHub && window.EditorGitHub.getToken
@@ -247,7 +243,7 @@
     }
     videoUploadButton.disabled = true;
     uploadButton.disabled = true;
-    uploadStatus.textContent = "動画をアップロード中…";
+    videoUploadStatus.textContent = "動画をアップロード中…";
     try {
       var uploaded = await uploadNoteImage(file);
       var previousPreview = window.noteVideoPreviews.get(uploaded.markdownPath);
@@ -260,9 +256,9 @@
       body.setRangeText(markup, body.selectionStart, body.selectionEnd, "end");
       body.dispatchEvent(new Event("input", { bubbles: true }));
       body.focus();
-      uploadStatus.textContent = "動画を挿入しました：" + uploaded.filename;
+      videoUploadStatus.textContent = "動画を挿入しました：" + uploaded.filename;
     } catch (error) {
-      showUploadError(error, uploadStatus);
+      showUploadError(error, videoUploadStatus);
     } finally {
       videoUploadButton.disabled = false;
       uploadButton.disabled = false;
@@ -270,75 +266,233 @@
     }
   });
 
-  uploadButton.addEventListener("click", function () {
-    uploadInput.click();
-  });
+  function setDialogPreview(src) {
+    if (!dialogPreview || !imageDrop) return;
+    if (src) {
+      dialogPreview.src = src;
+      dialogPreview.hidden = false;
+      imageDrop.classList.add("has-image");
+    } else {
+      dialogPreview.removeAttribute("src");
+      dialogPreview.hidden = true;
+      imageDrop.classList.remove("has-image");
+    }
+  }
 
-  uploadInput.addEventListener("change", async function () {
-    var file = uploadInput.files && uploadInput.files[0];
-    if (!file) return;
+  function sitePreviewUrl(value) {
+    var path = String(value || "").trim();
+    if (!path) return "";
+    if (window.noteImagePreviews.has(path)) return window.noteImagePreviews.get(path);
+    if (window.noteOgpPreviews.has(path)) return window.noteOgpPreviews.get(path);
+    path = path.replace(/^https:\/\/4k29\.github\.io\/tecirc\//, "/");
+    if (/^\.\.\/images\//.test(path)) return "../../images/" + path.slice("../images/".length);
+    if (/^\/images\//.test(path)) return "../../images/" + path.slice("/images/".length);
+    if (/^images\//.test(path)) return "../../" + path;
+    return "";
+  }
+
+  function setImageUploading(busy) {
+    uploadingImage = busy;
+    uploadButton.disabled = busy;
+    if (imageDropChange) imageDropChange.disabled = busy;
+    if (insertImageButton) insertImageButton.disabled = busy;
+    if (imageDrop) imageDrop.classList.toggle("is-uploading", busy);
+  }
+
+  async function startImageUpload(file) {
+    if (!file || uploadingImage) return;
 
     try {
       validateFile(file);
     } catch (error) {
       window.alert(error.message);
-      uploadInput.value = "";
       return;
     }
 
-    uploadButton.disabled = true;
+    if (imageDialog && !imageDialog.open && imageToolbarButton) imageToolbarButton.click();
+
+    var localPreview = URL.createObjectURL(file);
+    setDialogPreview(localPreview);
+    setImageUploading(true);
     uploadStatus.textContent = "GitHubへアップロード中…";
 
     try {
       var uploaded = await uploadNoteImage(file);
-      var suggestedAlt = file.name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ");
+      window.noteImagePreviews.set(uploaded.markdownPath, localPreview);
       imagePathInput.value = uploaded.markdownPath;
-      imageAltInput.value = suggestedAlt;
-      uploadStatus.textContent = "アップロード済み：" + uploaded.filename;
-      insertImageMarkdown(uploaded.markdownPath, suggestedAlt);
-      if (imageDialog && imageDialog.open) imageDialog.close();
+      uploadStatus.textContent = "✓ アップロードしました：" + uploaded.filename + "。代替テキストを入力して挿入してください。";
+      if (imageDialog && imageDialog.open && imageAltInput) imageAltInput.focus();
     } catch (error) {
+      URL.revokeObjectURL(localPreview);
+      setDialogPreview("");
       showUploadError(error, uploadStatus);
     } finally {
-      uploadButton.disabled = false;
-      uploadInput.value = "";
+      setImageUploading(false);
+      if (imageDialog && !imageDialog.open) {
+        setDialogPreview("");
+        uploadStatus.textContent = IMAGE_STATUS_DEFAULT;
+      }
     }
+  }
+
+  window.NoteImageUpload = { start: startImageUpload };
+
+  uploadButton.addEventListener("click", function () {
+    uploadInput.click();
   });
+
+  if (imageDropChange) {
+    imageDropChange.addEventListener("click", function () {
+      uploadInput.click();
+    });
+  }
+
+  uploadInput.addEventListener("change", function () {
+    var file = uploadInput.files && uploadInput.files[0];
+    uploadInput.value = "";
+    startImageUpload(file);
+  });
+
+  if (imageDrop) {
+    ["dragenter", "dragover"].forEach(function (type) {
+      imageDrop.addEventListener(type, function (event) {
+        if (!event.dataTransfer || Array.prototype.indexOf.call(event.dataTransfer.types, "Files") < 0) return;
+        event.preventDefault();
+        imageDrop.classList.add("is-dragging");
+      });
+    });
+    ["dragleave", "drop"].forEach(function (type) {
+      imageDrop.addEventListener(type, function () {
+        imageDrop.classList.remove("is-dragging");
+      });
+    });
+    imageDrop.addEventListener("drop", function (event) {
+      var file = event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0];
+      if (!file) return;
+      event.preventDefault();
+      startImageUpload(file);
+    });
+  }
+
+  if (imagePathInput) {
+    imagePathInput.addEventListener("input", function () {
+      setDialogPreview(sitePreviewUrl(imagePathInput.value));
+    });
+  }
+
+  if (dialogPreview) {
+    dialogPreview.addEventListener("error", function () {
+      if (dialogPreview.getAttribute("src")) setDialogPreview("");
+    });
+  }
+
+  [imageAltInput, imageCaptionInput].forEach(function (input) {
+    if (!input) return;
+    input.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" || event.isComposing || !insertImageButton || insertImageButton.disabled) return;
+      event.preventDefault();
+      insertImageButton.click();
+    });
+  });
+
+  if (imageDialog) {
+    imageDialog.addEventListener("close", function () {
+      if (uploadingImage) return;
+      setDialogPreview("");
+      uploadStatus.textContent = IMAGE_STATUS_DEFAULT;
+    });
+  }
+
+  function updateOgpThumb() {
+    var image = document.getElementById("ogp-thumb-image");
+    if (!image) return;
+    var src = sitePreviewUrl(ogpPathInput.value);
+    if (src) {
+      if (image.getAttribute("src") !== src) image.src = src;
+      image.hidden = false;
+      ogpUploadButton.classList.add("has-image");
+    } else {
+      image.removeAttribute("src");
+      image.hidden = true;
+      ogpUploadButton.classList.remove("has-image");
+    }
+  }
+
+  var ogpThumbImage = document.getElementById("ogp-thumb-image");
+  if (ogpThumbImage) {
+    ogpThumbImage.addEventListener("error", function () {
+      ogpThumbImage.hidden = true;
+      ogpUploadButton.classList.remove("has-image");
+    });
+  }
+
+  window.NoteOgpPreview = { refresh: updateOgpThumb };
 
   ogpUploadButton.addEventListener("click", function (event) {
     event.preventDefault();
     ogpUploadInput.click();
   });
 
-  ogpUploadInput.addEventListener("change", async function () {
+  ogpUploadInput.addEventListener("change", function () {
     var file = ogpUploadInput.files && ogpUploadInput.files[0];
+    ogpUploadInput.value = "";
+    startOgpUpload(file);
+  });
+
+  ["dragenter", "dragover"].forEach(function (type) {
+    ogpUploadButton.addEventListener(type, function (event) {
+      if (!event.dataTransfer || Array.prototype.indexOf.call(event.dataTransfer.types, "Files") < 0) return;
+      event.preventDefault();
+      ogpUploadButton.classList.add("is-dragging");
+    });
+  });
+  ["dragleave", "drop"].forEach(function (type) {
+    ogpUploadButton.addEventListener(type, function () {
+      ogpUploadButton.classList.remove("is-dragging");
+    });
+  });
+  ogpUploadButton.addEventListener("drop", function (event) {
+    var file = event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0];
     if (!file) return;
+    event.preventDefault();
+    startOgpUpload(file);
+  });
+
+  async function startOgpUpload(file) {
+    if (!file || ogpUploadButton.disabled) return;
 
     try {
       validateFile(file);
     } catch (error) {
       window.alert(error.message);
-      ogpUploadInput.value = "";
       return;
     }
 
     ogpUploadButton.disabled = true;
-    ogpUploadStatus.textContent = " GitHubへアップロード中…";
+    ogpUploadButton.classList.add("is-uploading");
+    ogpUploadStatus.textContent = "GitHubへアップロード中…";
 
     try {
       var uploaded = await uploadOgpImage(file);
+      var previous = window.noteOgpPreviews.get(uploaded.path);
+      if (previous) URL.revokeObjectURL(previous);
+      window.noteOgpPreviews.set(uploaded.path, URL.createObjectURL(file));
       ogpPathInput.value = uploaded.path;
       if (ogpAltInput && !ogpAltInput.value.trim()) {
         ogpAltInput.value = titleInput && titleInput.value.trim() ? titleInput.value.trim() : file.name.replace(/\.[^.]+$/, "");
       }
       ogpPathInput.dispatchEvent(new Event("input", { bubbles: true }));
       if (ogpAltInput) ogpAltInput.dispatchEvent(new Event("input", { bubbles: true }));
-      ogpUploadStatus.textContent = " アップロード済み：" + uploaded.filename;
+      ogpUploadStatus.textContent = "✓ アップロードしました：" + uploaded.filename;
     } catch (error) {
       showUploadError(error, ogpUploadStatus);
     } finally {
       ogpUploadButton.disabled = false;
-      ogpUploadInput.value = "";
+      ogpUploadButton.classList.remove("is-uploading");
+      updateOgpThumb();
     }
-  });
+  }
+
+  ogpPathInput.addEventListener("input", updateOgpThumb);
+  updateOgpThumb();
 })();

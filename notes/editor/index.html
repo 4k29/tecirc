@@ -10,7 +10,7 @@
   <title>Note Editor / Tecirc</title>
   <link rel="stylesheet" href="../../style.css?v=20260921-youtube1" />
   <link rel="stylesheet" href="../../editor/github.css" />
-  <link rel="stylesheet" href="editor.css" />
+  <link rel="stylesheet" href="editor.css?v=20261117-layout1" />
   <link rel="stylesheet" href="draft-history.css?v=20260731-2" />
   <link rel="stylesheet" href="draft-delete.css" />
   <link rel="icon" type="image/svg+xml" href="/tecirc/favicon.svg" />
@@ -19,73 +19,105 @@
 </head>
 <body class="editor-page">
   <header class="editor-nav">
-    <div class="editor-breadcrumb">
-      <a href="../../">Home</a><span>/</span><a href="../">Notes</a><span>/</span><span>Editor</span><span>/</span><a href="../../memory/editor/">Memory Editor</a>
+    <div class="editor-nav-start">
+      <nav class="editor-breadcrumb" aria-label="パンくずリスト">
+        <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../">Notes</a><span aria-hidden="true">/</span><h1>Note Editor</h1>
+      </nav>
+      <a class="editor-nav-switch" href="../../memory/editor/">Memory Editor</a>
     </div>
-    <p id="save-status" role="status" aria-live="polite">✓ 下書きは自動保存されます</p>
+    <div class="editor-section-actions editor-doc-actions" aria-label="記事の管理">
+      <button class="text-button" id="drafts-button" type="button">下書き一覧</button>
+      <button class="text-button" id="import-button" type="button">Markdownを読み込む</button>
+      <input id="import-file" type="file" accept=".md,text/markdown,text/plain" hidden />
+    </div>
+    <div class="editor-account-slot" id="editor-account-slot"></div>
   </header>
 
   <main class="editor-main">
-    <header class="editor-intro">
-      <p>Private writing workspace</p>
-      <h1>Note Editor</h1>
-      <p>記事を書き、最後に下書きを保存するか、そのまま公開します。ファイルの書き出しやGitHubでの操作は必要ありません。画像・動画・OGP画像はアップロードした時点で公開されます。</p>
-    </header>
-
     <form id="note-form" novalidate>
-      <section class="editor-section" aria-labelledby="metadata-title">
+      <section class="editor-section meta-section" aria-labelledby="metadata-title">
         <div class="editor-section-heading">
           <div><p>01</p><h2 id="metadata-title">記事情報</h2></div>
-          <div class="editor-section-actions">
-            <button class="text-button" id="drafts-button" type="button">下書き一覧</button>
-            <button class="text-button" id="import-button" type="button">Markdownを読み込む</button>
-          </div>
-          <input id="import-file" type="file" accept=".md,text/markdown,text/plain" hidden />
         </div>
 
-        <div class="metadata-grid">
-          <label class="field field-wide"><span>タイトル</span><input id="title" name="title" type="text" autocomplete="off" placeholder="記事のタイトル" required /></label>
-          <label class="field"><span>スラッグ <small>URLとファイル名</small></span><input id="slug" name="slug" type="text" inputmode="url" autocomplete="off" placeholder="nothing-headphone-1-review" pattern="[A-Za-z0-9][A-Za-z0-9._-]*" required /></label>
-          <label class="field"><span>公開日</span><input id="date" name="date" type="date" required /></label>
-          <label class="field field-wide"><span>概要 <small><output id="description-count">0</output>文字</small></span><textarea id="description" name="description" rows="3" placeholder="検索結果やSNSカードに表示する、記事の要約。" required></textarea></label>
-          <label class="field"><span>OGP画像</span><input id="image" name="image" type="text" autocomplete="off" placeholder="/images/ogp/article.png" required /></label>
-          <label class="field"><span>画像の代替テキスト</span><input id="image-alt" name="imageAlt" type="text" autocomplete="off" placeholder="画像の内容を短く説明" required /></label>
+        <div class="meta-layout">
+          <div class="meta-primary">
+            <label class="field title-field"><span>タイトル</span><input id="title" name="title" type="text" autocomplete="off" placeholder="記事のタイトル" required /></label>
+            <div class="meta-row">
+              <label class="field"><span>スラッグ <small>URLとファイル名</small></span><input id="slug" name="slug" type="text" inputmode="url" autocomplete="off" placeholder="nothing-headphone-1-review" pattern="[A-Za-z0-9][A-Za-z0-9._-]*" required /></label>
+              <label class="field date-field"><span>公開日</span><input id="date" name="date" type="date" required /></label>
+            </div>
+            <p class="url-preview"><span>公開URL</span><span id="url-preview">https://4k29.github.io/tecirc/notes/…</span></p>
+            <label class="field"><span>概要 <small><output id="description-count">0</output>文字</small></span><textarea id="description" name="description" rows="3" placeholder="検索結果やSNSカードに表示する、記事の要約。" required></textarea></label>
+          </div>
+
+          <div class="meta-share" aria-labelledby="ogp-heading">
+            <p class="meta-share-heading" id="ogp-heading">OGP画像 <small>SNSでの見え方</small></p>
+            <div class="ogp-card">
+              <button class="ogp-thumb" id="ogp-upload-button" type="button" aria-describedby="ogp-upload-status">
+                <img id="ogp-thumb-image" alt="" hidden />
+                <span class="ogp-thumb-empty"><strong>画像を選択</strong><span>クリックまたはドロップ</span></span>
+                <span class="ogp-thumb-change">画像を変更</span>
+              </button>
+              <div class="ogp-card-text">
+                <span>4k29.github.io</span>
+                <strong id="ogp-card-title">記事のタイトル</strong>
+                <p id="ogp-card-description">概要がここに表示されます。</p>
+              </div>
+            </div>
+            <input id="ogp-upload-input" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden />
+            <p class="upload-status" id="ogp-upload-status" role="status" aria-live="polite">選んだ画像はその時点で公開リポジトリに保存されます。</p>
+            <label class="field"><span>画像のパス</span><input id="image" name="image" type="text" autocomplete="off" placeholder="/images/ogp/article.png" required /></label>
+            <label class="field"><span>画像の代替テキスト</span><input id="image-alt" name="imageAlt" type="text" autocomplete="off" placeholder="画像の内容を短く説明" required /></label>
+          </div>
         </div>
-        <p class="url-preview">公開URL: <span id="url-preview">https://4k29.github.io/tecirc/notes/…</span></p>
       </section>
 
       <section class="editor-section writing-section" aria-labelledby="body-title">
         <div class="editor-section-heading">
           <div><p>02</p><h2 id="body-title">本文</h2></div>
-          <div class="editor-section-actions">
-            <span id="image-upload-status" role="status" aria-live="polite"></span>
-            <button class="text-button" id="image-upload-button" type="button">写真をアップロード</button>
-            <input id="image-upload-input" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden />
-            <button class="text-button" id="video-upload-button" type="button">MP4をアップロード</button>
-            <input id="video-upload-input" type="file" accept="video/mp4,.mp4" hidden />
+          <div class="writing-meta">
+            <div class="view-switch" role="group" aria-label="表示の切り替え">
+              <button type="button" data-view="write" aria-pressed="true">書く</button><button type="button" data-view="preview" aria-pressed="false">プレビュー</button>
+            </div>
             <p><output id="body-count">0</output>文字</p>
           </div>
         </div>
 
-        <div class="writing-workspace">
+        <div class="writing-workspace" id="writing-workspace" data-view="write">
           <section class="writing-pane" aria-label="Markdownエディター">
-            <div class="pane-header"><span>Markdown</span><div class="format-toolbar" aria-label="書式">
-              <button type="button" data-action="h2" title="見出し2">H2</button><button type="button" data-action="h3" title="見出し3">H3</button><button type="button" data-action="bold" title="太字">B</button><button type="button" data-action="link" title="リンク">Link</button><button type="button" data-action="list" title="箇条書き">List</button><button type="button" data-action="quote" title="引用">Quote</button><button type="button" data-action="image" title="画像">Image</button><button type="button" data-action="video" title="MP4動画">Video</button><button type="button" data-action="youtube" title="YouTube">YouTube</button>
-            </div></div>
+            <div class="pane-header">
+              <div class="format-toolbar" role="toolbar" aria-label="書式">
+                <div class="toolbar-group">
+                  <button type="button" data-action="h2" title="見出し2">見出し</button><button type="button" data-action="h3" title="見出し3">小見出し</button>
+                </div>
+                <div class="toolbar-group">
+                  <button type="button" data-action="bold" title="太字（⌘B / Ctrl+B）"><b>B</b></button><button type="button" data-action="link" title="リンク（⌘K / Ctrl+K）">リンク</button><button type="button" data-action="list" title="箇条書き">リスト</button><button type="button" data-action="quote" title="引用">引用</button>
+                </div>
+                <div class="toolbar-group toolbar-media">
+                  <button class="toolbar-image" type="button" data-action="image" title="画像を追加">＋ 画像</button><button type="button" data-action="video" title="MP4動画を追加">動画</button><button type="button" data-action="youtube" title="YouTubeを埋め込む">YouTube</button>
+                </div>
+              </div>
+            </div>
             <label class="sr-only" for="body">記事本文</label>
-            <textarea id="body" name="body" spellcheck="true" placeholder="最初の段落を書き始める。&#10;&#10;## 見出し&#10;&#10;本文…" required></textarea>
+            <textarea id="body" name="body" spellcheck="true" placeholder="最初の段落を書き始める。&#10;&#10;## 見出し&#10;&#10;本文…&#10;&#10;画像はここにドラッグするか、貼り付けても追加できます。" required></textarea>
+            <div class="drop-hint" aria-hidden="true"><span>ドロップして画像を追加</span></div>
           </section>
           <section class="preview-pane" aria-label="記事プレビュー">
-            <div class="pane-header"><span>Preview</span><span id="preview-date"></span></div>
+            <div class="pane-header"><span>プレビュー</span><span id="preview-date"></span></div>
             <article class="preview-article"><header><p>Note / <span id="preview-date-inline"></span></p><h1 id="preview-title">記事のタイトル</h1></header><div class="article-body preview-body" id="preview-body"><p class="preview-placeholder">ここに記事のプレビューが表示されます。</p></div></article>
           </section>
         </div>
       </section>
 
       <section class="publish-panel" aria-labelledby="publish-title">
-        <div><p>03</p><h2 id="publish-title">保存と公開</h2><p>公開済み記事は「更新」でホーム・記事一覧・記事ページに反映します。下書き保存だけでは公開内容は変わりません。</p></div>
+        <div class="publish-summary">
+          <h2 id="publish-title"><span>03</span>保存と公開</h2>
+          <p id="save-status" role="status" aria-live="polite">✓ 下書きは自動保存されます</p>
+        </div>
+        <p class="publish-note">下書き保存だけでは公開内容は変わりません。公開済み記事は「更新」で反映します。</p>
         <div class="publish-actions">
-          <button class="secondary-button" id="save-draft-button" type="button">下書きを上書き保存</button>
+          <button class="secondary-button" id="save-draft-button" type="button" title="⌘S / Ctrl+S">下書きを上書き保存</button>
           <button class="primary-button" id="publish-button" type="button">公開</button>
           <div hidden aria-hidden="true">
             <button id="new-button" type="button"></button>
@@ -100,9 +132,9 @@
 
   <dialog id="draft-history-dialog" class="editor-dialog draft-history-dialog" aria-labelledby="draft-history-title"><section class="draft-history-shell"><header class="draft-history-header"><div class="draft-history-header-row"><div class="dialog-heading"><p>GitHub history</p><h2 id="draft-history-title">過去の下書き</h2></div><div class="draft-history-header-actions"><button id="draft-history-refresh" type="button">更新</button><button id="draft-history-close" type="button">閉じる</button></div></div><p class="draft-history-status" id="draft-history-status" role="status" aria-live="polite">GitHubの保存履歴から下書きを探します。</p></header><div class="draft-history-list" id="draft-history-list"></div></section></dialog>
 
-  <dialog id="image-dialog" class="editor-dialog"><form method="dialog"><div class="dialog-heading"><p>Insert</p><h2>画像を追加</h2></div><label class="field"><span>画像のパス</span><input id="dialog-image-path" type="text" placeholder="/images/article/photo.webp" /></label><label class="field"><span>代替テキスト</span><input id="dialog-image-alt" type="text" placeholder="写真の内容" /></label><label class="field"><span>キャプション <small>任意</small></span><input id="dialog-image-caption" type="text" placeholder="写真の説明" /></label><div class="dialog-actions"><button class="secondary-button" value="cancel">キャンセル</button><button class="primary-button" id="insert-image-button" value="default">挿入</button></div></form></dialog>
+  <dialog id="image-dialog" class="editor-dialog image-dialog" aria-labelledby="image-dialog-title"><form method="dialog"><div class="dialog-heading"><p>Insert</p><h2 id="image-dialog-title">画像を追加</h2></div><div class="image-drop" id="image-drop"><img id="image-dialog-preview" alt="" hidden /><div class="image-drop-empty"><strong>ここに画像をドロップ</strong><span>または</span><button class="secondary-button" id="image-upload-button" type="button">ファイルを選択</button><small>JPEG・PNG・WebP・GIF・AVIF／20MBまで</small></div><button class="image-drop-change" id="image-drop-change" type="button">別の画像を選ぶ</button></div><input id="image-upload-input" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden /><p class="upload-status" id="image-upload-status" role="status" aria-live="polite">選んだ画像はその時点で公開リポジトリに保存されます。</p><label class="field"><span>代替テキスト <small>必須・画像の内容を短く</small></span><input id="dialog-image-alt" type="text" autocomplete="off" placeholder="例：机の上に置いたNothing Phone" /></label><label class="field"><span>キャプション <small>任意・画像の下に表示</small></span><input id="dialog-image-caption" type="text" autocomplete="off" placeholder="写真の説明" /></label><details class="image-path-details"><summary>パスやURLを直接入力する</summary><label class="field"><span>画像のパス</span><input id="dialog-image-path" type="text" autocomplete="off" placeholder="/images/notes/photo.webp" /></label></details><div class="dialog-actions"><button class="secondary-button" value="cancel">キャンセル</button><button class="primary-button" id="insert-image-button" value="default">本文に挿入</button></div></form></dialog>
 
-  <dialog id="video-dialog" class="editor-dialog"><form method="dialog"><div class="dialog-heading"><p>Insert</p><h2>動画を追加</h2></div><label class="field"><span>動画のURLまたはパス</span><input id="dialog-video-path" type="text" placeholder="../images/notes/movie.mp4" /></label><p>MP4のURLを入力するか、ファイルをアップロードしてください。</p><button class="secondary-button" id="dialog-video-upload" type="button">MP4をアップロード</button><div class="dialog-actions"><button class="secondary-button" value="cancel">キャンセル</button><button class="primary-button" id="insert-video-button" value="default">挿入</button></div></form></dialog>
+  <dialog id="video-dialog" class="editor-dialog" aria-labelledby="video-dialog-title"><form method="dialog"><div class="dialog-heading"><p>Insert</p><h2 id="video-dialog-title">動画を追加</h2></div><div class="dialog-upload"><button class="secondary-button" id="video-upload-button" type="button">MP4ファイルを選択</button><input id="video-upload-input" type="file" accept="video/mp4,.mp4" hidden /><p class="upload-status" id="video-upload-status" role="status" aria-live="polite">20MBまで。選ぶとアップロードして本文に挿入します。</p></div><label class="field"><span>またはURL・パスを入力</span><input id="dialog-video-path" type="text" autocomplete="off" placeholder="../images/notes/movie.mp4" /></label><div class="dialog-actions"><button class="secondary-button" value="cancel">キャンセル</button><button class="primary-button" id="insert-video-button" value="default">本文に挿入</button></div></form></dialog>
 
   <dialog id="youtube-dialog" class="editor-dialog"><form method="dialog"><div class="dialog-heading"><p>Insert</p><h2>YouTubeを追加</h2></div><label class="field"><span>YouTube URL</span><input id="dialog-youtube-url" type="url" inputmode="url" autocomplete="off" placeholder="https://youtu.be/..." /></label><p>通常の動画、Shorts、LiveのURLに対応しています。</p><div class="dialog-actions"><button class="secondary-button" value="cancel">キャンセル</button><button class="primary-button" id="insert-youtube-button" value="default">挿入</button></div></form></dialog>
 
@@ -112,11 +144,12 @@
   <script src="../../editor/preflight.js?v=20261110-notags"></script>
   <script src="draft-identity.js?v=20260922-1"></script>
   <script src="start-blank.js?v=20261110-notags"></script>
-  <script src="editor.js?v=20261110-notags"></script>
+  <script src="editor.js?v=20261117-layout1"></script>
   <script src="save-status.js"></script>
   <script src="draft-history.js?v=20261110-notags"></script>
   <script src="draft-delete.js?v=20260922-2"></script>
-  <script src="image-upload.js?v=20260910-video2"></script>
+  <script src="image-upload.js?v=20261117-dialog1"></script>
+  <script src="workspace.js?v=20261117-1"></script>
   <script src="direct-actions.js?v=20261110-notags"></script>
 </body>
 </html>
