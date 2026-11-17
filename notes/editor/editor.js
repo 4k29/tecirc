@@ -533,6 +533,8 @@
     descriptionCount.textContent = fields.description.value.length;
     bodyCount.textContent = fields.body.value.length;
     urlPreview.textContent = BASE_URL + "/notes/" + (data.slug || "…") + "/";
+    // Fields set programmatically (e.g. Markdown import) fire no input event.
+    document.dispatchEvent(new Event("notepreviewupdate"));
   }
 
   function updateAll() {

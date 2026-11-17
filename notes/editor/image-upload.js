@@ -311,6 +311,8 @@
 
     if (imageDialog && !imageDialog.open && imageToolbarButton) imageToolbarButton.click();
 
+    // Forget any previously uploaded image so a failed replacement cannot insert it.
+    imagePathInput.value = "";
     var localPreview = URL.createObjectURL(file);
     setDialogPreview(localPreview);
     setImageUploading(true);
@@ -325,6 +327,7 @@
     } catch (error) {
       URL.revokeObjectURL(localPreview);
       setDialogPreview("");
+      imagePathInput.value = "";
       showUploadError(error, uploadStatus);
     } finally {
       setImageUploading(false);

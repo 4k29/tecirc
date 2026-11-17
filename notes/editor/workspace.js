@@ -49,6 +49,7 @@
   }
 
   form.addEventListener("input", updateCard);
+  document.addEventListener("notepreviewupdate", updateCard);
   form.addEventListener("reset", updateCardLater);
   window.addEventListener("notedraftdeleted", updateCardLater);
   updateCardLater();
