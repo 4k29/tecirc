@@ -13,7 +13,7 @@
 .editor-page {
   min-height: 100vh;
   overflow-x: clip;
-  font-size: 13px;
+  font-size: 10px;
 }
 
 .editor-nav,
@@ -34,7 +34,7 @@
   align-items: center;
   gap: 24px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .editor-nav::before {
@@ -67,7 +67,7 @@
 .editor-breadcrumb h1 {
   margin: 0;
   color: var(--text);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -102,13 +102,13 @@
   border-left: 1px solid var(--line);
   background: transparent;
   color: var(--editor-faint);
-  font-size: 11px;
+  font-size: 9px;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
 
 .editor-nav .editor-github-account button {
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .editor-nav .editor-github-account button:hover {
@@ -142,13 +142,13 @@
 .editor-section-heading > div > p {
   margin: 0;
   color: var(--editor-faint);
-  font-size: 11px;
+  font-size: 9px;
   font-variant-numeric: tabular-nums;
 }
 
 .editor-section-heading h2 {
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
 }
 
@@ -162,13 +162,13 @@
 
 .field > span {
   color: var(--secondary);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .field small {
   margin-left: 6px;
   color: var(--editor-faint);
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 400;
 }
 
@@ -181,7 +181,7 @@
   background: var(--editor-surface);
   color: var(--text);
   font: inherit;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.6;
   transition: border-color .2s ease, background .2s ease;
@@ -244,7 +244,7 @@
 .title-field input {
   height: auto;
   padding: 10px 14px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -.02em;
@@ -262,7 +262,7 @@
   gap: 10px;
   margin: -6px 0 0;
   color: var(--editor-faint);
-  font-size: 12px;
+  font-size: 10px;
   overflow-wrap: anywhere;
 }
 
@@ -273,7 +273,7 @@
 #url-preview {
   color: var(--secondary);
   font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 11.5px;
+  font-size: 9px;
 }
 
 .meta-share {
@@ -283,13 +283,13 @@
 .meta-share-heading {
   margin: 0;
   color: var(--secondary);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .meta-share-heading small {
   margin-left: 6px;
   color: var(--editor-faint);
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .ogp-card {
@@ -332,12 +332,12 @@
 
 .ogp-thumb-empty strong {
   color: var(--text);
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 500;
 }
 
 .ogp-thumb-empty span {
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .ogp-thumb.has-image .ogp-thumb-empty {
@@ -351,7 +351,7 @@
   padding: 5px 9px;
   background: rgba(10, 10, 10, .78);
   color: var(--text);
-  font-size: 11px;
+  font-size: 9px;
   opacity: 0;
   transition: opacity .2s ease;
 }
@@ -394,13 +394,13 @@
 
 .ogp-card-text > span {
   color: var(--editor-faint);
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .ogp-card-text strong {
   overflow: hidden;
   color: var(--text);
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 500;
   line-height: 1.45;
   text-overflow: ellipsis;
@@ -412,7 +412,7 @@
   margin: 0;
   overflow: hidden;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.55;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -422,7 +422,7 @@
   min-height: 1.5em;
   margin: -4px 0 0;
   color: var(--editor-faint);
-  font-size: 11.5px;
+  font-size: 9px;
   line-height: 1.55;
 }
 
@@ -445,7 +445,7 @@
   padding: 0 2px;
   background: transparent;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
   white-space: nowrap;
 }
 
@@ -457,7 +457,7 @@
 .primary-button {
   min-height: 38px;
   padding: 0 16px;
-  font-size: 12.5px;
+  font-size: 10px;
   white-space: nowrap;
 }
 
@@ -501,7 +501,7 @@
   align-items: center;
   gap: 16px;
   color: var(--editor-faint);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .writing-meta p {
@@ -519,7 +519,7 @@
   padding: 0 14px;
   background: transparent;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .view-switch button[aria-pressed="true"] {
@@ -559,7 +559,7 @@
   justify-content: space-between;
   gap: 12px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .writing-pane .pane-header {
@@ -596,7 +596,7 @@
   padding: 0 9px;
   background: transparent;
   color: #a0a0a5;
-  font-size: 12px;
+  font-size: 10px;
   white-space: nowrap;
 }
 
@@ -638,7 +638,7 @@
   background: transparent;
   color: #dddddf;
   font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 13.5px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.9;
   tab-size: 2;
@@ -653,7 +653,7 @@
   border: 1px dashed var(--text);
   background: rgba(10, 10, 10, .82);
   color: var(--text);
-  font-size: 13px;
+  font-size: 10px;
   pointer-events: none;
 }
 
@@ -677,7 +677,7 @@
 .preview-article > header > p {
   margin: 0 0 12px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .preview-article > header h1 {
@@ -772,14 +772,14 @@
 
 .publish-panel h2 {
   margin: 0;
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 500;
 }
 
 .publish-panel h2 span {
   margin-right: 10px;
   color: var(--editor-faint);
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 400;
 }
 
@@ -787,7 +787,7 @@
   margin: 0;
   overflow: hidden;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -796,7 +796,7 @@
   flex: 1 1 auto;
   margin: 0;
   color: var(--editor-faint);
-  font-size: 11.5px;
+  font-size: 9px;
   line-height: 1.6;
   text-align: right;
 }
@@ -839,18 +839,18 @@
 .editor-dialog form > p {
   margin: -6px 0 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .dialog-heading p {
   margin: 0 0 5px;
   color: var(--editor-faint);
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .dialog-heading h2 {
   margin: 0;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 500;
 }
 
@@ -895,19 +895,19 @@
   gap: 8px;
   padding: 24px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
 }
 
 .image-drop-empty strong {
   color: var(--text);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
 }
 
 .image-drop-empty small {
   color: var(--editor-faint);
-  font-size: 11px;
+  font-size: 9px;
 }
 
 .image-drop.has-image {
@@ -930,7 +930,7 @@
   background: rgba(10, 10, 10, .82);
   color: var(--text);
   font: inherit;
-  font-size: 11.5px;
+  font-size: 9px;
   cursor: pointer;
 }
 
@@ -945,7 +945,7 @@
 
 .image-path-details {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .image-path-details summary {
@@ -1072,7 +1072,7 @@
   }
 
   .title-field input {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   /* 16px keeps iOS Safari from zooming into focused fields. */
@@ -1142,7 +1142,7 @@
 
   #save-status {
     white-space: normal;
-    font-size: 11.5px;
+    font-size: 9px;
     line-height: 1.45;
   }
 
@@ -1171,7 +1171,7 @@
 
   #save-draft-button::after {
     content: "下書き保存";
-    font-size: 12.5px;
+    font-size: 10px;
   }
 }
 
