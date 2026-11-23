@@ -299,6 +299,7 @@
     var geometry = { max: 0, height: 0, articleTop: 0, articleBottom: 0 };
     var pendingScroll = null;
     var smoothScroll = false;
+    var scrollEase = 65;
     var animatedScrollY = null;
     var dragTrack = null;
     var pointerId = null;
@@ -309,12 +310,13 @@
     function scrollRange() {
       return Math.max(0, root.scrollHeight - window.innerHeight);
     }
-    function scrollToPosition(position, haptic) {
+    function scrollToPosition(position, haptic, wheelInertia) {
       var progress = Math.min(1, Math.max(0, position));
       // Pointer events can arrive faster than the display refresh rate.
       if (pendingScroll === null) animatedScrollY = window.scrollY;
       pendingScroll = progress;
-      smoothScroll = pointerId !== null;
+      smoothScroll = pointerId !== null || wheelInertia === true;
+      scrollEase = wheelInertia === true ? 90 : 65;
       if (haptic && !reducedMotion.matches && typeof navigator.vibrate === "function") {
         var step = Math.round(progress * 20);
         var now = performance.now();
@@ -403,7 +405,7 @@
         var targetY = pendingScroll * geometry.max;
         var currentY = Math.min(geometry.max, Math.max(0, animatedScrollY));
         var nextY = smoothScroll && !reducedMotion.matches
-          ? currentY + (targetY - currentY) * (1 - Math.exp(-Math.min(elapsed, 24) / 65))
+          ? currentY + (targetY - currentY) * (1 - Math.exp(-Math.min(elapsed, 24) / scrollEase))
           : targetY;
         if (Math.abs(targetY - nextY) < 1) {
           nextY = targetY;
@@ -471,8 +473,36 @@
       animatedScrollY = null;
       root.classList.remove("is-ruler-scrolling");
     }
-    // A native gesture always takes over from the short drag-settling animation.
-    window.addEventListener("wheel", cancelScroll, { passive: true });
+    // Reuse the ruler's on-demand animation loop for a short, softly settling wheel scroll.
+    // Touch gestures retain the browser's own inertia and keyboard scrolling stays immediate.
+    window.addEventListener("wheel", function (event) {
+      if (reducedMotion.matches || pointerId !== null || !event.cancelable ||
+          event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey ||
+          Math.abs(event.deltaX) > Math.abs(event.deltaY) || !event.deltaY) {
+        cancelScroll();
+        return;
+      }
+      var target = event.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest("input, textarea, select, [contenteditable], iframe, video, audio, .page-ruler")) {
+        cancelScroll();
+        return;
+      }
+      // Code blocks and other nested scroll regions keep their native wheel handling.
+      for (var node = target; node && node !== document.body && node !== root; node = node.parentElement) {
+        var overflow = window.getComputedStyle(node).overflowY;
+        if (/(auto|scroll|overlay)/.test(overflow) && node.scrollHeight > node.clientHeight + 1) {
+          cancelScroll();
+          return;
+        }
+      }
+      var max = scrollRange();
+      if (!max) return;
+      var delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? window.innerHeight : 1);
+      var destination = Math.min(max, Math.max(0, (pendingScroll === null ? window.scrollY : pendingScroll * max) + delta));
+      event.preventDefault();
+      scrollToPosition(destination / max, false, true);
+    }, { passive: false });
     window.addEventListener("pointerdown", function (event) {
       if (!ruler.contains(event.target)) cancelScroll();
     }, { passive: true });
@@ -534,6 +564,51 @@
     });
   }
 
+  function mountScrollReveal() {
+    var preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (preference.matches || !("IntersectionObserver" in window)) return;
+
+    // Animate individual blocks, keeping the first screen and native scrolling immediate.
+    var blocks = document.querySelectorAll(
+      "main .hero, main .section-heading, main .profile, main .row-item, " +
+      "main .archive-hero, main .note-index-item, main .info-hero, main .info-section, " +
+      "main .note-hero, main .article-body > *, main .memory-intro, " +
+      "main .photo-grid > .photo, main .article-share, main .sitemap-section"
+    );
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        reveal(entry.target);
+      });
+    }, { rootMargin: "0px 0px -24px 0px", threshold: 0 });
+
+    function reveal(element) {
+      element.classList.remove("is-reveal-pending");
+      observer.unobserve(element);
+    }
+
+    // Read geometry together before applying styles; no hidden content without JS.
+    var pending = Array.from(blocks).filter(function (element) {
+      return element.getBoundingClientRect().top >= window.innerHeight;
+    });
+    pending.forEach(function (element) {
+      element.classList.add("scroll-reveal", "is-reveal-pending");
+      observer.observe(element);
+    });
+    document.addEventListener("focusin", function (event) {
+      var block = event.target.closest(".is-reveal-pending");
+      if (block) reveal(block);
+    });
+    preference.addEventListener("change", function () {
+      if (!preference.matches) return;
+      pending.forEach(reveal);
+      observer.disconnect();
+    });
+    window.addEventListener("beforeprint", function () {
+      pending.forEach(reveal);
+    });
+  }
+
   function mountUi() {
     // Read the initial position before inserting controls to avoid layout thrashing.
     var initialY = Math.max(window.scrollY || 0, 0);
@@ -542,6 +617,7 @@
     followSystemTheme();
     mountHeaderReveal(initialY);
     mountReadingProgress(initialY);
+    mountScrollReveal();
     mountAnalytics();
   }
 
