@@ -838,19 +838,19 @@ html.has-page-ruler body::-webkit-scrollbar { width: 0; height: 0; }
 }
 
 /* Repeat the fade at both viewport edges without shifting the observed geometry. */
-.scroll-reveal {
+main .scroll-reveal {
   transition: opacity .45s ease;
 }
-.scroll-reveal.is-reveal-pending {
+main .scroll-reveal.is-reveal-pending {
   opacity: 0;
 }
-.scroll-reveal:focus-within {
+main .scroll-reveal:focus-within {
   opacity: 1;
   transition: none;
 }
 @media (prefers-reduced-motion: reduce), print {
-  .scroll-reveal,
-  .scroll-reveal.is-reveal-pending {
+  main .scroll-reveal,
+  main .scroll-reveal.is-reveal-pending {
     opacity: 1;
     transition: none;
   }
