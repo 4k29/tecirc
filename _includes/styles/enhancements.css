@@ -837,24 +837,21 @@ html.has-page-ruler body::-webkit-scrollbar { width: 0; height: 0; }
   .page-ruler, .reading-remaining { display: none; }
 }
 
-/* A quiet, once-only entrance for content below the first screen. */
-.scroll-reveal {
-  transition: opacity .55s ease, transform .55s cubic-bezier(.22, 1, .36, 1);
+/* Repeat the fade at both viewport edges without shifting the observed geometry. */
+main .scroll-reveal {
+  transition: opacity .45s ease;
 }
-.scroll-reveal.is-reveal-pending {
+main .scroll-reveal.is-reveal-pending {
   opacity: 0;
-  transform: translateY(14px);
 }
-.scroll-reveal:focus-within {
+main .scroll-reveal:focus-within {
   opacity: 1;
-  transform: none;
   transition: none;
 }
 @media (prefers-reduced-motion: reduce), print {
-  .scroll-reveal,
-  .scroll-reveal.is-reveal-pending {
+  main .scroll-reveal,
+  main .scroll-reveal.is-reveal-pending {
     opacity: 1;
-    transform: none;
     transition: none;
   }
 }
