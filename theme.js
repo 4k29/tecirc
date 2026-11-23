@@ -568,44 +568,34 @@
     var preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (preference.matches || !("IntersectionObserver" in window)) return;
 
-    // Animate individual blocks, keeping the first screen and native scrolling immediate.
+    // Fade individual blocks on every entrance and exit, in either scroll direction.
     var blocks = document.querySelectorAll(
       "main .hero, main .section-heading, main .profile, main .row-item, " +
       "main .archive-hero, main .note-index-item, main .info-hero, main .info-section, " +
       "main .note-hero, main .article-body > *, main .memory-intro, " +
       "main .photo-grid > .photo, main .article-share, main .sitemap-section"
     );
+    var edge = Math.min(64, Math.round(window.innerHeight * 0.12));
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        reveal(entry.target);
+        entry.target.classList.toggle("is-reveal-pending", !entry.isIntersecting);
       });
-    }, { rootMargin: "0px 0px -24px 0px", threshold: 0 });
-
-    function reveal(element) {
-      element.classList.remove("is-reveal-pending");
-      observer.unobserve(element);
-    }
+    }, { rootMargin: "-" + edge + "px 0px -" + edge + "px 0px", threshold: 0 });
 
     // Read geometry together before applying styles; no hidden content without JS.
-    var pending = Array.from(blocks).filter(function (element) {
-      return element.getBoundingClientRect().top >= window.innerHeight;
+    var initial = Array.from(blocks).map(function (element) {
+      var rect = element.getBoundingClientRect();
+      return { element: element, outside: rect.bottom <= edge || rect.top >= window.innerHeight - edge };
     });
-    pending.forEach(function (element) {
-      element.classList.add("scroll-reveal", "is-reveal-pending");
-      observer.observe(element);
-    });
-    document.addEventListener("focusin", function (event) {
-      var block = event.target.closest(".is-reveal-pending");
-      if (block) reveal(block);
+    initial.forEach(function (block) {
+      block.element.classList.add("scroll-reveal");
+      block.element.classList.toggle("is-reveal-pending", block.outside);
+      observer.observe(block.element);
     });
     preference.addEventListener("change", function () {
       if (!preference.matches) return;
-      pending.forEach(reveal);
       observer.disconnect();
-    });
-    window.addEventListener("beforeprint", function () {
-      pending.forEach(reveal);
+      blocks.forEach(function (element) { element.classList.remove("is-reveal-pending"); });
     });
   }
 
